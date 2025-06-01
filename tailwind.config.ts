@@ -26,7 +26,7 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: '#E85A2B',
+					DEFAULT: '#dc712e',
 					foreground: '#FFFFFF'
 				},
 				secondary: {
@@ -64,7 +64,7 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				sattva: {
-					orange: '#E85A2B',
+					orange: '#dc712e',
 					cream: '#F5E6B3',
 					light: '#FFF8E7',
 					dark: '#1A1A1A'
