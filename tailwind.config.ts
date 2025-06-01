@@ -26,19 +26,19 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: '#2C2C2C',
+					DEFAULT: '#E85A2B',
 					foreground: '#FFFFFF'
 				},
 				secondary: {
-					DEFAULT: '#6B7280',
-					foreground: '#FFFFFF'
+					DEFAULT: '#F5E6B3',
+					foreground: '#1A1A1A'
 				},
 				accent: {
-					DEFAULT: '#F9FAFB',
-					foreground: '#1F2937'
+					DEFAULT: '#FFF8E7',
+					foreground: '#1A1A1A'
 				},
 				muted: {
-					DEFAULT: '#F3F4F6',
+					DEFAULT: '#F8F5F0',
 					foreground: '#6B7280'
 				},
 				destructive: {
@@ -64,13 +64,10 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				sattva: {
-					dark: '#1F2937',
-					gray: '#6B7280',
-					'gray-light': '#9CA3AF',
-					'gray-lighter': '#D1D5DB',
-					'gray-lightest': '#F9FAFB',
-					black: '#111827',
-					white: '#FFFFFF'
+					orange: '#E85A2B',
+					cream: '#F5E6B3',
+					light: '#FFF8E7',
+					dark: '#1A1A1A'
 				}
 			},
 			borderRadius: {
