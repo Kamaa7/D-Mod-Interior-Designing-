@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Home } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,14 +24,12 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 group">
-            <div className="w-12 h-12 bg-sattva-orange rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform">
-              <Home className="w-6 h-6 text-white" />
-            </div>
-            <div>
-              <h1 className="text-xl font-bold text-sattva-dark">SATTVA</h1>
-              <p className="text-xs text-sattva-orange font-medium tracking-wider">D-MODULAR SOLUTIONS</p>
-            </div>
+          <Link to="/" className="flex items-center group">
+            <img 
+              src="/lovable-uploads/7a7124d7-3031-49b3-899f-adf88c772229.png" 
+              alt="Sattva Modular Solutions"
+              className="h-12 w-auto group-hover:scale-105 transition-transform"
+            />
           </Link>
 
           {/* Desktop Navigation */}
