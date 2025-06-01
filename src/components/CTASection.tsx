@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 
 const CTASection = () => {
   return (
-    <section className="py-20 bg-gradient-to-r from-sattva-orange to-sattva-orange/80">
+    <section className="py-20 bg-gradient-to-r from-sattva-dark to-sattva-black">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
           Ready to Transform Your Space?
         </h2>
-        <p className="text-xl text-sattva-cream mb-8 max-w-2xl mx-auto">
+        <p className="text-xl text-sattva-gray-lighter mb-8 max-w-2xl mx-auto">
           Let's bring your vision to life with our expert design solutions. 
           Contact us today for a free consultation.
         </p>
@@ -17,14 +17,14 @@ const CTASection = () => {
           <Button 
             size="lg" 
             variant="outline" 
-            className="border-white text-white hover:bg-white hover:text-sattva-orange px-8 py-4"
+            className="border-white text-white hover:bg-white hover:text-sattva-dark px-8 py-4"
             asChild
           >
             <Link to="/contact">Get Free Quote</Link>
           </Button>
           <Button 
             size="lg" 
-            className="bg-white text-sattva-orange hover:bg-sattva-cream px-8 py-4"
+            className="bg-white text-sattva-dark hover:bg-sattva-gray-lightest px-8 py-4"
             asChild
           >
             <Link to="/portfolio">View Our Work</Link>

@@ -20,7 +20,7 @@ const Header = () => {
   const isActive = (href: string) => location.pathname === href;
 
   return (
-    <header className="bg-white/95 backdrop-blur-sm border-b border-sattva-cream/30 sticky top-0 z-50">
+    <header className="bg-white/95 backdrop-blur-sm border-b border-gray-200 sticky top-0 z-50 shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -38,8 +38,8 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`text-sm font-medium transition-colors hover:text-sattva-orange ${
-                  isActive(item.href) ? 'text-sattva-orange' : 'text-gray-700'
+                className={`text-sm font-medium transition-colors hover:text-sattva-dark ${
+                  isActive(item.href) ? 'text-sattva-dark' : 'text-sattva-gray'
                 }`}
               >
                 {item.name}
@@ -49,7 +49,7 @@ const Header = () => {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" asChild className="border-sattva-orange text-sattva-orange hover:bg-sattva-orange hover:text-white">
+            <Button variant="outline" asChild className="border-sattva-dark text-sattva-dark hover:bg-sattva-dark hover:text-white">
               <Link to="/contact">Get Quote</Link>
             </Button>
           </div>
@@ -72,14 +72,14 @@ const Header = () => {
                   key={item.name}
                   to={item.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`text-sm font-medium transition-colors hover:text-sattva-orange ${
-                    isActive(item.href) ? 'text-sattva-orange' : 'text-gray-700'
+                  className={`text-sm font-medium transition-colors hover:text-sattva-dark ${
+                    isActive(item.href) ? 'text-sattva-dark' : 'text-sattva-gray'
                   }`}
                 >
                   {item.name}
                 </Link>
               ))}
-              <Button variant="outline" asChild className="border-sattva-orange text-sattva-orange hover:bg-sattva-orange hover:text-white w-fit">
+              <Button variant="outline" asChild className="border-sattva-dark text-sattva-dark hover:bg-sattva-dark hover:text-white w-fit">
                 <Link to="/contact" onClick={() => setIsMenuOpen(false)}>Get Quote</Link>
               </Button>
             </nav>
