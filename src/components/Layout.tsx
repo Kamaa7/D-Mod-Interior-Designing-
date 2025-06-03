@@ -1,7 +1,7 @@
 
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Home, Briefcase, Image, Users, Phone, Menu } from "lucide-react";
+import { Home, Briefcase, Image, Users, Phone, Menu, BookOpen, Quote } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -40,6 +40,11 @@ const navigationItems = [
     title: "Contact",
     url: "/contact",
     icon: Phone,
+  },
+  {
+    title: "Blog",
+    url: "/blog",
+    icon: BookOpen,
   },
 ];
 
@@ -100,16 +105,12 @@ export default function Layout({ children }: LayoutProps) {
       <div className="min-h-screen flex w-full bg-gray-50">
         <Sidebar className="border-r border-gray-200 bg-white">
           <SidebarHeader className="border-b border-gray-100 p-6">
-            <div className="flex items-center gap-3">
+            <div className="flex flex-col items-center gap-4">
               <img
-                src="/lovable-uploads/08138bf5-74b1-4f55-bed9-988810c66341.png"
+                src="/lovable-uploads/73671f1f-6e81-4f40-91e3-06dc4ddd422a.png"
                 alt="Sattva Modular Solutions"
-                className="w-10 h-10 object-contain"
+                className="w-full max-w-[180px] h-auto object-contain"
               />
-              <div>
-                <h2 className="font-bold text-gray-900 text-lg">Sattva</h2>
-                <p className="text-xs text-gray-500 font-medium">Modular Solutions</p>
-              </div>
             </div>
           </SidebarHeader>
           
@@ -140,8 +141,9 @@ export default function Layout({ children }: LayoutProps) {
               <h3 className="font-semibold text-orange-800 mb-2">Transform Your Space</h3>
               <p className="text-sm text-orange-600 mb-3">Get a free consultation for your dream interior</p>
               <Link to="/contact">
-                <button className="w-full bg-orange-700 text-white py-2 px-4 rounded-lg text-sm font-medium hover:bg-orange-800 transition-colors">
-                  Book Consultation
+                <button className="w-full bg-orange-700 text-white py-2 px-4 rounded-lg text-sm font-medium hover:bg-orange-800 transition-colors flex items-center justify-center gap-2">
+                  <Quote className="w-4 h-4" />
+                  Get Quote
                 </button>
               </Link>
             </div>
@@ -157,11 +159,10 @@ export default function Layout({ children }: LayoutProps) {
                 </SidebarTrigger>
                 <div className="flex items-center gap-2">
                   <img
-                    src="/lovable-uploads/08138bf5-74b1-4f55-bed9-988810c66341.png"
+                    src="/lovable-uploads/73671f1f-6e81-4f40-91e3-06dc4ddd422a.png"
                     alt="Sattva Modular Solutions"
-                    className="w-8 h-8 object-contain"
+                    className="w-auto h-8 object-contain"
                   />
-                  <span className="font-bold text-gray-900">Sattva</span>
                 </div>
               </div>
             </div>
