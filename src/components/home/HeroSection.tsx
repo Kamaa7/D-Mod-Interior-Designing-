@@ -1,7 +1,6 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-import { createPageUrl } from "@/utils";
 import { ArrowRight, MapPin, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -31,13 +30,13 @@ export default function HeroSection() {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link to={createPageUrl("Contact")}>
+              <Link to="/contact">
                 <Button className="bg-orange-700 hover:bg-orange-800 text-white px-8 py-6 text-lg rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl">
                   Start Your Project
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
               </Link>
-              <Link to={createPageUrl("Portfolio")}>
+              <Link to="/portfolio">
                 <Button variant="outline" className="border-2 border-gray-300 hover:border-orange-700 px-8 py-6 text-lg rounded-xl transition-all duration-300">
                   View Our Work
                 </Button>
