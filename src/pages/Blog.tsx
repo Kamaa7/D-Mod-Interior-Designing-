@@ -1,345 +1,164 @@
 
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Link } from 'react-router-dom';
-import { Calendar, User, ArrowRight, Clock, Eye, Heart } from 'lucide-react';
+import React from "react";
+import { Calendar, User, ArrowRight, Clock } from "lucide-react";
 
-const Blog = () => {
-  const featuredPost = {
-    id: 1,
-    title: '10 Interior Design Trends That Will Dominate 2024',
-    excerpt: 'Discover the latest interior design trends that are shaping homes and offices in 2024. From sustainable materials to smart home integration.',
-    author: 'Rajesh Gupta',
-    date: 'March 15, 2024',
-    readTime: '8 min read',
-    category: 'Trends',
-    image: 'https://images.unsplash.com/photo-1721322800607-8c38375eef04?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-    views: 1250,
-    likes: 89
-  };
-
+export default function Blog() {
   const blogPosts = [
     {
+      id: 1,
+      title: "10 Interior Design Trends That Will Dominate 2024",
+      excerpt: "Discover the latest trends in interior design that are shaping modern homes and commercial spaces.",
+      author: "Priya Singh",
+      date: "March 15, 2024",
+      readTime: "5 min read",
+      image: "/lovable-uploads/modern-interior-1.jpg",
+      category: "Trends"
+    },
+    {
       id: 2,
-      title: 'How to Choose the Perfect Color Scheme for Your Home',
-      excerpt: 'Learn the fundamentals of color theory and how to apply them to create harmonious and beautiful living spaces.',
-      author: 'Priya Singh',
-      date: 'March 12, 2024',
-      readTime: '6 min read',
-      category: 'Design Tips',
-      image: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      views: 890,
-      likes: 67
+      title: "Maximizing Small Spaces: Design Tips and Tricks",
+      excerpt: "Learn how to make the most of limited space with clever design solutions and storage ideas.",
+      author: "Rajesh Kumar",
+      date: "March 10, 2024",
+      readTime: "7 min read",
+      image: "/lovable-uploads/modern-interior-2.jpg",
+      category: "Tips"
     },
     {
       id: 3,
-      title: 'Maximizing Small Spaces: Clever Storage Solutions',
-      excerpt: 'Transform cramped spaces into functional and stylish areas with these innovative storage ideas and space-saving techniques.',
-      author: 'Amit Sharma',
-      date: 'March 10, 2024',
-      readTime: '5 min read',
-      category: 'Space Planning',
-      image: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      views: 1120,
-      likes: 93
+      title: "The Psychology of Color in Interior Design",
+      excerpt: "Understanding how colors affect mood and behavior to create harmonious living spaces.",
+      author: "Amit Patel",
+      date: "March 5, 2024",
+      readTime: "6 min read",
+      image: "/lovable-uploads/modern-interior-3.jpg",
+      category: "Design Psychology"
     },
     {
       id: 4,
-      title: 'The Ultimate Guide to Modular Kitchen Design',
-      excerpt: 'Everything you need to know about planning, designing, and implementing the perfect modular kitchen for your home.',
-      author: 'Rajesh Gupta',
-      date: 'March 8, 2024',
-      readTime: '10 min read',
-      category: 'Kitchen Design',
-      image: 'https://images.unsplash.com/photo-1483058712412-4245e9b90334?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      views: 1450,
-      likes: 112
+      title: "Sustainable Design: Eco-Friendly Interior Solutions",
+      excerpt: "Explore sustainable materials and practices for environmentally conscious interior design.",
+      author: "Priya Singh",
+      date: "February 28, 2024",
+      readTime: "8 min read",
+      image: "/lovable-uploads/modern-interior-1.jpg",
+      category: "Sustainability"
     },
     {
       id: 5,
-      title: 'Sustainable Interior Design: Eco-Friendly Materials and Practices',
-      excerpt: 'Explore how to create beautiful interiors while being mindful of the environment with sustainable design practices.',
-      author: 'Priya Singh',
-      date: 'March 5, 2024',
-      readTime: '7 min read',
-      category: 'Sustainability',
-      image: 'https://images.unsplash.com/photo-1721322800607-8c38375eef04?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      views: 780,
-      likes: 54
+      title: "Creating the Perfect Home Office Space",
+      excerpt: "Design a productive and comfortable workspace that enhances your work-from-home experience.",
+      author: "Rajesh Kumar",
+      date: "February 20, 2024",
+      readTime: "5 min read",
+      image: "/lovable-uploads/modern-interior-2.jpg",
+      category: "Workspace"
     },
     {
       id: 6,
-      title: 'Creating the Perfect Home Office: Design Tips for Productivity',
-      excerpt: 'Design a home office that boosts productivity and creativity while maintaining style and comfort.',
-      author: 'Amit Sharma',
-      date: 'March 3, 2024',
-      readTime: '6 min read',
-      category: 'Office Design',
-      image: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      views: 960,
-      likes: 71
-    },
-    {
-      id: 7,
-      title: 'Lighting Design: Setting the Mood in Every Room',
-      excerpt: 'Master the art of lighting design to create ambiance, highlight features, and enhance the functionality of your spaces.',
-      author: 'Rajesh Gupta',
-      date: 'February 28, 2024',
-      readTime: '8 min read',
-      category: 'Lighting',
-      image: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      views: 1340,
-      likes: 98
+      title: "Lighting Design: Setting the Right Mood",
+      excerpt: "Master the art of lighting to create ambiance and functionality in every room.",
+      author: "Amit Patel",
+      date: "February 15, 2024",
+      readTime: "6 min read",
+      image: "/lovable-uploads/modern-interior-3.jpg",
+      category: "Lighting"
     }
   ];
 
-  const categories = [
-    { name: 'Design Tips', count: 12 },
-    { name: 'Trends', count: 8 },
-    { name: 'Kitchen Design', count: 6 },
-    { name: 'Space Planning', count: 9 },
-    { name: 'Office Design', count: 5 },
-    { name: 'Lighting', count: 7 },
-    { name: 'Sustainability', count: 4 }
-  ];
+  const categories = ["All", "Trends", "Tips", "Design Psychology", "Sustainability", "Workspace", "Lighting"];
+  const [selectedCategory, setSelectedCategory] = React.useState("All");
+
+  const filteredPosts = selectedCategory === "All" 
+    ? blogPosts 
+    : blogPosts.filter(post => post.category === selectedCategory);
 
   return (
-    <div className="min-h-screen">
-      <Header />
-      
+    <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-b from-sattva-light to-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold text-sattva-dark mb-6">
-              Design Blog
-            </h1>
-            <p className="text-xl text-gray-600 leading-relaxed mb-8">
-              Expert insights, design tips, and inspiration from the world of interior design. 
-              Stay updated with the latest trends and techniques.
+      <section className="bg-gradient-to-r from-orange-600 to-orange-800 text-white py-20">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl">
+            <h1 className="text-5xl font-bold mb-6">Design Blog</h1>
+            <p className="text-xl leading-relaxed">
+              Insights, tips, and inspiration from our design experts to help you create beautiful spaces.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Featured Post */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-sattva-dark mb-4">Featured Article</h2>
-            <p className="text-gray-600">Our latest insights and expert advice</p>
+      {/* Filter Section */}
+      <section className="py-8 bg-white border-b">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-wrap gap-4 justify-center">
+            {categories.map(category => (
+              <button
+                key={category}
+                onClick={() => setSelectedCategory(category)}
+                className={`px-6 py-2 rounded-full font-medium transition-colors ${
+                  selectedCategory === category
+                    ? 'bg-orange-600 text-white'
+                    : 'bg-gray-100 text-gray-600 hover:bg-orange-100'
+                }`}
+              >
+                {category}
+              </button>
+            ))}
           </div>
+        </div>
+      </section>
 
-          <Card className="overflow-hidden border-0 shadow-2xl max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
-              <div className="relative h-64 lg:h-auto">
+      {/* Blog Posts Grid */}
+      <section className="py-16">
+        <div className="container mx-auto px-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredPosts.map((post) => (
+              <article key={post.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
                 <img 
-                  src={featuredPost.image} 
-                  alt={featuredPost.title}
-                  className="w-full h-full object-cover"
+                  src={post.image} 
+                  alt={post.title}
+                  className="w-full h-48 object-cover"
                 />
-                <Badge className="absolute top-4 left-4 bg-sattva-orange text-white">
-                  {featuredPost.category}
-                </Badge>
-              </div>
-              
-              <CardContent className="p-8 flex flex-col justify-center">
-                <h3 className="text-2xl font-bold text-sattva-dark mb-4 leading-tight">
-                  {featuredPost.title}
-                </h3>
-                
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  {featuredPost.excerpt}
-                </p>
-                
-                <div className="flex items-center text-sm text-gray-500 mb-6 space-x-4">
-                  <div className="flex items-center">
-                    <User className="w-4 h-4 mr-1" />
-                    {featuredPost.author}
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="px-3 py-1 bg-orange-100 text-orange-600 text-xs font-medium rounded-full">
+                      {post.category}
+                    </span>
+                    <div className="flex items-center text-gray-500 text-sm">
+                      <Clock className="w-4 h-4 mr-1" />
+                      {post.readTime}
+                    </div>
                   </div>
-                  <div className="flex items-center">
-                    <Calendar className="w-4 h-4 mr-1" />
-                    {featuredPost.date}
-                  </div>
-                  <div className="flex items-center">
-                    <Clock className="w-4 h-4 mr-1" />
-                    {featuredPost.readTime}
-                  </div>
-                </div>
-                
-                <div className="flex items-center justify-between mb-6">
-                  <div className="flex items-center space-x-4 text-sm text-gray-500">
+                  
+                  <h2 className="text-xl font-semibold text-gray-800 mb-3 line-clamp-2">
+                    {post.title}
+                  </h2>
+                  
+                  <p className="text-gray-600 mb-4 line-clamp-3">
+                    {post.excerpt}
+                  </p>
+                  
+                  <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
                     <div className="flex items-center">
-                      <Eye className="w-4 h-4 mr-1" />
-                      {featuredPost.views}
+                      <User className="w-4 h-4 mr-1" />
+                      {post.author}
                     </div>
                     <div className="flex items-center">
-                      <Heart className="w-4 h-4 mr-1" />
-                      {featuredPost.likes}
+                      <Calendar className="w-4 h-4 mr-1" />
+                      {post.date}
                     </div>
                   </div>
+                  
+                  <button className="text-orange-600 font-medium flex items-center hover:text-orange-700 transition-colors">
+                    Read More
+                    <ArrowRight className="w-4 h-4 ml-1" />
+                  </button>
                 </div>
-                
-                <Button className="bg-sattva-orange hover:bg-sattva-orange/90 text-white w-fit">
-                  Read Full Article
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
-              </CardContent>
-            </div>
-          </Card>
-        </div>
-      </section>
-
-      {/* Blog Grid with Sidebar */}
-      <section className="py-20 bg-sattva-light">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
-            {/* Main Content */}
-            <div className="lg:col-span-3">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {blogPosts.map((post) => (
-                  <Card key={post.id} className="group overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300">
-                    <div className="relative overflow-hidden">
-                      <img 
-                        src={post.image} 
-                        alt={post.title}
-                        className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
-                      <Badge className="absolute top-4 left-4 bg-sattva-orange text-white">
-                        {post.category}
-                      </Badge>
-                    </div>
-                    
-                    <CardContent className="p-6">
-                      <h3 className="text-xl font-semibold text-sattva-dark mb-3 group-hover:text-sattva-orange transition-colors line-clamp-2">
-                        {post.title}
-                      </h3>
-                      
-                      <p className="text-gray-600 mb-4 leading-relaxed line-clamp-3">
-                        {post.excerpt}
-                      </p>
-                      
-                      <div className="flex items-center text-sm text-gray-500 mb-4 space-x-3">
-                        <div className="flex items-center">
-                          <User className="w-3 h-3 mr-1" />
-                          {post.author}
-                        </div>
-                        <div className="flex items-center">
-                          <Calendar className="w-3 h-3 mr-1" />
-                          {post.date}
-                        </div>
-                      </div>
-                      
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-3 text-sm text-gray-500">
-                          <div className="flex items-center">
-                            <Clock className="w-3 h-3 mr-1" />
-                            {post.readTime}
-                          </div>
-                          <div className="flex items-center">
-                            <Eye className="w-3 h-3 mr-1" />
-                            {post.views}
-                          </div>
-                        </div>
-                        
-                        <Button 
-                          variant="ghost" 
-                          size="sm"
-                          className="text-sattva-orange hover:bg-sattva-orange hover:text-white p-2"
-                        >
-                          <ArrowRight className="w-4 h-4" />
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-              
-              {/* Load More Button */}
-              <div className="text-center mt-12">
-                <Button 
-                  size="lg" 
-                  className="bg-sattva-orange hover:bg-sattva-orange/90 text-white px-8 py-4"
-                >
-                  Load More Articles
-                </Button>
-              </div>
-            </div>
-
-            {/* Sidebar */}
-            <div className="lg:col-span-1">
-              <div className="space-y-8">
-                {/* Categories */}
-                <Card className="border-0 shadow-lg">
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold text-sattva-dark mb-4">Categories</h3>
-                    <div className="space-y-3">
-                      {categories.map((category, index) => (
-                        <div key={index} className="flex items-center justify-between text-sm">
-                          <span className="text-gray-600 hover:text-sattva-orange cursor-pointer transition-colors">
-                            {category.name}
-                          </span>
-                          <span className="bg-sattva-orange/10 text-sattva-orange px-2 py-1 rounded-full text-xs">
-                            {category.count}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-
-                {/* Popular Posts */}
-                <Card className="border-0 shadow-lg">
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold text-sattva-dark mb-4">Popular Posts</h3>
-                    <div className="space-y-4">
-                      {blogPosts.slice(0, 3).map((post) => (
-                        <div key={post.id} className="flex space-x-3 group cursor-pointer">
-                          <img 
-                            src={post.image} 
-                            alt={post.title}
-                            className="w-16 h-16 object-cover rounded-lg flex-shrink-0"
-                          />
-                          <div className="flex-grow">
-                            <h4 className="text-sm font-medium text-sattva-dark group-hover:text-sattva-orange transition-colors line-clamp-2 mb-1">
-                              {post.title}
-                            </h4>
-                            <p className="text-xs text-gray-500">{post.date}</p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-
-                {/* Newsletter Signup */}
-                <Card className="border-0 shadow-lg bg-gradient-to-br from-sattva-orange to-sattva-orange/80">
-                  <CardContent className="p-6 text-white text-center">
-                    <h3 className="text-xl font-semibold mb-3">Stay Updated</h3>
-                    <p className="text-sm text-sattva-cream mb-4">
-                      Get the latest design tips and trends delivered to your inbox.
-                    </p>
-                    <Button 
-                      variant="outline" 
-                      className="w-full border-white text-white hover:bg-white hover:text-sattva-orange"
-                      asChild
-                    >
-                      <Link to="/contact">Subscribe Now</Link>
-                    </Button>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
-};
-
-export default Blog;
+}
