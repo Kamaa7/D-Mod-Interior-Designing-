@@ -1,6 +1,5 @@
-
 import React from "react";
-import { Home, Building, Palette, Sofa, Kitchen, Bed } from "lucide-react";
+import { Home, Building, Palette, Sofa, ChefHat, Bed } from "lucide-react";
 
 export default function Services() {
   const services = [
@@ -33,7 +32,7 @@ export default function Services() {
       image: "/lovable-uploads/modern-interior-1.jpg"
     },
     {
-      icon: Kitchen,
+      icon: ChefHat,
       title: "Modular Kitchens",
       description: "Functional and beautiful kitchen solutions for modern homes",
       features: ["Custom Cabinets", "Smart Storage", "Modern Appliances", "Ergonomic Design"],
