@@ -12,81 +12,81 @@ export default function Portfolio() {
       date: "2024",
       area: "4,500 sq ft",
       budget: "₹25 Lakhs",
-      image: "https://images.unsplash.com/photo-1721322800607-8c38375eef04?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "/lovable-uploads/72662bb2-ec5d-4de0-81da-80d383cfc83b.png",
       description: "Complete interior transformation of a 4BHK villa with contemporary design elements, featuring premium materials and smart home integration.",
       highlights: ["Smart Home Automation", "Premium Italian Marble", "Custom Furniture", "Imported Lighting"]
     },
     {
       id: 2,
-      title: "Modern Corporate Headquarters",
-      category: "Commercial",
+      title: "Contemporary Master Bedroom",
+      category: "Residential",
       location: "Hazratganj, Lucknow",
       date: "2024",
-      area: "12,000 sq ft",
-      budget: "₹40 Lakhs",
-      image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      description: "Contemporary office design promoting productivity and collaboration with open spaces, meeting rooms, and recreational areas.",
-      highlights: ["Open Office Concept", "Acoustic Solutions", "Biophilic Design", "Energy Efficient Lighting"]
+      area: "350 sq ft",
+      budget: "₹8 Lakhs",
+      image: "/lovable-uploads/e913b018-0d86-4651-9978-40dd65f6a458.png",
+      description: "Modern bedroom design with blue accent wall, custom wardrobes, and sophisticated lighting for ultimate comfort and style.",
+      highlights: ["Custom Wardrobes", "Accent Wall Design", "Ambient Lighting", "Space Optimization"]
     },
     {
       id: 3,
-      title: "Boutique Fine Dining Restaurant",
-      category: "Hospitality",
+      title: "Luxury Living Room Design",
+      category: "Residential",
       location: "Alambagh, Lucknow",
       date: "2024",
-      area: "3,200 sq ft",
-      budget: "₹18 Lakhs",
-      image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      description: "Elegant dining space with warm ambiance, featuring traditional Indian motifs blended with modern aesthetics.",
-      highlights: ["Traditional Art Integration", "Ambient Lighting", "Custom Seating", "Cultural Theme"]
+      area: "600 sq ft",
+      budget: "₹15 Lakhs",
+      image: "/lovable-uploads/57cc0f65-4207-46af-9796-f8593761456c.png",
+      description: "Elegant living space with archway features, premium furnishing, and open kitchen connectivity for modern family living.",
+      highlights: ["Archway Design", "Premium Furnishing", "Open Layout", "Natural Materials"]
     },
     {
       id: 4,
-      title: "Contemporary Penthouse",
+      title: "Contemporary TV Unit & Entertainment Area",
       category: "Residential",
       location: "Eldeco, Lucknow",
-      date: "2023",
-      area: "3,800 sq ft",
-      budget: "₹22 Lakhs",
-      image: "https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      description: "Luxurious penthouse design with panoramic city views, featuring minimalist aesthetics and premium finishes.",
-      highlights: ["Floor-to-Ceiling Windows", "Minimalist Design", "Premium Finishes", "Rooftop Garden"]
+      date: "2024",
+      area: "400 sq ft",
+      budget: "₹12 Lakhs",
+      image: "/lovable-uploads/a00c9e1c-280d-4abe-97fd-271b85a332df.png",
+      description: "Modern entertainment unit with integrated lighting, storage solutions, and contemporary design elements.",
+      highlights: ["Integrated Lighting", "Storage Solutions", "Modern Design", "Entertainment Focus"]
     },
     {
       id: 5,
-      title: "Tech Startup Innovation Hub",
-      category: "Commercial",
+      title: "Compact Kitchen & Living Integration",
+      category: "Modular Kitchen",
       location: "IT City, Lucknow",
-      date: "2023",
-      area: "8,500 sq ft",
-      budget: "₹32 Lakhs",
-      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      description: "Creative workspace designed for innovation and growth with flexible areas, breakout zones, and collaborative spaces.",
-      highlights: ["Flexible Workspaces", "Innovation Zones", "Recreational Areas", "Tech Integration"]
+      date: "2024",
+      area: "500 sq ft",
+      budget: "₹18 Lakhs",
+      image: "/lovable-uploads/df51dda6-b495-446b-b40f-674951240041.png",
+      description: "Smart space utilization with integrated kitchen and living area, featuring modern appliances and clever storage.",
+      highlights: ["Space Integration", "Modern Appliances", "Smart Storage", "Contemporary Style"]
     },
     {
       id: 6,
-      title: "Traditional Family Home Renovation",
+      title: "Kids Bedroom Paradise",
       category: "Residential",
       location: "Aliganj, Lucknow",
-      date: "2023",
-      area: "2,800 sq ft",
-      budget: "₹15 Lakhs",
-      image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      description: "Complete renovation of traditional home with modern touches while preserving cultural elements and family values.",
-      highlights: ["Cultural Preservation", "Modern Amenities", "Family-Centric Design", "Sustainable Materials"]
+      date: "2024",
+      area: "280 sq ft",
+      budget: "₹10 Lakhs",
+      image: "/lovable-uploads/3550431c-8483-4b89-a5b4-0741e5e708f3.png",
+      description: "Playful and functional kids bedroom with custom furniture, storage solutions, and vibrant design elements.",
+      highlights: ["Custom Furniture", "Play Areas", "Creative Storage", "Child-Safe Design"]
     },
     {
       id: 7,
-      title: "Luxury Hotel Suite Design",
-      category: "Hospitality",
+      title: "Luxury Master Suite",
+      category: "Residential",
       location: "Charbagh, Lucknow",
-      date: "2023",
-      area: "1,200 sq ft",
-      budget: "₹8 Lakhs",
-      image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      description: "Elegant hotel suite featuring local Lucknowi craftsmanship with modern luxury amenities for discerning guests.",
-      highlights: ["Local Craftsmanship", "Luxury Amenities", "Cultural Elements", "Guest Comfort"]
+      date: "2024",
+      area: "500 sq ft",
+      budget: "₹20 Lakhs",
+      image: "/lovable-uploads/61aaaaa5-18cb-4f23-9b25-6cd59f4b397f.png",
+      description: "Sophisticated master bedroom featuring quilted headboard, premium materials, and elegant design aesthetics.",
+      highlights: ["Quilted Headboard", "Premium Materials", "Elegant Design", "Luxury Finishes"]
     },
     {
       id: 8,
@@ -102,7 +102,7 @@ export default function Portfolio() {
     }
   ];
 
-  const categories = ["All", "Residential", "Commercial", "Hospitality"];
+  const categories = ["All", "Residential", "Commercial", "Modular Kitchen"];
   const [selectedCategory, setSelectedCategory] = React.useState("All");
 
   const filteredProjects = selectedCategory === "All" 
@@ -159,7 +159,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Projects Grid */}
+      {/* Projects Gallery */}
       <section className="py-16">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

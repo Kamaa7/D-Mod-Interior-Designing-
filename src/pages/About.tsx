@@ -94,7 +94,7 @@ export default function About() {
             <div>
               <h2 className="text-3xl font-bold text-gray-800 mb-6">Our Story</h2>
               <p className="text-gray-600 mb-4">
-                Founded in 2009 with a passion for creating extraordinary spaces, Sattva Modular Solutions has been at the forefront of interior design innovation in Lucknow and across North India. What started as a small design studio has grown into a full-service interior design firm.
+                Founded in 2018 with a passion for creating extraordinary spaces, Sattva Modular Solutions has been at the forefront of interior design innovation in Lucknow and across North India. What started as a small design studio has grown into a full-service interior design firm.
               </p>
               <p className="text-gray-600 mb-4">
                 We believe that great design has the power to transform not just spaces, but lives. Our approach combines aesthetic excellence with functional practicality to create interiors that are both beautiful and livable. Every project is an opportunity to tell a unique story through design.
@@ -109,29 +109,29 @@ export default function About() {
                 </div>
                 <div className="flex items-center text-gray-600">
                   <Clock className="w-4 h-4 mr-2 text-orange-600" />
-                  Est. 2009
+                  Est. 2018
                 </div>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
               <img 
-                src="https://images.unsplash.com/photo-1721322800607-8c38375eef04?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                src="/lovable-uploads/72662bb2-ec5d-4de0-81da-80d383cfc83b.png"
                 alt="Modern living room design" 
                 className="rounded-lg shadow-lg"
               />
               <img 
-                src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                alt="Contemporary kitchen design" 
+                src="/lovable-uploads/e913b018-0d86-4651-9978-40dd65f6a458.png"
+                alt="Contemporary bedroom design" 
                 className="rounded-lg shadow-lg mt-8"
               />
               <img 
-                src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                alt="Office interior design" 
+                src="/lovable-uploads/57cc0f65-4207-46af-9796-f8593761456c.png"
+                alt="Luxury living space" 
                 className="rounded-lg shadow-lg -mt-8"
               />
               <img 
-                src="https://images.unsplash.com/photo-1524230572899-a752b3835840?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                alt="Modern architecture" 
+                src="/lovable-uploads/61aaaaa5-18cb-4f23-9b25-6cd59f4b397f.png"
+                alt="Premium bedroom suite" 
                 className="rounded-lg shadow-lg"
               />
             </div>

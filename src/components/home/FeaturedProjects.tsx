@@ -7,19 +7,19 @@ import { ArrowRight } from 'lucide-react';
 const FeaturedProjects = () => {
   const portfolioProjects = [
     {
-      title: 'Modern Villa Interior',
+      title: 'Luxury Villa Interior',
       category: 'Residential',
-      image: 'https://images.unsplash.com/photo-1721322800607-8c38375eef04?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      image: '/lovable-uploads/72662bb2-ec5d-4de0-81da-80d383cfc83b.png'
     },
     {
-      title: 'Corporate Office Design',
-      category: 'Commercial',
-      image: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      title: 'Contemporary Living Room',
+      category: 'Residential',
+      image: '/lovable-uploads/57cc0f65-4207-46af-9796-f8593761456c.png'
     },
     {
-      title: 'Luxury Kitchen',
-      category: 'Modular Kitchen',
-      image: 'https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+      title: 'Modern Bedroom Suite',
+      category: 'Residential',
+      image: '/lovable-uploads/61aaaaa5-18cb-4f23-9b25-6cd59f4b397f.png'
     }
   ];
 
