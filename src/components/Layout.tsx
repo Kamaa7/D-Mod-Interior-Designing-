@@ -109,7 +109,7 @@ export default function Layout({ children }: LayoutProps) {
               <img
                 src="/lovable-uploads/73671f1f-6e81-4f40-91e3-06dc4ddd422a.png"
                 alt="Sattva Modular Solutions"
-                className="w-full max-w-[140px] h-auto object-contain"
+                className="w-full max-w-[120px] h-auto object-contain"
               />
             </div>
           </SidebarHeader>
@@ -161,7 +161,7 @@ export default function Layout({ children }: LayoutProps) {
                   <img
                     src="/lovable-uploads/73671f1f-6e81-4f40-91e3-06dc4ddd422a.png"
                     alt="Sattva Modular Solutions"
-                    className="w-auto h-8 object-contain"
+                    className="w-auto h-7 object-contain"
                   />
                 </div>
               </div>
