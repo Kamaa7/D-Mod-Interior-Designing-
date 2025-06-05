@@ -1,34 +1,30 @@
 
 import React from "react";
-import { Users, Award, Target, Heart, MapPin, Phone, Mail, Clock } from "lucide-react";
+import { Users, Award, Target, Heart, MapPin, Phone, Mail, Clock, User } from "lucide-react";
 
 export default function About() {
   const teamMembers = [
     {
       name: "Rajesh Kumar",
       role: "Founder & Lead Designer",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
       description: "15+ years of experience in creating stunning interior spaces with a passion for modern design.",
       qualifications: "M.Arch Interior Design, IIDA Certified"
     },
     {
       name: "Priya Singh",
       role: "Senior Interior Designer",
-      image: "https://images.unsplash.com/photo-1594736797933-d0b22e7de5c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
       description: "Specialist in residential and commercial design with expertise in sustainable materials.",
       qualifications: "B.Des Interior Design, LEED AP"
     },
     {
       name: "Amit Patel",
       role: "Project Manager",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
       description: "Expert in project execution, client relations, and ensuring timely delivery of all projects.",
       qualifications: "MBA Project Management, PMP Certified"
     },
     {
       name: "Neha Sharma",
       role: "3D Visualization Specialist",
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
       description: "Creates stunning 3D renderings and virtual walkthroughs for better project visualization.",
       qualifications: "B.Tech Computer Graphics, Autodesk Certified"
     }
@@ -125,16 +121,35 @@ export default function About() {
                 className="rounded-lg shadow-lg mt-8"
               />
               <img 
-                src="/lovable-uploads/57cc0f65-4207-46af-9796-f8593761456c.png"
-                alt="Luxury living space" 
+                src="/lovable-uploads/e4cc98a6-e3b4-4ae8-850a-d97a0c858dd2.png"
+                alt="Modern kitchen design with olive green cabinets" 
                 className="rounded-lg shadow-lg -mt-8"
               />
               <img 
-                src="/lovable-uploads/61aaaaa5-18cb-4f23-9b25-6cd59f4b397f.png"
-                alt="Premium bedroom suite" 
+                src="/lovable-uploads/643b8101-39a5-4367-a2f0-0bd51a038635.png"
+                alt="Contemporary kitchen with blue cabinets" 
                 className="rounded-lg shadow-lg"
               />
             </div>
+          </div>
+          
+          {/* Additional images row */}
+          <div className="grid md:grid-cols-3 gap-6 mt-12">
+            <img 
+              src="/lovable-uploads/dc6906aa-f626-4905-9c0f-0f3e1250e125.png"
+              alt="Kitchen with traditional design elements" 
+              className="rounded-lg shadow-lg w-full h-64 object-cover"
+            />
+            <img 
+              src="/lovable-uploads/b2edffc3-6271-4e4d-828e-46768a239803.png"
+              alt="Elegant dining area with modern furniture" 
+              className="rounded-lg shadow-lg w-full h-64 object-cover"
+            />
+            <img 
+              src="/lovable-uploads/57cc0f65-4207-46af-9796-f8593761456c.png"
+              alt="Luxury living space" 
+              className="rounded-lg shadow-lg w-full h-64 object-cover"
+            />
           </div>
         </div>
       </section>
@@ -174,11 +189,9 @@ export default function About() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {teamMembers.map((member, index) => (
               <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                <img 
-                  src={member.image} 
-                  alt={member.name}
-                  className="w-full h-64 object-cover"
-                />
+                <div className="w-full h-64 bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center">
+                  <User className="w-24 h-24 text-orange-600" />
+                </div>
                 <div className="p-6">
                   <h3 className="text-xl font-semibold text-gray-800 mb-1">{member.name}</h3>
                   <p className="text-orange-600 font-medium mb-2">{member.role}</p>
