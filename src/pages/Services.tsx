@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Check, ArrowRight, Star, Award, Users, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -18,7 +17,7 @@ export default function Services() {
       title: "Luxury Bedroom Suites",
       description: "Create your perfect sanctuary with our elegant bedroom designs featuring custom furniture and sophisticated styling.",
       features: ["Custom Wardrobes", "Premium Bedding", "Ambient Lighting", "Space Optimization"],
-      image: "/lovable-uploads/61aaaaa5-18cb-4f23-9b25-6cd59f4b397f.png",
+      image: "/lovable-uploads/e7b6aeb8-43ee-4d16-8b9f-e0f7e7b319c1.png",
       price: "Starting from ₹1.8 Lakhs"
     },
     {
