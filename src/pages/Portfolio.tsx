@@ -1,6 +1,6 @@
-
 import React from "react";
 import { ExternalLink, Calendar, MapPin, Eye, Heart } from "lucide-react";
+import FloatingButtons from "@/components/FloatingButtons";
 
 export default function Portfolio() {
   const projects = [
@@ -238,6 +238,9 @@ export default function Portfolio() {
           </button>
         </div>
       </section>
+
+      {/* Add floating buttons */}
+      <FloatingButtons />
     </div>
   );
 }

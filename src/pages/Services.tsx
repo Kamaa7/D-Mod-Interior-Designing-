@@ -3,6 +3,7 @@ import { Check, ArrowRight, Star, Award, Users, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import FloatingButtons from "@/components/FloatingButtons";
 
 export default function Services() {
   const services = [
@@ -249,6 +250,9 @@ export default function Services() {
           </div>
         </div>
       </section>
+
+      {/* Add floating buttons */}
+      <FloatingButtons />
     </div>
   );
 }
