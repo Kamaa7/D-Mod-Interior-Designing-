@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Home, Briefcase, Image, Users, Phone, Menu, BookOpen, Quote } from "lucide-react";
@@ -14,6 +13,7 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
+import FloatingButtons from "./FloatingButtons";
 
 const navigationItems = [
   {
@@ -173,6 +173,9 @@ export default function Layout({ children }: LayoutProps) {
           </div>
         </main>
       </div>
+      
+      {/* Add floating buttons */}
+      <FloatingButtons />
     </SidebarProvider>
   );
 }
