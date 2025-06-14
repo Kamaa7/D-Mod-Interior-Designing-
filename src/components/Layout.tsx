@@ -61,10 +61,10 @@ export default function Layout({ children }: LayoutProps) {
       <style>
         {`
           :root {
-            --primary: #d2691e;
-            --primary-light: #ff8c42;
-            --primary-dark: #b8571b;
-            --accent: #ff6b35;
+            --primary: #FF8C42;
+            --primary-light: #FFB366;
+            --primary-dark: #E67A3C;
+            --accent: #FF6B35;
             --text-primary: #1a1a1a;
             --text-secondary: #666666;
             --background: #fafafa;
@@ -123,8 +123,8 @@ export default function Layout({ children }: LayoutProps) {
                     <SidebarMenuItem key={item.title}>
                       <SidebarMenuButton 
                         asChild 
-                        className={`hover:bg-orange-50 hover:text-orange-700 transition-all duration-300 rounded-xl py-3 ${
-                          location.pathname === item.url ? 'bg-orange-50 text-orange-700 border-l-4 border-orange-600' : ''
+                        className={`hover:bg-orange-50 hover:text-orange-600 transition-all duration-300 rounded-xl py-3 ${
+                          location.pathname === item.url ? 'bg-orange-50 text-orange-600 border-l-4 border-orange-500' : ''
                         }`}
                       >
                         <Link to={item.url} className="flex items-center gap-3 px-4">
@@ -159,10 +159,10 @@ export default function Layout({ children }: LayoutProps) {
               {/* Transform Your Space section moved to top right */}
               <div className="ml-auto">
                 <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-lg p-3 max-w-xs">
-                  <h3 className="font-semibold text-orange-800 mb-1 text-sm">Transform Your Space</h3>
+                  <h3 className="font-semibold text-orange-700 mb-1 text-sm">Transform Your Space</h3>
                   <p className="text-xs text-orange-600 mb-2">Get a free consultation</p>
                   <Link to="/contact">
-                    <button className="w-full bg-orange-700 text-white py-1.5 px-3 rounded text-xs font-medium hover:bg-orange-800 transition-colors flex items-center justify-center gap-1">
+                    <button className="w-full bg-orange-500 text-white py-1.5 px-3 rounded text-xs font-medium hover:bg-orange-600 transition-colors flex items-center justify-center gap-1">
                       <Quote className="w-3 h-3" />
                       Get Quote
                     </button>
