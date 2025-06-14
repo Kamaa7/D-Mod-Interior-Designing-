@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Mail, Phone, MapPin, Clock, Send, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -7,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import FloatingButtons from "@/components/FloatingButtons";
 import SocialMediaButtons from "@/components/SocialMediaButtons";
+import MapSection from "@/components/MapSection";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -190,7 +192,8 @@ export default function Contact() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-800">Address</h3>
-                      <p className="text-gray-600">123 Design Street, Gomti Nagar</p>
+                      <p className="text-gray-600">4th Floor, Vision Space</p>
+                      <p className="text-gray-600">BBD Viraj Tower, Kamta</p>
                       <p className="text-gray-600">Lucknow, UP 226010</p>
                     </div>
                   </div>
@@ -244,6 +247,9 @@ export default function Contact() {
           </div>
         </div>
       </section>
+
+      {/* Map Section */}
+      <MapSection />
 
       {/* Add floating buttons */}
       <FloatingButtons />
