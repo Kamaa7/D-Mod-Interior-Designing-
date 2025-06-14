@@ -137,7 +137,7 @@ export default function About() {
             </div>
           </div>
           
-          {/* Additional images row */}
+          {/* Expanded images gallery */}
           <div className="grid md:grid-cols-3 gap-6 mt-12">
             <img 
               src="/lovable-uploads/dc6906aa-f626-4905-9c0f-0f3e1250e125.png"
@@ -152,6 +152,25 @@ export default function About() {
             <img 
               src="/lovable-uploads/57cc0f65-4207-46af-9796-f8593761456c.png"
               alt="Luxury living space" 
+              className="rounded-lg shadow-lg w-full h-64 object-cover"
+            />
+          </div>
+
+          {/* New images section */}
+          <div className="grid md:grid-cols-3 gap-6 mt-8">
+            <img 
+              src="/lovable-uploads/240a474d-26bb-427e-8064-84d1950910b6.png"
+              alt="Contemporary living room with artistic wall feature" 
+              className="rounded-lg shadow-lg w-full h-64 object-cover"
+            />
+            <img 
+              src="/lovable-uploads/c35c1688-db77-4956-9269-4be00f84a7e2.png"
+              alt="Modern entryway design with wooden accents" 
+              className="rounded-lg shadow-lg w-full h-64 object-cover"
+            />
+            <img 
+              src="/lovable-uploads/714f47a8-922c-4c49-9f75-219e46704b51.png"
+              alt="Elegant office space with artistic wall elements" 
               className="rounded-lg shadow-lg w-full h-64 object-cover"
             />
           </div>
