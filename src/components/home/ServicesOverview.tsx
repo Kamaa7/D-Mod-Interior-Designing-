@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -29,7 +28,7 @@ const ServicesOverview = () => {
       description: 'Create your personal sanctuary with our elegant bedroom designs and custom wardrobes.',
       features: ['Walk-in Closets', 'Smart Lighting', 'Custom Headboards', 'Storage Solutions'],
       badge: 'Trending',
-      image: 'https://images.unsplash.com/photo-1540518614846-7eded47fa409?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
+      image: '/lovable-uploads/d1605e0b-e9cc-408b-9b9d-7bea74bd535a.png'
     },
     {
       icon: Sofa,
