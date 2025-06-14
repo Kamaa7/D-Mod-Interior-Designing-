@@ -1,6 +1,7 @@
 
 import React from "react";
 import { Users, Award, Target, Heart, MapPin, Phone, Mail, Clock, User } from "lucide-react";
+import AnimatedCounter from "@/components/AnimatedCounter";
 
 export default function About() {
   const teamMembers = [
@@ -54,10 +55,10 @@ export default function About() {
   ];
 
   const achievements = [
-    { number: "500+", label: "Projects Completed" },
-    { number: "15+", label: "Years of Experience" },
-    { number: "98%", label: "Client Satisfaction" },
-    { number: "50+", label: "Awards Won" }
+    { number: 500, suffix: "+", label: "Projects Completed" },
+    { number: 15, suffix: "+", label: "Years of Experience" },
+    { number: 98, suffix: "%", label: "Client Satisfaction" },
+    { number: 50, suffix: "+", label: "Awards Won" }
   ];
 
   return (
@@ -73,10 +74,13 @@ export default function About() {
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {achievements.map((achievement, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-3xl font-bold text-orange-200">{achievement.number}</div>
-                  <div className="text-sm opacity-90">{achievement.label}</div>
-                </div>
+                <AnimatedCounter
+                  key={index}
+                  end={achievement.number}
+                  suffix={achievement.suffix}
+                  label={achievement.label}
+                  duration={2500 + (index * 200)}
+                />
               ))}
             </div>
           </div>
