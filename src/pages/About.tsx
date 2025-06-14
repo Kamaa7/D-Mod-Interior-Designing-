@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Users, Award, Target, Heart, MapPin, Phone, Mail, Clock, User } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
@@ -62,9 +61,9 @@ export default function About() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 optimize-rendering">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-orange-600 to-orange-800 text-white py-20">
+      <section className="bg-gradient-to-r from-orange-600 to-orange-800 text-white py-20 gpu-accelerated">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl">
             <h1 className="text-5xl font-bold mb-6">About Sattva Modular Solutions</h1>
@@ -88,7 +87,7 @@ export default function About() {
       </section>
 
       {/* Story Section */}
-      <section className="py-16">
+      <section className="py-16 optimize-rendering">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -117,22 +116,26 @@ export default function About() {
               <img 
                 src="/lovable-uploads/72662bb2-ec5d-4de0-81da-80d383cfc83b.png"
                 alt="Modern living room design" 
-                className="rounded-lg shadow-lg"
+                className="rounded-lg shadow-lg image-optimized smooth-transition hover:scale-105"
+                loading="lazy"
               />
               <img 
                 src="/lovable-uploads/e913b018-0d86-4651-9978-40dd65f6a458.png"
                 alt="Contemporary bedroom design" 
-                className="rounded-lg shadow-lg mt-8"
+                className="rounded-lg shadow-lg mt-8 image-optimized smooth-transition hover:scale-105"
+                loading="lazy"
               />
               <img 
                 src="/lovable-uploads/e4cc98a6-e3b4-4ae8-850a-d97a0c858dd2.png"
                 alt="Modern kitchen design with olive green cabinets" 
-                className="rounded-lg shadow-lg -mt-8"
+                className="rounded-lg shadow-lg -mt-8 image-optimized smooth-transition hover:scale-105"
+                loading="lazy"
               />
               <img 
                 src="/lovable-uploads/643b8101-39a5-4367-a2f0-0bd51a038635.png"
                 alt="Contemporary kitchen with blue cabinets" 
-                className="rounded-lg shadow-lg"
+                className="rounded-lg shadow-lg image-optimized smooth-transition hover:scale-105"
+                loading="lazy"
               />
             </div>
           </div>
@@ -142,17 +145,20 @@ export default function About() {
             <img 
               src="/lovable-uploads/dc6906aa-f626-4905-9c0f-0f3e1250e125.png"
               alt="Kitchen with traditional design elements" 
-              className="rounded-lg shadow-lg w-full h-64 object-cover"
+              className="rounded-lg shadow-lg w-full h-64 object-cover image-optimized smooth-transition hover:scale-105"
+              loading="lazy"
             />
             <img 
               src="/lovable-uploads/b2edffc3-6271-4e4d-828e-46768a239803.png"
               alt="Elegant dining area with modern furniture" 
-              className="rounded-lg shadow-lg w-full h-64 object-cover"
+              className="rounded-lg shadow-lg w-full h-64 object-cover image-optimized smooth-transition hover:scale-105"
+              loading="lazy"
             />
             <img 
               src="/lovable-uploads/57cc0f65-4207-46af-9796-f8593761456c.png"
               alt="Luxury living space" 
-              className="rounded-lg shadow-lg w-full h-64 object-cover"
+              className="rounded-lg shadow-lg w-full h-64 object-cover image-optimized smooth-transition hover:scale-105"
+              loading="lazy"
             />
           </div>
 
@@ -161,24 +167,27 @@ export default function About() {
             <img 
               src="/lovable-uploads/240a474d-26bb-427e-8064-84d1950910b6.png"
               alt="Contemporary living room with artistic wall feature" 
-              className="rounded-lg shadow-lg w-full h-64 object-cover"
+              className="rounded-lg shadow-lg w-full h-64 object-cover image-optimized smooth-transition hover:scale-105"
+              loading="lazy"
             />
             <img 
               src="/lovable-uploads/c35c1688-db77-4956-9269-4be00f84a7e2.png"
               alt="Modern entryway design with wooden accents" 
-              className="rounded-lg shadow-lg w-full h-64 object-cover"
+              className="rounded-lg shadow-lg w-full h-64 object-cover image-optimized smooth-transition hover:scale-105"
+              loading="lazy"
             />
             <img 
               src="/lovable-uploads/714f47a8-922c-4c49-9f75-219e46704b51.png"
               alt="Elegant office space with artistic wall elements" 
-              className="rounded-lg shadow-lg w-full h-64 object-cover"
+              className="rounded-lg shadow-lg w-full h-64 object-cover image-optimized smooth-transition hover:scale-105"
+              loading="lazy"
             />
           </div>
         </div>
       </section>
 
       {/* Values Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white optimize-rendering">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Core Values</h2>
@@ -201,7 +210,7 @@ export default function About() {
       </section>
 
       {/* Team Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gray-50 optimize-rendering">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">Meet Our Expert Team</h2>
@@ -211,7 +220,7 @@ export default function About() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {teamMembers.map((member, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+              <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden smooth-transition hover:shadow-xl gpu-accelerated">
                 <div className="w-full h-64 bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center">
                   <User className="w-24 h-24 text-orange-600" />
                 </div>
@@ -228,7 +237,7 @@ export default function About() {
       </section>
 
       {/* Mission & Vision Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white optimize-rendering">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12">
             <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-8 rounded-lg">
