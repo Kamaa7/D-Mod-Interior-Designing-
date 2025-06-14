@@ -3,7 +3,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Home, Building2, ChefHat, Bed, Sofa, Bath } from 'lucide-react';
+import { ArrowRight, Home, Building2, ChefHat, Bed, Sofa, Bath, Quote } from 'lucide-react';
 
 const ServicesOverview = () => {
   const services = [
@@ -79,10 +79,26 @@ const ServicesOverview = () => {
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             Comprehensive Design Solutions
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
             From intimate residential spaces to impressive commercial environments, 
             we create designs that inspire and function beautifully.
           </p>
+          
+          {/* Prominent Get Quote CTA */}
+          <div className="bg-gradient-to-r from-orange-600 to-orange-700 text-white rounded-2xl p-8 mb-12 max-w-2xl mx-auto">
+            <h3 className="text-2xl font-bold mb-4">Ready to Transform Your Space?</h3>
+            <p className="mb-6 opacity-90">Get a personalized quote for your dream interior design project</p>
+            <Button 
+              size="lg" 
+              className="bg-white text-orange-700 hover:bg-orange-50 px-8 py-4 rounded-xl shadow-lg font-semibold"
+              asChild
+            >
+              <Link to="/contact">
+                <Quote className="w-5 h-5 mr-2" />
+                Get Your Free Quote Now
+              </Link>
+            </Button>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
@@ -127,16 +143,28 @@ const ServicesOverview = () => {
                     ))}
                   </div>
                   
-                  <Button 
-                    variant="ghost" 
-                    className="text-orange-700 hover:bg-orange-50 p-0 h-auto font-medium group/btn w-full justify-start"
-                    asChild
-                  >
-                    <Link to="/services">
-                      Learn More
-                      <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                    </Link>
-                  </Button>
+                  <div className="flex gap-2">
+                    <Button 
+                      variant="ghost" 
+                      className="text-orange-700 hover:bg-orange-50 p-0 h-auto font-medium group/btn flex-1 justify-start"
+                      asChild
+                    >
+                      <Link to="/services">
+                        Learn More
+                        <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                      </Link>
+                    </Button>
+                    <Button 
+                      size="sm"
+                      className="bg-orange-600 hover:bg-orange-700 text-white"
+                      asChild
+                    >
+                      <Link to="/contact">
+                        <Quote className="w-3 h-3 mr-1" />
+                        Quote
+                      </Link>
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             );

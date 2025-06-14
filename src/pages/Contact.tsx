@@ -1,60 +1,35 @@
 
-import React from "react";
-import { Phone, Mail, MapPin, Clock, Send, MessageCircle, Calendar, Award } from "lucide-react";
+import React, { useState } from "react";
+import { Mail, Phone, MapPin, Clock, Send, MessageSquare } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import FloatingButtons from "@/components/FloatingButtons";
 
 export default function Contact() {
-  const contactInfo = [
-    {
-      icon: Phone,
-      title: "Phone Numbers",
-      details: ["+91 98765 43210", "+91 87654 32109"],
-      action: "Call us for immediate assistance",
-      color: "text-green-600",
-      bgColor: "bg-green-100"
-    },
-    {
-      icon: Mail,
-      title: "Email Addresses",
-      details: ["info@sattvamodular.com", "design@sattvamodular.com"],
-      action: "Send us your project details",
-      color: "text-blue-600",
-      bgColor: "bg-blue-100"
-    },
-    {
-      icon: MapPin,
-      title: "Office Address",
-      details: ["123 Design Street, Gomti Nagar", "Lucknow, Uttar Pradesh 226010"],
-      action: "Visit our design studio",
-      color: "text-purple-600",
-      bgColor: "bg-purple-100"
-    },
-    {
-      icon: Clock,
-      title: "Business Hours",
-      details: ["Mon - Sat: 10:00 AM - 7:00 PM", "Sunday: 11:00 AM - 5:00 PM"],
-      action: "Schedule your visit",
-      color: "text-orange-600",
-      bgColor: "bg-orange-100"
-    }
-  ];
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    service: '',
+    message: ''
+  });
 
-  const whyChooseUs = [
-    {
-      icon: Award,
-      title: "15+ Years Experience",
-      description: "Proven track record in interior design"
-    },
-    {
-      icon: MessageCircle,
-      title: "Free Consultation",
-      description: "Initial design consultation at no cost"
-    },
-    {
-      icon: Calendar,
-      title: "Timely Delivery",
-      description: "Projects completed within agreed timelines"
-    }
-  ];
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle form submission here
+    console.log('Form submitted:', formData);
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -62,195 +37,207 @@ export default function Contact() {
       <section className="bg-gradient-to-r from-orange-600 to-orange-800 text-white py-20">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl">
-            <h1 className="text-5xl font-bold mb-6">Get In Touch With Us</h1>
+            <h1 className="text-5xl font-bold mb-6">Get Your Free Quote</h1>
             <p className="text-xl leading-relaxed mb-8">
-              Ready to transform your space? Let's discuss your project and bring your vision to life. 
-              Our team of expert designers is here to help you create the perfect interior.
+              Ready to transform your space? Let's discuss your vision and create a design that exceeds your expectations.
             </p>
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 gap-6">
               <div className="text-center">
                 <div className="text-3xl font-bold">24hrs</div>
-                <div className="text-sm opacity-90">Response Time</div>
+                <div className="text-sm opacity-90">Quick Response</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold">Free</div>
-                <div className="text-sm opacity-90">Initial Consultation</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold">500+</div>
-                <div className="text-sm opacity-90">Happy Clients</div>
+                <div className="text-sm opacity-90">Consultation</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Contact Section */}
+      {/* Contact Form & Info */}
       <section className="py-16">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12">
-            {/* Contact Information */}
-            <div>
-              <h2 className="text-3xl font-bold text-gray-800 mb-8">Contact Information</h2>
-              <div className="grid gap-6 mb-8">
-                {contactInfo.map((info, index) => (
-                  <div key={index} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-                    <div className={`w-12 h-12 ${info.bgColor} rounded-lg flex items-center justify-center mb-4`}>
-                      <info.icon className={`w-6 h-6 ${info.color}`} />
-                    </div>
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2">{info.title}</h3>
-                    {info.details.map((detail, detailIndex) => (
-                      <p key={detailIndex} className="text-gray-600 text-sm mb-1">{detail}</p>
-                    ))}
-                    <p className="text-xs text-gray-500 mt-2">{info.action}</p>
-                  </div>
-                ))}
-              </div>
-
-              {/* Why Choose Us */}
-              <div className="bg-orange-50 p-6 rounded-lg">
-                <h3 className="text-xl font-bold text-gray-800 mb-4">Why Choose Sattva?</h3>
-                <div className="space-y-4">
-                  {whyChooseUs.map((item, index) => (
-                    <div key={index} className="flex items-start">
-                      <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
-                        <item.icon className="w-5 h-5 text-orange-600" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-gray-800">{item.title}</h4>
-                        <p className="text-sm text-gray-600">{item.description}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
             {/* Contact Form */}
-            <div className="bg-white p-8 rounded-lg shadow-lg">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">Send us a Message</h3>
-              <form className="space-y-6">
-                <div className="grid sm:grid-cols-2 gap-4">
+            <Card className="shadow-lg">
+              <CardHeader>
+                <CardTitle className="text-2xl text-orange-700">Send us a Message</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <Label htmlFor="name">Full Name *</Label>
+                      <Input
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        required
+                        className="mt-1"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="phone">Phone Number *</Label>
+                      <Input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        required
+                        className="mt-1"
+                      />
+                    </div>
+                  </div>
+                  
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
-                    <input 
-                      type="text" 
+                    <Label htmlFor="email">Email Address *</Label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
-                      placeholder="Enter your first name"
+                      className="mt-1"
                     />
                   </div>
+
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
-                    <input 
-                      type="text" 
+                    <Label htmlFor="service">Service Interested In</Label>
+                    <select
+                      id="service"
+                      name="service"
+                      value={formData.service}
+                      onChange={handleInputChange}
+                      className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+                    >
+                      <option value="">Select a service</option>
+                      <option value="complete-home">Complete Home Interior</option>
+                      <option value="modular-kitchen">Modular Kitchen</option>
+                      <option value="bedroom">Bedroom Design</option>
+                      <option value="living-room">Living Room</option>
+                      <option value="commercial">Commercial Interior</option>
+                      <option value="consultation">Design Consultation</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <Label htmlFor="message">Tell us about your project *</Label>
+                    <Textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
-                      placeholder="Enter your last name"
+                      rows={4}
+                      className="mt-1"
+                      placeholder="Describe your space, style preferences, budget range, timeline..."
                     />
                   </div>
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
-                  <input 
-                    type="email" 
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
-                    placeholder="your.email@example.com"
-                  />
-                </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
-                  <input 
-                    type="tel" 
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
-                    placeholder="+91 98765 43210"
-                  />
-                </div>
+                  <Button type="submit" className="w-full bg-orange-600 hover:bg-orange-700 text-white py-3">
+                    <Send className="w-4 h-4 mr-2" />
+                    Get Your Free Quote
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Project Type</label>
-                  <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all">
-                    <option>Select project type</option>
-                    <option>Residential Design (Home/Apartment)</option>
-                    <option>Commercial Design (Office/Retail)</option>
-                    <option>Modular Kitchen</option>
-                    <option>Complete Home Renovation</option>
-                    <option>Interior Consultation</option>
-                    <option>Other</option>
-                  </select>
-                </div>
+            {/* Contact Information */}
+            <div className="space-y-8">
+              <div>
+                <h2 className="text-3xl font-bold text-gray-800 mb-6">Get in Touch</h2>
+                <p className="text-gray-600 leading-relaxed">
+                  We're here to help bring your vision to life. Contact us through any of the methods below, 
+                  and we'll get back to you within 24 hours.
+                </p>
+              </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Project Budget</label>
-                  <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all">
-                    <option>Select budget range</option>
-                    <option>₹2-5 Lakhs</option>
-                    <option>₹5-10 Lakhs</option>
-                    <option>₹10-20 Lakhs</option>
-                    <option>₹20-50 Lakhs</option>
-                    <option>₹50+ Lakhs</option>
-                  </select>
-                </div>
+              <div className="grid gap-6">
+                <Card className="p-6">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                      <Phone className="w-6 h-6 text-orange-600" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-gray-800">Phone</h3>
+                      <p className="text-gray-600">+91 98765 43210</p>
+                      <p className="text-gray-600">+91 87654 32109</p>
+                    </div>
+                  </div>
+                </Card>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Project Details *</label>
-                  <textarea 
-                    rows={4}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
-                    placeholder="Please describe your project requirements, space details, timeline, and any specific preferences..."
-                  ></textarea>
-                </div>
+                <Card className="p-6">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                      <Mail className="w-6 h-6 text-orange-600" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-gray-800">Email</h3>
+                      <p className="text-gray-600">info@sattvamodular.com</p>
+                      <p className="text-gray-600">design@sattvamodular.com</p>
+                    </div>
+                  </div>
+                </Card>
 
-                <div className="flex items-start">
-                  <input 
-                    type="checkbox" 
-                    id="terms"
-                    className="mt-1 mr-3"
-                  />
-                  <label htmlFor="terms" className="text-sm text-gray-600">
-                    I agree to receive communications about my project and understand that my information will be used according to the privacy policy.
-                  </label>
-                </div>
+                <Card className="p-6">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                      <MapPin className="w-6 h-6 text-orange-600" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-gray-800">Address</h3>
+                      <p className="text-gray-600">123 Design Street, Gomti Nagar</p>
+                      <p className="text-gray-600">Lucknow, UP 226010</p>
+                    </div>
+                  </div>
+                </Card>
 
-                <button 
-                  type="submit"
-                  className="w-full bg-orange-600 text-white py-3 px-6 rounded-lg font-medium hover:bg-orange-700 transition-colors flex items-center justify-center gap-2"
+                <Card className="p-6">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                      <Clock className="w-6 h-6 text-orange-600" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-gray-800">Business Hours</h3>
+                      <p className="text-gray-600">Mon - Sat: 9:00 AM - 7:00 PM</p>
+                      <p className="text-gray-600">Sunday: By Appointment</p>
+                    </div>
+                  </div>
+                </Card>
+              </div>
+
+              <div className="bg-green-50 border border-green-200 rounded-lg p-6">
+                <div className="flex items-center space-x-3 mb-3">
+                  <MessageSquare className="w-6 h-6 text-green-600" />
+                  <h3 className="font-semibold text-green-800">WhatsApp Us</h3>
+                </div>
+                <p className="text-green-700 mb-4">
+                  Get instant responses to your queries. Chat with our design experts on WhatsApp.
+                </p>
+                <Button 
+                  className="bg-green-500 hover:bg-green-600 text-white"
+                  onClick={() => {
+                    const phoneNumber = "919876543210";
+                    const message = "Hi! I'm interested in your interior design services.";
+                    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                    window.open(whatsappUrl, '_blank');
+                  }}
                 >
-                  <Send className="w-4 h-4" />
-                  Send Message & Get Free Consultation
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Map Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Visit Our Design Studio</h2>
-            <p className="text-gray-600">Come and explore our material samples, design portfolios, and discuss your project in person.</p>
-          </div>
-          <div className="bg-gray-200 rounded-lg overflow-hidden shadow-lg">
-            <div className="h-96 flex items-center justify-center">
-              <div className="text-center">
-                <MapPin className="w-12 h-12 text-gray-500 mx-auto mb-4" />
-                <p className="text-gray-600 text-lg">Interactive Map</p>
-                <p className="text-gray-500">123 Design Street, Gomti Nagar, Lucknow</p>
-                <button className="mt-4 bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition-colors">
-                  Get Directions
-                </button>
+                  <MessageSquare className="w-4 h-4 mr-2" />
+                  Chat on WhatsApp
+                </Button>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Add floating buttons */}
+      <FloatingButtons />
     </div>
   );
 }
