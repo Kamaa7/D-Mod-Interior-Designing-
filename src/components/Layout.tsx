@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Home, Briefcase, Image, Users, Phone, Menu, BookOpen, Quote } from "lucide-react";
@@ -136,24 +137,13 @@ export default function Layout({ children }: LayoutProps) {
                 </SidebarMenu>
               </SidebarGroupContent>
             </SidebarGroup>
-
-            <div className="mt-8 p-4 bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl">
-              <h3 className="font-semibold text-orange-800 mb-2">Transform Your Space</h3>
-              <p className="text-sm text-orange-600 mb-3">Get a free consultation for your dream interior</p>
-              <Link to="/contact">
-                <button className="w-full bg-orange-700 text-white py-2 px-4 rounded-lg text-sm font-medium hover:bg-orange-800 transition-colors flex items-center justify-center gap-2">
-                  <Quote className="w-4 h-4" />
-                  Get Quote
-                </button>
-              </Link>
-            </div>
           </SidebarContent>
         </Sidebar>
 
         <main className="flex-1 flex flex-col">
-          <header className="bg-white border-b border-gray-100 px-6 py-4 md:hidden">
+          <header className="bg-white border-b border-gray-100 px-6 py-4">
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4 md:hidden">
                 <SidebarTrigger className="hover:bg-gray-100 p-2 rounded-lg transition-colors duration-200">
                   <Menu className="w-5 h-5" />
                 </SidebarTrigger>
@@ -163,6 +153,20 @@ export default function Layout({ children }: LayoutProps) {
                     alt="Sattva Modular Solutions"
                     className="w-auto h-7 object-contain"
                   />
+                </div>
+              </div>
+              
+              {/* Transform Your Space section moved to top right */}
+              <div className="ml-auto">
+                <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-lg p-3 max-w-xs">
+                  <h3 className="font-semibold text-orange-800 mb-1 text-sm">Transform Your Space</h3>
+                  <p className="text-xs text-orange-600 mb-2">Get a free consultation</p>
+                  <Link to="/contact">
+                    <button className="w-full bg-orange-700 text-white py-1.5 px-3 rounded text-xs font-medium hover:bg-orange-800 transition-colors flex items-center justify-center gap-1">
+                      <Quote className="w-3 h-3" />
+                      Get Quote
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
