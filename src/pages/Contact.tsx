@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Mail, Phone, MapPin, Clock, Send, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -7,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import FloatingButtons from "@/components/FloatingButtons";
+import SocialMediaButtons from "@/components/SocialMediaButtons";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -230,6 +230,15 @@ export default function Contact() {
                   <MessageSquare className="w-4 h-4 mr-2" />
                   Chat on WhatsApp
                 </Button>
+              </div>
+
+              {/* Social Media Section */}
+              <div className="bg-orange-50 border border-orange-200 rounded-lg p-6">
+                <h3 className="font-semibold text-orange-800 mb-3">Follow Us on Social Media</h3>
+                <p className="text-orange-700 mb-4">
+                  Stay updated with our latest projects and design inspiration.
+                </p>
+                <SocialMediaButtons />
               </div>
             </div>
           </div>

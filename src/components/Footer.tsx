@@ -1,8 +1,17 @@
-
 import { Link } from 'react-router-dom';
 import { Home, Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
 
 const Footer = () => {
+  const handleSocialClick = (platform: string) => {
+    const socialLinks = {
+      facebook: 'https://facebook.com/sattvamodularsolutions',
+      instagram: 'https://instagram.com/sattvamodularsolutions',
+      linkedin: 'https://linkedin.com/company/sattvamodularsolutions'
+    };
+    
+    window.open(socialLinks[platform as keyof typeof socialLinks], '_blank');
+  };
+
   return (
     <footer className="bg-sattva-dark text-white">
       <div className="container mx-auto px-4 py-12">
@@ -23,15 +32,24 @@ const Footer = () => {
               Creating beautiful, functional environments tailored to your lifestyle.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="p-2 bg-sattva-orange/20 rounded-lg hover:bg-sattva-orange transition-colors">
+              <button 
+                onClick={() => handleSocialClick('facebook')}
+                className="p-2 bg-sattva-orange/20 rounded-lg hover:bg-sattva-orange transition-colors"
+              >
                 <Facebook className="w-4 h-4" />
-              </a>
-              <a href="#" className="p-2 bg-sattva-orange/20 rounded-lg hover:bg-sattva-orange transition-colors">
+              </button>
+              <button 
+                onClick={() => handleSocialClick('instagram')}
+                className="p-2 bg-sattva-orange/20 rounded-lg hover:bg-sattva-orange transition-colors"
+              >
                 <Instagram className="w-4 h-4" />
-              </a>
-              <a href="#" className="p-2 bg-sattva-orange/20 rounded-lg hover:bg-sattva-orange transition-colors">
+              </button>
+              <button 
+                onClick={() => handleSocialClick('linkedin')}
+                className="p-2 bg-sattva-orange/20 rounded-lg hover:bg-sattva-orange transition-colors"
+              >
                 <Linkedin className="w-4 h-4" />
-              </a>
+              </button>
             </div>
           </div>
 
