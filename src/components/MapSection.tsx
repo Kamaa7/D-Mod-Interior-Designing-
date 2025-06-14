@@ -5,7 +5,6 @@ import { Button } from '@/components/ui/button';
 
 const MapSection = () => {
   const address = "4th Floor, Vision Space, BBD Viraj Tower, Kamta, Lucknow, UP 226010";
-  const coordinates = "26.8467,80.9462"; // Approximate coordinates for Kamta, Lucknow
 
   const openInGoogleMaps = () => {
     const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
@@ -28,30 +27,14 @@ const MapSection = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Map Embed */}
-          <div className="relative">
-            <div className="bg-gray-100 rounded-lg overflow-hidden shadow-lg h-96">
-              <iframe
-                src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dHBPd0Zt9LVfRA&q=${encodeURIComponent(address)}&zoom=15`}
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Sattva Modular Solutions Office Location"
-              />
-            </div>
-          </div>
-
+        <div className="max-w-4xl mx-auto">
           {/* Location Details */}
-          <div className="space-y-6">
-            <div className="flex items-start space-x-4">
+          <div className="space-y-8">
+            <div className="flex items-start space-x-4 justify-center">
               <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
                 <MapPin className="w-6 h-6 text-orange-600" />
               </div>
-              <div>
+              <div className="text-center">
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">Our Location</h3>
                 <p className="text-gray-600 leading-relaxed">
                   4th Floor, Vision Space<br />
@@ -61,8 +44,8 @@ const MapSection = () => {
               </div>
             </div>
 
-            <div className="bg-orange-50 border border-orange-200 rounded-lg p-6">
-              <h4 className="font-semibold text-orange-800 mb-3">Easy to Find</h4>
+            <div className="bg-orange-50 border border-orange-200 rounded-lg p-6 max-w-2xl mx-auto">
+              <h4 className="font-semibold text-orange-800 mb-3 text-center">Easy to Find</h4>
               <ul className="text-orange-700 space-y-2 text-sm">
                 <li>• Located in BBD Viraj Tower, a prominent landmark in Kamta</li>
                 <li>• Ample parking space available</li>
@@ -71,7 +54,7 @@ const MapSection = () => {
               </ul>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
               <Button 
                 onClick={openInGoogleMaps}
                 className="bg-orange-600 hover:bg-orange-700 text-white flex-1"
