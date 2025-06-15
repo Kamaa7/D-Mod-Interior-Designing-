@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Home, Briefcase, Image, Users, Phone, Menu, BookOpen, Quote } from "lucide-react";
@@ -111,7 +112,7 @@ export default function Layout({ children }: LayoutProps) {
                 <img
                   src="/lovable-uploads/73671f1f-6e81-4f40-91e3-06dc4ddd422a.png"
                   alt="Sattva Modular Solutions"
-                  className="w-full max-w-[120px] h-auto object-contain image-optimized"
+                  className="w-full max-w-[140px] h-auto object-contain image-optimized"
                 />
               </div>
             </SidebarHeader>
