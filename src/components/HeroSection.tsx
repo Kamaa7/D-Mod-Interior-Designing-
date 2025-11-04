@@ -22,7 +22,7 @@ const HeroSection = () => {
           <div className="flex items-center space-x-2 mb-6 animate-fade-in">
             <div className="flex space-x-1">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-4 h-4 fill-sattva-orange text-sattva-orange" />
+                <Star key={i} className="w-4 h-4 fill-primary text-primary" />
               ))}
             </div>
             <span className="text-sm font-medium">Trusted by 500+ Happy Clients</span>
@@ -30,7 +30,7 @@ const HeroSection = () => {
 
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight animate-slide-in">
             Transform Your
-            <span className="text-sattva-orange"> Space</span>
+            <span className="text-primary"> Space</span>
             <br />
             Into Dreams
           </h1>
@@ -43,7 +43,7 @@ const HeroSection = () => {
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 animate-fade-in">
             <Button 
               size="lg" 
-              className="bg-sattva-orange hover:bg-sattva-orange/90 text-white px-8 py-4 text-lg"
+              className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg"
               asChild
             >
               <Link to="/contact">
@@ -55,7 +55,7 @@ const HeroSection = () => {
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-white text-white hover:bg-white hover:text-sattva-dark px-8 py-4 text-lg"
+              className="border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 text-lg"
               asChild
             >
               <Link to="/portfolio">View Our Work</Link>
@@ -65,15 +65,15 @@ const HeroSection = () => {
           {/* Stats */}
           <div className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-white/20 animate-fade-in">
             <div className="text-center">
-              <div className="text-3xl font-bold text-sattva-orange">500+</div>
+              <div className="text-3xl font-bold text-blue-200">500+</div>
               <div className="text-sm text-gray-300">Projects Completed</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-sattva-orange">15+</div>
+              <div className="text-3xl font-bold text-blue-200">15+</div>
               <div className="text-sm text-gray-300">Years Experience</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-sattva-orange">98%</div>
+              <div className="text-3xl font-bold text-blue-200">98%</div>
               <div className="text-sm text-gray-300">Client Satisfaction</div>
             </div>
           </div>

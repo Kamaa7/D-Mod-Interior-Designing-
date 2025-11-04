@@ -24,10 +24,10 @@ const PortfolioPreviewSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-sattva-light">
+    <section className="py-20 bg-blue-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-sattva-dark mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Featured Projects
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -45,14 +45,14 @@ const PortfolioPreviewSection = () => {
                   className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <Button variant="outline" className="border-white text-white hover:bg-white hover:text-sattva-dark">
+                  <Button variant="outline" className="border-white text-white hover:bg-white hover:text-gray-900">
                     View Details
                   </Button>
                 </div>
               </div>
               <CardContent className="p-6">
-                <p className="text-sm text-sattva-orange font-medium mb-2">{project.category}</p>
-                <h3 className="text-xl font-semibold text-sattva-dark">{project.title}</h3>
+                <p className="text-sm text-primary font-medium mb-2">{project.category}</p>
+                <h3 className="text-xl font-semibold text-gray-900">{project.title}</h3>
               </CardContent>
             </Card>
           ))}
@@ -61,7 +61,7 @@ const PortfolioPreviewSection = () => {
         <div className="text-center">
           <Button 
             size="lg" 
-            className="bg-sattva-orange hover:bg-sattva-orange/90 text-white px-8 py-4"
+            className="bg-primary hover:bg-primary/90 text-white px-8 py-4"
             asChild
           >
             <Link to="/portfolio">

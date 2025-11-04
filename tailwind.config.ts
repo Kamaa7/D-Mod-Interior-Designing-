@@ -30,7 +30,7 @@ export default {
 					foreground: '#FFFFFF'
 				},
 				secondary: {
-					DEFAULT: 'hsl(25, 95%, 53%)',
+					DEFAULT: 'hsl(225, 73%, 67%)',
 					foreground: '#FFFFFF'
 				},
 				accent: {
@@ -67,8 +67,6 @@ export default {
 					blue: 'hsl(225, 73%, 57%)',
 					'blue-dark': 'hsl(225, 73%, 47%)',
 					'blue-light': 'hsl(225, 73%, 67%)',
-					orange: 'hsl(25, 95%, 53%)',
-					'orange-light': 'hsl(25, 95%, 63%)',
 					dark: '#1A1A1A',
 					light: '#F0F4FF'
 				}

@@ -45,10 +45,10 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-sattva-light">
+    <section className="py-20 bg-gradient-to-b from-white to-blue-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-sattva-dark mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Our Design Services
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -63,11 +63,11 @@ const ServicesSection = () => {
             return (
               <Card key={index} className="group hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-0 shadow-lg">
                 <CardContent className="p-8">
-                  <div className="w-16 h-16 bg-sattva-orange/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-sattva-orange group-hover:scale-110 transition-all duration-300">
-                    <IconComponent className="w-8 h-8 text-sattva-orange group-hover:text-white" />
+                  <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                    <IconComponent className="w-8 h-8 text-primary group-hover:text-white" />
                   </div>
                   
-                  <h3 className="text-xl font-semibold text-sattva-dark mb-4 group-hover:text-sattva-orange transition-colors">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-4 group-hover:text-primary transition-colors">
                     {service.title}
                   </h3>
                   
@@ -78,7 +78,7 @@ const ServicesSection = () => {
                   <ul className="space-y-2 mb-6">
                     {service.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-center text-sm text-gray-600">
-                        <div className="w-1.5 h-1.5 bg-sattva-orange rounded-full mr-3"></div>
+                        <div className="w-1.5 h-1.5 bg-primary rounded-full mr-3"></div>
                         {feature}
                       </li>
                     ))}
@@ -86,7 +86,7 @@ const ServicesSection = () => {
                   
                   <Button 
                     variant="ghost" 
-                    className="text-sattva-orange hover:bg-sattva-orange hover:text-white p-0 h-auto font-medium group/btn"
+                    className="text-primary hover:bg-primary hover:text-white p-0 h-auto font-medium group/btn"
                     asChild
                   >
                     <Link to="/services">
@@ -103,7 +103,7 @@ const ServicesSection = () => {
         <div className="text-center">
           <Button 
             size="lg" 
-            className="bg-sattva-orange hover:bg-sattva-orange/90 text-white px-8 py-4"
+            className="bg-primary hover:bg-primary/90 text-white px-8 py-4"
             asChild
           >
             <Link to="/services">

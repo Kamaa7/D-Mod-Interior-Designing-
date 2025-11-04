@@ -17,7 +17,7 @@ export default function FloatingButtons() {
       {/* WhatsApp Button */}
       <Button
         onClick={handleWhatsAppClick}
-        className="w-14 h-14 rounded-full bg-green-500 hover:bg-green-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center"
+        className="w-14 h-14 rounded-full bg-primary hover:bg-primary/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center"
         title="Chat on WhatsApp"
       >
         <MessageSquare className="w-6 h-6" />
@@ -26,7 +26,7 @@ export default function FloatingButtons() {
       {/* Get Quote Button */}
       <Link to="/contact">
         <Button
-          className="w-14 h-14 rounded-full bg-orange-600 hover:bg-orange-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center"
+          className="w-14 h-14 rounded-full bg-primary hover:bg-primary/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center"
           title="Get Quote"
         >
           <Quote className="w-6 h-6" />

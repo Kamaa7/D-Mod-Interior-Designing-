@@ -31,8 +31,8 @@ const MapSection = () => {
           {/* Location Details */}
           <div className="space-y-8">
             <div className="flex items-start space-x-4 justify-center">
-              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                <MapPin className="w-6 h-6 text-orange-600" />
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <MapPin className="w-6 h-6 text-primary" />
               </div>
               <div className="text-center">
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">Our Location</h3>
@@ -44,9 +44,9 @@ const MapSection = () => {
               </div>
             </div>
 
-            <div className="bg-orange-50 border border-orange-200 rounded-lg p-6 max-w-2xl mx-auto">
-              <h4 className="font-semibold text-orange-800 mb-3 text-center">Easy to Find</h4>
-              <ul className="text-orange-700 space-y-2 text-sm">
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 max-w-2xl mx-auto">
+              <h4 className="font-semibold text-primary mb-3 text-center">Easy to Find</h4>
+              <ul className="text-blue-700 space-y-2 text-sm">
                 <li>• Located in BBD Viraj Tower, a prominent landmark in Kamta</li>
                 <li>• Ample parking space available</li>
                 <li>• Accessible by public transport</li>
@@ -57,7 +57,7 @@ const MapSection = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
               <Button 
                 onClick={openInGoogleMaps}
-                className="bg-orange-600 hover:bg-orange-700 text-white flex-1"
+                className="bg-primary hover:bg-primary/90 text-white flex-1"
               >
                 <MapPin className="w-4 h-4 mr-2" />
                 View on Google Maps
@@ -65,7 +65,7 @@ const MapSection = () => {
               <Button 
                 onClick={getDirections}
                 variant="outline"
-                className="border-orange-600 text-orange-600 hover:bg-orange-50 flex-1"
+                className="border-primary text-primary hover:bg-blue-50 flex-1"
               >
                 <Navigation className="w-4 h-4 mr-2" />
                 Get Directions
@@ -74,7 +74,7 @@ const MapSection = () => {
 
             <div className="text-center pt-4">
               <p className="text-sm text-gray-500">
-                Having trouble finding us? Call us at <span className="font-semibold">+91 98765 43210</span> 
+                Having trouble finding us? Call us at <span className="font-semibold">+91 96169 96699</span> 
                 and we'll guide you to our office.
               </p>
             </div>
