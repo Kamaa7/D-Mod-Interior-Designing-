@@ -27,7 +27,7 @@ const Header = () => {
           <Link to="/" className="flex items-center group">
             <img 
               src="/lovable-uploads/7a7124d7-3031-49b3-899f-adf88c772229.png" 
-              alt="Sattva Modular Solutions"
+              alt="D-Mod Solutions"
               className="h-12 w-auto group-hover:scale-105 transition-transform"
             />
           </Link>

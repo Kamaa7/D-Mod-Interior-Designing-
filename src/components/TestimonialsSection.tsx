@@ -7,7 +7,7 @@ const TestimonialsSection = () => {
     {
       name: 'Priya Sharma',
       role: 'Homeowner, Gomti Nagar',
-      content: 'Sattva transformed our home beyond our dreams. Their attention to detail and understanding of our needs was exceptional.',
+      content: 'D-Mod Solutions transformed our home beyond our dreams. Their attention to detail and understanding of our needs was exceptional.',
       rating: 5
     },
     {
@@ -19,7 +19,7 @@ const TestimonialsSection = () => {
     {
       name: 'Anita Verma',
       role: 'Architect',
-      content: 'Working with Sattva was a pleasure. Their modular solutions are innovative and perfectly executed.',
+      content: 'Working with D-Mod Solutions was a pleasure. Their modular solutions are innovative and perfectly executed.',
       rating: 5
     }
   ];
