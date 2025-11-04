@@ -1,5 +1,6 @@
 
 import { Facebook, Instagram, Linkedin } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 interface SocialMediaButtonsProps {
   variant?: 'default' | 'compact';
@@ -7,14 +8,20 @@ interface SocialMediaButtonsProps {
 }
 
 const SocialMediaButtons = ({ variant = 'default', className = '' }: SocialMediaButtonsProps) => {
+  const navigate = useNavigate();
+  
   const handleSocialClick = (platform: string) => {
     const socialLinks = {
-      facebook: 'https://facebook.com/sattvamodularsolutions',
-      instagram: 'https://instagram.com/sattvamodularsolutions',
-      linkedin: 'https://linkedin.com/company/sattvamodularsolutions'
+      facebook: '/signup',
+      instagram: 'https://www.instagram.com/_d_mod?igsh=MWJ5N2xqajFubjU2',
+      linkedin: '/signup'
     };
     
-    window.open(socialLinks[platform as keyof typeof socialLinks], '_blank');
+    if (platform === 'facebook' || platform === 'linkedin') {
+      navigate(socialLinks[platform as keyof typeof socialLinks]);
+    } else {
+      window.open(socialLinks[platform as keyof typeof socialLinks], '_blank');
+    }
   };
 
   const buttonSize = variant === 'compact' ? 'w-8 h-8' : 'w-10 h-10';

@@ -1,16 +1,22 @@
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Home, Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
 
 const Footer = () => {
+  const navigate = useNavigate();
+  
   const handleSocialClick = (platform: string) => {
     const socialLinks = {
-      facebook: 'https://facebook.com/dmodinterior',
+      facebook: '/signup',
       instagram: 'https://www.instagram.com/_d_mod?igsh=MWJ5N2xqajFubjU2',
-      linkedin: 'https://linkedin.com/company/dmodinterior'
+      linkedin: '/signup'
     };
     
-    window.open(socialLinks[platform as keyof typeof socialLinks], '_blank');
+    if (platform === 'facebook' || platform === 'linkedin') {
+      navigate(socialLinks[platform as keyof typeof socialLinks]);
+    } else {
+      window.open(socialLinks[platform as keyof typeof socialLinks], '_blank');
+    }
   };
 
   return (
