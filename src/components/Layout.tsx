@@ -110,8 +110,8 @@ export default function Layout({ children }: LayoutProps) {
             <SidebarHeader className="border-b border-gray-100 p-6">
               <div className="flex flex-col items-center gap-4">
                 <img
-                  src="/lovable-uploads/73671f1f-6e81-4f40-91e3-06dc4ddd422a.png"
-                  alt="Sattva Modular Solutions"
+                  src="/dmod-logo.png"
+                  alt="D-Mod Interior Solution"
                   className="w-full max-w-[140px] h-auto object-contain image-optimized"
                 />
               </div>
@@ -125,8 +125,8 @@ export default function Layout({ children }: LayoutProps) {
                       <SidebarMenuItem key={item.title}>
                         <SidebarMenuButton 
                           asChild 
-                          className={`hover:bg-orange-50 hover:text-orange-600 smooth-transition rounded-xl py-3 ${
-                            location.pathname === item.url ? 'bg-orange-50 text-orange-600 border-l-4 border-orange-500' : ''
+                          className={`hover:bg-blue-50 hover:text-primary smooth-transition rounded-xl py-3 ${
+                            location.pathname === item.url ? 'bg-blue-50 text-primary border-l-4 border-primary' : ''
                           }`}
                         >
                           <Link to={item.url} className="flex items-center gap-3 px-4">
@@ -151,19 +151,19 @@ export default function Layout({ children }: LayoutProps) {
                   </SidebarTrigger>
                   <div className="flex items-center gap-2">
                     <img
-                      src="/lovable-uploads/73671f1f-6e81-4f40-91e3-06dc4ddd422a.png"
-                      alt="Sattva Modular Solutions"
+                      src="/dmod-logo.png"
+                      alt="D-Mod Interior Solution"
                       className="w-auto h-7 object-contain image-optimized"
                     />
                   </div>
                 </div>
                 
-                <div className="ml-auto">
-                  <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-lg p-3 max-w-xs gpu-accelerated">
-                    <h3 className="font-semibold text-orange-700 mb-1 text-sm">Transform Your Space</h3>
-                    <p className="text-xs text-orange-600 mb-2">Get a free consultation</p>
+                  <div className="ml-auto">
+                  <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-3 max-w-xs gpu-accelerated">
+                    <h3 className="font-semibold text-blue-700 mb-1 text-sm">Transform Your Space</h3>
+                    <p className="text-xs text-blue-600 mb-2">Get a free consultation</p>
                     <Link to="/contact">
-                      <button className="w-full bg-orange-500 text-white py-1.5 px-3 rounded text-xs font-medium hover:bg-orange-600 smooth-transition flex items-center justify-center gap-1">
+                      <button className="w-full bg-primary text-white py-1.5 px-3 rounded text-xs font-medium hover:bg-primary/90 smooth-transition flex items-center justify-center gap-1">
                         <Quote className="w-3 h-3" />
                         Get Quote
                       </button>

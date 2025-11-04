@@ -6,8 +6,7 @@ import { Button } from "@/components/ui/button";
 
 export default function FloatingButtons() {
   const handleWhatsAppClick = () => {
-    // Replace with your actual WhatsApp number
-    const phoneNumber = "919876543210"; // Replace with your WhatsApp number
+    const phoneNumber = "919616996699";
     const message = "Hi! I'm interested in your interior design services.";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');

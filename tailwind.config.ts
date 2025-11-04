@@ -26,16 +26,16 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: '#FF8C42',
+					DEFAULT: 'hsl(225, 73%, 57%)',
 					foreground: '#FFFFFF'
 				},
 				secondary: {
-					DEFAULT: '#F5E6B3',
-					foreground: '#1A1A1A'
+					DEFAULT: 'hsl(25, 95%, 53%)',
+					foreground: '#FFFFFF'
 				},
 				accent: {
-					DEFAULT: '#FFF8E7',
-					foreground: '#1A1A1A'
+					DEFAULT: 'hsl(225, 73%, 97%)',
+					foreground: 'hsl(225, 73%, 57%)'
 				},
 				muted: {
 					DEFAULT: '#F8F5F0',
@@ -63,11 +63,14 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				sattva: {
-					orange: '#FF8C42',
-					cream: '#F5E6B3',
-					light: '#FFF8E7',
-					dark: '#1A1A1A'
+				dmod: {
+					blue: 'hsl(225, 73%, 57%)',
+					'blue-dark': 'hsl(225, 73%, 47%)',
+					'blue-light': 'hsl(225, 73%, 67%)',
+					orange: 'hsl(25, 95%, 53%)',
+					'orange-light': 'hsl(25, 95%, 63%)',
+					dark: '#1A1A1A',
+					light: '#F0F4FF'
 				}
 			},
 			borderRadius: {

@@ -36,7 +36,7 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-orange-600 to-orange-800 text-white py-20">
+      <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-20">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl">
             <h1 className="text-5xl font-bold mb-6">Get Your Free Quote</h1>
@@ -64,7 +64,7 @@ export default function Contact() {
             {/* Contact Form */}
             <Card className="shadow-lg">
               <CardHeader>
-                <CardTitle className="text-2xl text-orange-700">Send us a Message</CardTitle>
+                <CardTitle className="text-2xl text-primary">Send us a Message</CardTitle>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -140,7 +140,7 @@ export default function Contact() {
                     />
                   </div>
 
-                  <Button type="submit" className="w-full bg-orange-600 hover:bg-orange-700 text-white py-3">
+                  <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-white py-3">
                     <Send className="w-4 h-4 mr-2" />
                     Get Your Free Quote
                   </Button>
@@ -161,34 +161,32 @@ export default function Contact() {
               <div className="grid gap-6">
                 <Card className="p-6">
                   <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
-                      <Phone className="w-6 h-6 text-orange-600" />
+                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                      <Phone className="w-6 h-6 text-primary" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-800">Phone</h3>
-                      <p className="text-gray-600">+91 98765 43210</p>
-                      <p className="text-gray-600">+91 87654 32109</p>
+                      <p className="text-gray-600">+91 96169 96699</p>
                     </div>
                   </div>
                 </Card>
 
                 <Card className="p-6">
                   <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
-                      <Mail className="w-6 h-6 text-orange-600" />
+                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                      <Mail className="w-6 h-6 text-primary" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-800">Email</h3>
-                      <p className="text-gray-600">info@sattvamodular.com</p>
-                      <p className="text-gray-600">design@sattvamodular.com</p>
+                      <p className="text-gray-600">dmod.interior@gmail.com</p>
                     </div>
                   </div>
                 </Card>
 
                 <Card className="p-6">
                   <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
-                      <MapPin className="w-6 h-6 text-orange-600" />
+                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                      <MapPin className="w-6 h-6 text-primary" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-800">Address</h3>
@@ -201,8 +199,8 @@ export default function Contact() {
 
                 <Card className="p-6">
                   <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
-                      <Clock className="w-6 h-6 text-orange-600" />
+                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                      <Clock className="w-6 h-6 text-primary" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-800">Business Hours</h3>
@@ -224,7 +222,7 @@ export default function Contact() {
                 <Button 
                   className="bg-green-500 hover:bg-green-600 text-white"
                   onClick={() => {
-                    const phoneNumber = "919876543210";
+                    const phoneNumber = "919616996699";
                     const message = "Hi! I'm interested in your interior design services.";
                     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
                     window.open(whatsappUrl, '_blank');
@@ -236,9 +234,9 @@ export default function Contact() {
               </div>
 
               {/* Social Media Section */}
-              <div className="bg-orange-50 border border-orange-200 rounded-lg p-6">
-                <h3 className="font-semibold text-orange-800 mb-3">Follow Us on Social Media</h3>
-                <p className="text-orange-700 mb-4">
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                <h3 className="font-semibold text-primary mb-3">Follow Us on Social Media</h3>
+                <p className="text-blue-700 mb-4">
                   Stay updated with our latest projects and design inspiration.
                 </p>
                 <SocialMediaButtons />
