@@ -36,21 +36,21 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-12">
+      <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-8">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Get Your Free Quote</h1>
-            <p className="text-lg md:text-xl leading-relaxed mb-6">
+            <h1 className="text-3xl md:text-4xl font-bold mb-3">Get Your Free Quote</h1>
+            <p className="text-base md:text-lg leading-relaxed mb-4">
               Ready to transform your space? Let's discuss your vision and create a design that exceeds your expectations.
             </p>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-4">
               <div className="text-center">
-                <div className="text-3xl font-bold">24hrs</div>
-                <div className="text-sm opacity-90">Quick Response</div>
+                <div className="text-2xl font-bold">24hrs</div>
+                <div className="text-xs opacity-90">Quick Response</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold">Free</div>
-                <div className="text-sm opacity-90">Consultation</div>
+                <div className="text-2xl font-bold">Free</div>
+                <div className="text-xs opacity-90">Consultation</div>
               </div>
             </div>
           </div>
@@ -58,16 +58,16 @@ export default function Contact() {
       </section>
 
       {/* Contact Form & Info */}
-      <section className="py-10">
+      <section className="py-6">
         <div className="container mx-auto px-6 max-w-7xl">
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="grid lg:grid-cols-2 gap-6">
             {/* Contact Form */}
             <Card className="shadow-lg">
-              <CardHeader>
-                <CardTitle className="text-2xl text-primary">Send us a Message</CardTitle>
+              <CardHeader className="p-4 pb-2">
+                <CardTitle className="text-xl text-primary">Send us a Message</CardTitle>
               </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
+              <CardContent className="p-4">
+                <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <Label htmlFor="name">Full Name *</Label>
@@ -149,74 +149,74 @@ export default function Contact() {
             </Card>
 
             {/* Contact Information */}
-            <div className="space-y-8">
+            <div className="space-y-4">
               <div>
-                <h2 className="text-3xl font-bold text-gray-800 mb-6">Get in Touch</h2>
-                <p className="text-gray-600 leading-relaxed">
+                <h2 className="text-2xl font-bold text-gray-800 mb-3">Get in Touch</h2>
+                <p className="text-gray-600 leading-relaxed text-sm">
                   We're here to help bring your vision to life. Contact us through any of the methods below, 
                   and we'll get back to you within 24 hours.
                 </p>
               </div>
 
-              <div className="grid gap-6">
-                <Card className="p-6">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                      <Phone className="w-6 h-6 text-primary" />
+              <div className="grid gap-4">
+                <Card className="p-4">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                      <Phone className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-800">Phone</h3>
-                      <p className="text-gray-600">+91 96169 96699</p>
+                      <h3 className="font-semibold text-gray-800 text-sm">Phone</h3>
+                      <p className="text-gray-600 text-sm">+91 96169 96699</p>
                     </div>
                   </div>
                 </Card>
 
-                <Card className="p-6">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                      <Mail className="w-6 h-6 text-primary" />
+                <Card className="p-4">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                      <Mail className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-800">Email</h3>
-                      <p className="text-gray-600">dmod.interior@gmail.com</p>
+                      <h3 className="font-semibold text-gray-800 text-sm">Email</h3>
+                      <p className="text-gray-600 text-sm">dmod.interior@gmail.com</p>
                     </div>
                   </div>
                 </Card>
 
-                <Card className="p-6">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                      <MapPin className="w-6 h-6 text-primary" />
+                <Card className="p-4">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                      <MapPin className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-800">Address</h3>
-                      <p className="text-gray-600">4th Floor, Vision Space</p>
-                      <p className="text-gray-600">BBD Viraj Tower, Kamta</p>
-                      <p className="text-gray-600">Lucknow, UP 226010</p>
+                      <h3 className="font-semibold text-gray-800 text-sm">Address</h3>
+                      <p className="text-gray-600 text-sm">4th Floor, Vision Space</p>
+                      <p className="text-gray-600 text-sm">BBD Viraj Tower, Kamta</p>
+                      <p className="text-gray-600 text-sm">Lucknow, UP 226010</p>
                     </div>
                   </div>
                 </Card>
 
-                <Card className="p-6">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                      <Clock className="w-6 h-6 text-primary" />
+                <Card className="p-4">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                      <Clock className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-800">Business Hours</h3>
-                      <p className="text-gray-600">Mon - Sat: 9:00 AM - 7:00 PM</p>
-                      <p className="text-gray-600">Sunday: By Appointment</p>
+                      <h3 className="font-semibold text-gray-800 text-sm">Business Hours</h3>
+                      <p className="text-gray-600 text-sm">Mon - Sat: 9:00 AM - 7:00 PM</p>
+                      <p className="text-gray-600 text-sm">Sunday: By Appointment</p>
                     </div>
                   </div>
                 </Card>
               </div>
 
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-                <div className="flex items-center space-x-3 mb-3">
-                  <MessageSquare className="w-6 h-6 text-primary" />
-                  <h3 className="font-semibold text-blue-800">WhatsApp Us</h3>
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <div className="flex items-center space-x-2 mb-2">
+                  <MessageSquare className="w-5 h-5 text-primary" />
+                  <h3 className="font-semibold text-blue-800 text-sm">WhatsApp Us</h3>
                 </div>
-                <p className="text-blue-700 mb-4">
+                <p className="text-blue-700 mb-3 text-sm">
                   Get instant responses to your queries. Chat with our design experts on WhatsApp.
                 </p>
                 <Button 
@@ -234,9 +234,9 @@ export default function Contact() {
               </div>
 
               {/* Social Media Section */}
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-                <h3 className="font-semibold text-primary mb-3">Follow Us on Social Media</h3>
-                <p className="text-blue-700 mb-4">
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <h3 className="font-semibold text-primary mb-2 text-sm">Follow Us on Social Media</h3>
+                <p className="text-blue-700 mb-3 text-sm">
                   Stay updated with our latest projects and design inspiration.
                 </p>
                 <SocialMediaButtons />
