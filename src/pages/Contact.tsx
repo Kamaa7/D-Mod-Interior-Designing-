@@ -36,11 +36,11 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-20">
+      <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-12">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl">
-            <h1 className="text-5xl font-bold mb-6">Get Your Free Quote</h1>
-            <p className="text-xl leading-relaxed mb-8">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">Get Your Free Quote</h1>
+            <p className="text-lg md:text-xl leading-relaxed mb-6">
               Ready to transform your space? Let's discuss your vision and create a design that exceeds your expectations.
             </p>
             <div className="grid grid-cols-2 gap-6">
@@ -58,9 +58,9 @@ export default function Contact() {
       </section>
 
       {/* Contact Form & Info */}
-      <section className="py-16">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12">
+      <section className="py-10">
+        <div className="container mx-auto px-6 max-w-7xl">
+          <div className="grid lg:grid-cols-2 gap-8">
             {/* Contact Form */}
             <Card className="shadow-lg">
               <CardHeader>

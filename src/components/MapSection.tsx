@@ -17,9 +17,9 @@ const MapSection = () => {
   };
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-10 bg-white">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">Visit Our Office</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Located in the heart of Lucknow, our office is easily accessible and equipped with 
@@ -29,7 +29,7 @@ const MapSection = () => {
 
         <div className="max-w-4xl mx-auto">
           {/* Location Details */}
-          <div className="space-y-8">
+          <div className="space-y-6">
             <div className="flex items-start space-x-4 justify-center">
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                 <MapPin className="w-6 h-6 text-primary" />
