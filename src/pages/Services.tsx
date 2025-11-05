@@ -60,7 +60,7 @@ export default function Services() {
       title: "Custom Crafted Solutions",
       description: "Bespoke design solutions tailored to your unique requirements and personal style.",
       features: ["Bespoke Design", "Custom Furniture", "Personalized Solutions", "Unique Concepts"],
-      image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "/lovable-uploads/spacejoy-c0JoR_-2x3E-unsplash.jpg"
     },
     {
       title: "Vastu-Compliant Designs",
