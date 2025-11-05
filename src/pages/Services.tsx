@@ -36,7 +36,7 @@ export default function Services() {
       title: "Lighting Design",
       description: "Strategic lighting solutions that enhance ambiance and functionality in every space.",
       features: ["Ambient Lighting", "Task Lighting", "Accent Lighting", "Smart Lighting Systems"],
-      image: "https://images.unsplash.com/photo-1524230572899-a752b3835840?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "/lovable-uploads/alef-morais-gf0zQ4Y6KKw-unsplash.jpg"
     },
     {
       title: "Modular Solutions",
