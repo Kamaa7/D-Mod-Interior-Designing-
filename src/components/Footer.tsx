@@ -29,7 +29,7 @@ const Footer = () => {
               <img 
                 src="/dmod-logo.png" 
                 alt="D-Mod The Interior Factory" 
-                className="w-32 h-auto object-contain"
+                className="w-28 h-auto object-contain"
               />
             </Link>
             <p className="text-sm text-gray-300 leading-relaxed">

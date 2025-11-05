@@ -28,7 +28,7 @@ const Header = () => {
             <img 
               src="/lovable-uploads/7a7124d7-3031-49b3-899f-adf88c772229.png" 
               alt="D-Mod The Interior Factory"
-              className="h-12 w-auto group-hover:scale-105 transition-transform"
+              className="h-10 w-auto group-hover:scale-105 transition-transform"
             />
           </Link>
 
