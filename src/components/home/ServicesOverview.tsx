@@ -28,7 +28,7 @@ const ServicesOverview = () => {
       description: 'Realistic 3D renderings that help you visualize your space before implementation.',
       features: ['3D Modeling', 'Virtual Walkthrough', 'Realistic Rendering', 'Design Preview'],
       badge: 'Trending',
-      image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
+      image: '/lovable-uploads/bilal-mansuri-1C9l7AIkLBg-unsplash.jpg'
     },
     {
       icon: Lightbulb,

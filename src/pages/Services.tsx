@@ -24,7 +24,7 @@ export default function Services() {
       title: "3D Visualizations",
       description: "Realistic 3D renderings that help you visualize your space before implementation.",
       features: ["3D Modeling", "Virtual Walkthrough", "Realistic Rendering", "Design Preview"],
-      image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "/lovable-uploads/bilal-mansuri-1C9l7AIkLBg-unsplash.jpg"
     },
     {
       title: "Furniture and Fixture Selection",
