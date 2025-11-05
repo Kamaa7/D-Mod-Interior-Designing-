@@ -48,7 +48,7 @@ export default function Services() {
       title: "Home Decor",
       description: "Complete home styling with decorative elements, accessories, and finishing touches.",
       features: ["Accessories Selection", "Color Coordination", "Artwork Curation", "Textile Selection"],
-      image: "/lovable-uploads/spacejoy-c0JoR_-2x3E-unsplash.jpg"
+      image: "/lovable-uploads/karolina-grabowska-ulh3-dLSXjI-unsplash.jpg"
     },
     {
       title: "Project Management",
