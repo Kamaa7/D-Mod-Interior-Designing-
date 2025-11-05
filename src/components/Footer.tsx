@@ -87,9 +87,7 @@ const Footer = () => {
                 'Lighting Design',
                 'Modular Solutions',
                 'Luxury Interior Design',
-                'Commercial Interior Design',
-                'Hospitality Interior Design',
-                'Retail Interior Design'
+                'Commercial Interior Design'
               ].map((service) => (
                 <li key={service}>
                   <Link 

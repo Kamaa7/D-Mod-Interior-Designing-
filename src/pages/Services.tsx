@@ -90,18 +90,6 @@ export default function Services() {
       description: "Professional commercial spaces designed for productivity, brand identity, and customer experience.",
       features: ["Brand Integration", "Functional Design", "Professional Aesthetics", "Durability"],
       image: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    },
-    {
-      title: "Hospitality Interior Design",
-      description: "Welcoming hospitality spaces that create memorable experiences for guests and visitors.",
-      features: ["Guest Experience", "Ambiance Creation", "Comfortable Spaces", "Functional Layout"],
-      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    },
-    {
-      title: "Retail Interior Design",
-      description: "Strategic retail interiors that enhance customer experience and drive sales.",
-      features: ["Customer Flow", "Display Design", "Brand Showcase", "Shopping Experience"],
-      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     }
   ];
 
