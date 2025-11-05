@@ -28,7 +28,7 @@ const Footer = () => {
             <Link to="/" className="flex items-center space-x-3">
               <img 
                 src="/dmod-logo.png" 
-                alt="D-Mod Interior Solution" 
+                alt="D-Mod The Interior Factory" 
                 className="w-32 h-auto object-contain"
               />
             </Link>
@@ -128,7 +128,7 @@ const Footer = () => {
         <div className="border-t border-gray-700 mt-8 pt-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-gray-400">
-              © 2025 D-Mod Interior Solution. All rights reserved.
+              © 2025 D-Mod The Interior Factory. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link to="#" className="text-sm text-gray-400 hover:text-blue-200 transition-colors">

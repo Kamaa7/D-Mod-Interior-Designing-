@@ -7,7 +7,7 @@ const Testimonials = () => {
     {
       name: 'Priya Sharma',
       role: 'Homeowner, Gomti Nagar',
-      content: 'D-Mod Solutions transformed our home beyond our dreams. Their attention to detail and understanding of our needs was exceptional.',
+      content: 'D-Mod The Interior Factory transformed our home beyond our dreams. Their attention to detail and understanding of our needs was exceptional.',
       rating: 5
     },
     {
@@ -19,7 +19,7 @@ const Testimonials = () => {
     {
       name: 'Anita Verma',
       role: 'Architect',
-      content: 'Working with D-Mod Solutions was a pleasure. Their modular solutions are innovative and perfectly executed.',
+      content: 'Working with D-Mod The Interior Factory was a pleasure. Their modular solutions are innovative and perfectly executed.',
       rating: 5
     }
   ];

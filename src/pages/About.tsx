@@ -66,7 +66,7 @@ export default function About() {
       <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-20 gpu-accelerated">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl">
-            <h1 className="text-5xl font-bold mb-6">About D-Mod Interior Solution</h1>
+            <h1 className="text-5xl font-bold mb-6">About D-Mod The Interior Factory</h1>
             <p className="text-xl leading-relaxed mb-8">
               Transforming spaces into beautiful, functional environments that reflect your unique style and enhance your lifestyle. 
               Based in Lucknow, we bring international design standards to create extraordinary interiors.
@@ -93,7 +93,7 @@ export default function About() {
             <div>
               <h2 className="text-3xl font-bold text-gray-800 mb-6">Our Story</h2>
               <p className="text-gray-600 mb-4">
-                Founded with a passion for creating extraordinary spaces, D-Mod Interior Solution has been at the forefront of interior design innovation in Lucknow and across North India. What started as a small design studio has grown into a full-service interior design firm.
+                Founded with a passion for creating extraordinary spaces, D-Mod The Interior Factory has been at the forefront of interior design innovation in Lucknow and across North India. What started as a small design studio has grown into a full-service interior design firm.
               </p>
               <p className="text-gray-600 mb-4">
                 We believe that great design has the power to transform not just spaces, but lives. Our approach combines aesthetic excellence with functional practicality to create interiors that are both beautiful and livable. Every project is an opportunity to tell a unique story through design.

@@ -26,11 +26,11 @@ const HeroSection = () => {
                 <Star key={i} className="w-4 h-4 fill-primary text-primary" />
               ))}
             </div>
-            <span className="text-sm font-medium">Trusted by 500+ Happy Clients</span>
+            <span className="text-sm font-medium">Trusted by 200+ Happy Clients</span>
           </div>
 
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight animate-slide-in">
-            <span className="text-primary">The Interior Factory</span>
+            <span className="text-primary">D-Mod The Interior Factory</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed animate-fade-in">
