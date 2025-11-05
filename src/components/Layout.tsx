@@ -160,7 +160,7 @@ export default function Layout({ children }: LayoutProps) {
                 
                   <div className="ml-auto">
                   <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-3 max-w-xs gpu-accelerated">
-                    <h3 className="font-semibold text-blue-700 mb-1 text-sm">Transform Your Space</h3>
+                    <h3 className="font-semibold text-blue-700 mb-1 text-sm">The Interior Factory</h3>
                     <p className="text-xs text-blue-600 mb-2">Get a free consultation</p>
                     <Link to="/contact">
                       <button className="w-full bg-primary text-white py-1.5 px-3 rounded text-xs font-medium hover:bg-primary/90 smooth-transition flex items-center justify-center gap-1">

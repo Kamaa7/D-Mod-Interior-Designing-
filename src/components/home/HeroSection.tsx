@@ -18,9 +18,8 @@ export default function HeroSection() {
                 Proudly Serving Lucknow
               </Badge>
               <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
-                Transform Your
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-500">
-                  Living Spaces
+                  The Interior Factory
                 </span>
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed max-w-lg">

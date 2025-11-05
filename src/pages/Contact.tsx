@@ -190,9 +190,9 @@ export default function Contact() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-800 text-sm">Address</h3>
-                      <p className="text-gray-600 text-sm">4th Floor, Vision Space</p>
-                      <p className="text-gray-600 text-sm">BBD Viraj Tower, Kamta</p>
-                      <p className="text-gray-600 text-sm">Lucknow, UP 226010</p>
+                      <p className="text-gray-600 text-sm">Vision Spaces</p>
+                      <p className="text-gray-600 text-sm">BBD Viraj Tower Kamta Chauraha</p>
+                      <p className="text-gray-600 text-sm">Lucknow, Uttar Pradesh 226010</p>
                     </div>
                   </div>
                 </Card>

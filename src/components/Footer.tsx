@@ -106,9 +106,9 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <MapPin className="w-4 h-4 text-secondary mt-0.5 flex-shrink-0" />
                 <p className="text-sm text-gray-300">
-                  4th Floor, Vision Space,<br />
-                  BBD Viraj Tower, Kamta<br />
-                  Lucknow, UP 226010
+                  Vision Spaces,<br />
+                  BBD Viraj Tower Kamta Chauraha<br />
+                  Lucknow, Uttar Pradesh 226010
                 </p>
               </div>
               <div className="flex items-center space-x-3">

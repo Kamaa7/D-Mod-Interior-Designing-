@@ -29,10 +29,7 @@ const HeroSection = () => {
           </div>
 
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight animate-slide-in">
-            Transform Your
-            <span className="text-primary"> Space</span>
-            <br />
-            Into Dreams
+            <span className="text-primary">The Interior Factory</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed animate-fade-in">

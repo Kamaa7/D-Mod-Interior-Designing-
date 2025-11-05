@@ -4,7 +4,7 @@ import { MapPin, Navigation } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const MapSection = () => {
-  const address = "4th Floor, Vision Space, BBD Viraj Tower, Kamta, Lucknow, UP 226010";
+  const address = "Vision Spaces, BBD Viraj Tower Kamta Chauraha Lucknow, Uttar Pradesh 226010";
 
   const openInGoogleMaps = () => {
     const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
@@ -37,8 +37,8 @@ const MapSection = () => {
               <div className="text-center">
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">Our Location</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  4th Floor, Vision Space<br />
-                  BBD Viraj Tower, Kamta<br />
+                  Vision Spaces<br />
+                  BBD Viraj Tower Kamta Chauraha<br />
                   Lucknow, Uttar Pradesh 226010
                 </p>
               </div>
@@ -47,7 +47,7 @@ const MapSection = () => {
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 max-w-2xl mx-auto">
               <h4 className="font-semibold text-primary mb-3 text-center">Easy to Find</h4>
               <ul className="text-blue-700 space-y-2 text-sm">
-                <li>• Located in BBD Viraj Tower, a prominent landmark in Kamta</li>
+                <li>• Located in BBD Viraj Tower Kamta Chauraha, a prominent landmark</li>
                 <li>• Ample parking space available</li>
                 <li>• Accessible by public transport</li>
                 <li>• Close to major shopping centers and residential areas</li>
