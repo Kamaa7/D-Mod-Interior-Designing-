@@ -1,6 +1,7 @@
 import React from "react";
 import { ExternalLink, Calendar, MapPin, Eye, Heart } from "lucide-react";
 import FloatingButtons from "@/components/FloatingButtons";
+import AnimatedCounter from "@/components/AnimatedCounter";
 
 export default function Portfolio() {
   const projects = [
@@ -121,18 +122,26 @@ export default function Portfolio() {
               Each project tells a unique story of transformation and innovation.
             </p>
             <div className="grid grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="text-3xl font-bold">200+</div>
-                <div className="text-sm opacity-90">Projects Completed</div>
-              </div>
+              <AnimatedCounter
+                end={200}
+                suffix="+"
+                label="Projects Completed"
+                duration={2500}
+                numberClassName="text-3xl font-bold text-white"
+                labelClassName="text-sm opacity-90 text-white"
+              />
               <div className="text-center">
                 <div className="text-3xl font-bold">₹50Cr+</div>
                 <div className="text-sm opacity-90">Total Project Value</div>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold">5+</div>
-                <div className="text-sm opacity-90">Years of Experience</div>
-              </div>
+              <AnimatedCounter
+                end={5}
+                suffix="+"
+                label="Years of Experience"
+                duration={2700}
+                numberClassName="text-3xl font-bold text-white"
+                labelClassName="text-sm opacity-90 text-white"
+              />
             </div>
           </div>
         </div>

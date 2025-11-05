@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, MapPin, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import AnimatedCounter from "@/components/AnimatedCounter";
 
 export default function HeroSection() {
   return (
@@ -60,8 +61,16 @@ export default function HeroSection() {
                 className="rounded-2xl shadow-2xl w-full object-cover aspect-[4/5]"
               />
               <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg">
-                <div className="text-3xl font-bold text-blue-700">5+</div>
-                <div className="text-sm text-gray-600">Years Experience</div>
+                <div className="text-center">
+                  <AnimatedCounter
+                    end={5}
+                    suffix="+"
+                    label="Years Experience"
+                    duration={2500}
+                    numberClassName="text-3xl font-bold text-blue-700"
+                    labelClassName="text-sm text-gray-600"
+                  />
+                </div>
               </div>
             </div>
             <div className="absolute top-8 -right-4 w-72 h-72 bg-gradient-to-br from-blue-200 to-blue-300 rounded-full opacity-20 blur-3xl" />

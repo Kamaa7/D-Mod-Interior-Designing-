@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import FloatingButtons from "@/components/FloatingButtons";
+import AnimatedCounter from "@/components/AnimatedCounter";
 
 export default function Services() {
   const services = [
@@ -154,22 +155,38 @@ export default function Services() {
               to your unique style and requirements.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              <div className="text-center">
-                <div className="text-3xl font-bold">200+</div>
-                <div className="text-sm opacity-90">Projects Completed</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold">5+</div>
-                <div className="text-sm opacity-90">Years of Experience</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold">98%</div>
-                <div className="text-sm opacity-90">Client Satisfaction</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold">10+</div>
-                <div className="text-sm opacity-90">Awards Won</div>
-              </div>
+              <AnimatedCounter
+                end={200}
+                suffix="+"
+                label="Projects Completed"
+                duration={2500}
+                numberClassName="text-3xl font-bold text-white"
+                labelClassName="text-sm opacity-90 text-white"
+              />
+              <AnimatedCounter
+                end={5}
+                suffix="+"
+                label="Years of Experience"
+                duration={2700}
+                numberClassName="text-3xl font-bold text-white"
+                labelClassName="text-sm opacity-90 text-white"
+              />
+              <AnimatedCounter
+                end={98}
+                suffix="%"
+                label="Client Satisfaction"
+                duration={2900}
+                numberClassName="text-3xl font-bold text-white"
+                labelClassName="text-sm opacity-90 text-white"
+              />
+              <AnimatedCounter
+                end={10}
+                suffix="+"
+                label="Awards Won"
+                duration={3100}
+                numberClassName="text-3xl font-bold text-white"
+                labelClassName="text-sm opacity-90 text-white"
+              />
             </div>
           </div>
         </div>

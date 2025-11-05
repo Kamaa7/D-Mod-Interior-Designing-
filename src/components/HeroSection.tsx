@@ -2,6 +2,7 @@
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star } from 'lucide-react';
+import AnimatedCounter from '@/components/AnimatedCounter';
 
 const HeroSection = () => {
   return (
@@ -61,18 +62,30 @@ const HeroSection = () => {
 
           {/* Stats */}
           <div className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-white/20 animate-fade-in">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-blue-200">200+</div>
-              <div className="text-sm text-gray-300">Projects Completed</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-blue-200">5+</div>
-              <div className="text-sm text-gray-300">Years of Experience</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-blue-200">98%</div>
-              <div className="text-sm text-gray-300">Client Satisfaction</div>
-            </div>
+            <AnimatedCounter
+              end={200}
+              suffix="+"
+              label="Projects Completed"
+              duration={2500}
+              numberClassName="text-3xl font-bold text-blue-200"
+              labelClassName="text-sm text-gray-300"
+            />
+            <AnimatedCounter
+              end={5}
+              suffix="+"
+              label="Years of Experience"
+              duration={2700}
+              numberClassName="text-3xl font-bold text-blue-200"
+              labelClassName="text-sm text-gray-300"
+            />
+            <AnimatedCounter
+              end={98}
+              suffix="%"
+              label="Client Satisfaction"
+              duration={2900}
+              numberClassName="text-3xl font-bold text-blue-200"
+              labelClassName="text-sm text-gray-300"
+            />
           </div>
         </div>
       </div>
