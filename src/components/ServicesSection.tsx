@@ -2,7 +2,7 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { Layout, Home, Cube, Lightbulb, Briefcase, Wrench, ArrowRight } from 'lucide-react';
+import { Layout, Home, Box, Lightbulb, Briefcase, Wrench, ArrowRight } from 'lucide-react';
 
 const ServicesSection = () => {
   const services = [
@@ -19,7 +19,7 @@ const ServicesSection = () => {
       features: ['Complete Makeover', 'Structural Changes', 'Modern Finishes', 'Quality Materials']
     },
     {
-      icon: Cube,
+      icon: Box,
       title: '3D Visualizations',
       description: 'Realistic 3D renderings that help you visualize your space before implementation.',
       features: ['3D Modeling', 'Virtual Walkthrough', 'Realistic Rendering', 'Design Preview']
