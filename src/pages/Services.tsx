@@ -54,7 +54,7 @@ export default function Services() {
       title: "Project Management",
       description: "End-to-end project management ensuring timely delivery and quality execution.",
       features: ["Timeline Management", "Quality Control", "Vendor Coordination", "Progress Tracking"],
-      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "/lovable-uploads/mark-tenn-iEiBEWRODAE-unsplash.jpg"
     },
     {
       title: "Custom Crafted Solutions",
