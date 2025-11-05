@@ -2,45 +2,45 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { Home, Building, ChefHat, Briefcase, Layout, Users, ArrowRight } from 'lucide-react';
+import { Layout, Home, Cube, Lightbulb, Briefcase, Wrench, ArrowRight } from 'lucide-react';
 
 const ServicesSection = () => {
   const services = [
     {
+      icon: Layout,
+      title: 'Space Planning',
+      description: 'Optimal space utilization with smart layouts that maximize functionality and flow in your interior spaces.',
+      features: ['Layout Design', 'Traffic Flow Analysis', 'Furniture Placement', 'Storage Planning']
+    },
+    {
       icon: Home,
-      title: 'Residential Interior',
-      description: 'Complete home makeovers with personalized design solutions that reflect your lifestyle and preferences.',
-      features: ['Living Room Design', 'Bedroom Styling', 'Bathroom Renovation', 'Home Decor']
+      title: 'Interior Renovation',
+      description: 'Complete transformation of your existing spaces with modern designs and premium finishes.',
+      features: ['Complete Makeover', 'Structural Changes', 'Modern Finishes', 'Quality Materials']
     },
     {
-      icon: Building,
-      title: 'Commercial Design',
-      description: 'Professional commercial spaces that enhance productivity and create lasting impressions on clients.',
-      features: ['Retail Spaces', 'Restaurants', 'Hotels', 'Showrooms']
+      icon: Cube,
+      title: '3D Visualizations',
+      description: 'Realistic 3D renderings that help you visualize your space before implementation.',
+      features: ['3D Modeling', 'Virtual Walkthrough', 'Realistic Rendering', 'Design Preview']
     },
     {
-      icon: ChefHat,
-      title: 'Modular Kitchen',
-      description: 'Innovative kitchen designs that combine functionality with aesthetics for the heart of your home.',
-      features: ['Space Optimization', 'Storage Solutions', 'Modern Appliances', 'Custom Cabinets']
+      icon: Lightbulb,
+      title: 'Lighting Design',
+      description: 'Strategic lighting solutions that enhance ambiance and functionality in every space.',
+      features: ['Ambient Lighting', 'Task Lighting', 'Accent Lighting', 'Smart Lighting Systems']
     },
     {
       icon: Briefcase,
-      title: 'Office Interiors',
-      description: 'Productive work environments that inspire creativity and enhance employee satisfaction.',
-      features: ['Workspace Planning', 'Meeting Rooms', 'Reception Areas', 'Collaborative Spaces']
+      title: 'Modular Solutions',
+      description: 'Innovative modular designs for kitchens, wardrobes, and storage solutions that maximize space efficiency.',
+      features: ['Modular Kitchens', 'Custom Wardrobes', 'Storage Solutions', 'Space Optimization']
     },
     {
-      icon: Layout,
-      title: 'Space Planning',
-      description: 'Optimal space utilization with smart layouts that maximize functionality and flow.',
-      features: ['Layout Design', 'Furniture Placement', 'Traffic Flow', 'Storage Planning']
-    },
-    {
-      icon: Users,
-      title: 'Design Consultation',
-      description: 'Expert advice and guidance to help you make informed decisions about your interior design project.',
-      features: ['Design Strategy', 'Material Selection', 'Color Schemes', 'Budget Planning']
+      icon: Wrench,
+      title: 'Project Management',
+      description: 'End-to-end project management ensuring timely delivery and quality execution.',
+      features: ['Timeline Management', 'Quality Control', 'Vendor Coordination', 'Progress Tracking']
     }
   ];
 

@@ -2,57 +2,57 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Home, Building2, ChefHat, Bed, Sofa, Bath, Quote } from 'lucide-react';
+import { ArrowRight, Layout, Home, Cube, Lightbulb, Briefcase, Wrench, Quote } from 'lucide-react';
 
 const ServicesOverview = () => {
   const services = [
     {
-      icon: Home,
-      title: 'Complete Home Interiors',
-      description: 'Transform your entire home with our comprehensive design solutions, from concept to completion.',
-      features: ['Space Planning', 'Custom Furniture', 'Lighting Design', 'Color Consultation'],
+      icon: Layout,
+      title: 'Space Planning',
+      description: 'Optimal space utilization with smart layouts that maximize functionality and flow in your interior spaces.',
+      features: ['Layout Design', 'Traffic Flow Analysis', 'Furniture Placement', 'Storage Planning'],
       badge: 'Most Popular',
-      image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
-    },
-    {
-      icon: ChefHat,
-      title: 'Modular Kitchen Design',
-      description: 'State-of-the-art modular kitchens that blend functionality with contemporary aesthetics.',
-      features: ['Smart Storage', 'Premium Appliances', 'Island Designs', 'Breakfast Counters'],
-      badge: 'Premium',
-      image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
-    },
-    {
-      icon: Bed,
-      title: 'Luxury Bedroom Suites',
-      description: 'Create your personal sanctuary with our elegant bedroom designs and custom wardrobes.',
-      features: ['Walk-in Closets', 'Smart Lighting', 'Custom Headboards', 'Storage Solutions'],
-      badge: 'Trending',
-      image: '/lovable-uploads/d1605e0b-e9cc-408b-9b9d-7bea74bd535a.png'
-    },
-    {
-      icon: Sofa,
-      title: 'Living Room Design',
-      description: 'Sophisticated living spaces that reflect your lifestyle and create lasting impressions.',
-      features: ['Entertainment Units', 'Seating Arrangements', 'Accent Walls', 'Art Curation'],
-      badge: 'Classic',
-      image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
-    },
-    {
-      icon: Building2,
-      title: 'Commercial Interiors',
-      description: 'Professional spaces that enhance productivity and leave lasting impressions on clients.',
-      features: ['Office Planning', 'Reception Areas', 'Meeting Rooms', 'Brand Integration'],
-      badge: 'Business',
       image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
     },
     {
-      icon: Bath,
-      title: 'Bathroom Renovation',
-      description: 'Spa-like bathroom experiences with modern fixtures and luxurious finishes.',
-      features: ['Rain Showers', 'Vanity Design', 'Premium Tiles', 'Smart Fixtures'],
+      icon: Home,
+      title: 'Interior Renovation',
+      description: 'Complete transformation of your existing spaces with modern designs and premium finishes.',
+      features: ['Complete Makeover', 'Structural Changes', 'Modern Finishes', 'Quality Materials'],
+      badge: 'Premium',
+      image: '/lovable-uploads/57cc0f65-4207-46af-9796-f8593761456c.png'
+    },
+    {
+      icon: Cube,
+      title: '3D Visualizations',
+      description: 'Realistic 3D renderings that help you visualize your space before implementation.',
+      features: ['3D Modeling', 'Virtual Walkthrough', 'Realistic Rendering', 'Design Preview'],
+      badge: 'Trending',
+      image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
+    },
+    {
+      icon: Lightbulb,
+      title: 'Lighting Design',
+      description: 'Strategic lighting solutions that enhance ambiance and functionality in every space.',
+      features: ['Ambient Lighting', 'Task Lighting', 'Accent Lighting', 'Smart Lighting Systems'],
+      badge: 'Classic',
+      image: 'https://images.unsplash.com/photo-1524230572899-a752b3835840?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
+    },
+    {
+      icon: Briefcase,
+      title: 'Modular Solutions',
+      description: 'Innovative modular designs for kitchens, wardrobes, and storage solutions that maximize space efficiency.',
+      features: ['Modular Kitchens', 'Custom Wardrobes', 'Storage Solutions', 'Space Optimization'],
+      badge: 'Business',
+      image: '/lovable-uploads/e4cc98a6-e3b4-4ae8-850a-d97a0c858dd2.png'
+    },
+    {
+      icon: Wrench,
+      title: 'Project Management',
+      description: 'End-to-end project management ensuring timely delivery and quality execution.',
+      features: ['Timeline Management', 'Quality Control', 'Vendor Coordination', 'Progress Tracking'],
       badge: 'Luxury',
-      image: 'https://images.unsplash.com/photo-1620626011761-996317b8d101?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
+      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
     }
   ];
 
