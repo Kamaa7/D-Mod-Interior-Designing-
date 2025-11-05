@@ -17,6 +17,7 @@ import {
 import FloatingButtons from "./FloatingButtons";
 import SmoothScrollWrapper from "./SmoothScrollWrapper";
 import Footer from "./Footer";
+import CookieConsent from "./CookieConsent";
 
 const navigationItems = [
   {
@@ -182,6 +183,7 @@ export default function Layout({ children }: LayoutProps) {
         
         <Footer />
         <FloatingButtons />
+        <CookieConsent />
       </SmoothScrollWrapper>
     </SidebarProvider>
   );
