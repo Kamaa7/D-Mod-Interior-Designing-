@@ -80,12 +80,22 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4 text-blue-200">Our Services</h3>
             <ul className="space-y-2">
               {[
-                'Residential Interior',
-                'Commercial Design',
-                'Modular Kitchen',
-                'Office Interiors',
                 'Space Planning',
-                'Consultation'
+                'Interior Renovation',
+                '3D Visualizations',
+                'Furniture and Fixture Selection',
+                'Lighting Design',
+                'Modular Solutions',
+                'Home Decor',
+                'Project Management',
+                'Custom Crafted Solutions',
+                'Vastu-Compliant Designs',
+                'Turnkey Solutions',
+                'Design-Only Services',
+                'Luxury Interior Design',
+                'Commercial Interior Design',
+                'Hospitality Interior Design',
+                'Retail Interior Design'
               ].map((service) => (
                 <li key={service}>
                   <Link 
@@ -126,7 +136,7 @@ const Footer = () => {
         <div className="border-t border-gray-700 mt-8 pt-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-gray-400">
-              © 2024 D-Mod Interior Solution. All rights reserved.
+              © 2025 D-Mod Interior Solution. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link to="#" className="text-sm text-gray-400 hover:text-blue-200 transition-colors">

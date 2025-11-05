@@ -8,46 +8,100 @@ import FloatingButtons from "@/components/FloatingButtons";
 export default function Services() {
   const services = [
     {
-      title: "Modular Kitchens",
-      description: "Transform your cooking space with our contemporary modular kitchen designs featuring premium materials and smart storage solutions.",
-      features: ["Custom Cabinetry", "Premium Appliances", "Smart Storage", "Modern Designs"],
-      image: "/lovable-uploads/e4cc98a6-e3b4-4ae8-850a-d97a0c858dd2.png",
-      price: "Starting from ₹2.5 Lakhs"
+      title: "Space Planning",
+      description: "Optimal space utilization with smart layouts that maximize functionality and flow in your interior spaces.",
+      features: ["Layout Design", "Traffic Flow Analysis", "Furniture Placement", "Storage Planning"],
+      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     },
     {
-      title: "Luxury Bedroom Suites",
-      description: "Create your perfect sanctuary with our elegant bedroom designs featuring custom furniture and sophisticated styling.",
-      features: ["Custom Wardrobes", "Premium Bedding", "Ambient Lighting", "Space Optimization"],
-      image: "/lovable-uploads/e7b6aeb8-43ee-4d16-8b9f-e0f7e7b319c1.png",
-      price: "Starting from ₹1.8 Lakhs"
+      title: "Interior Renovation",
+      description: "Complete transformation of your existing spaces with modern designs and premium finishes.",
+      features: ["Complete Makeover", "Structural Changes", "Modern Finishes", "Quality Materials"],
+      image: "/lovable-uploads/57cc0f65-4207-46af-9796-f8593761456c.png"
     },
     {
-      title: "Living Room Design",
-      description: "Design stunning living spaces that combine comfort with style, featuring custom furniture and modern aesthetics.",
-      features: ["Custom Furniture", "Entertainment Units", "Premium Fabrics", "Designer Lighting"],
-      image: "/lovable-uploads/57cc0f65-4207-46af-9796-f8593761456c.png",
-      price: "Starting from ₹3 Lakhs"
+      title: "3D Visualizations",
+      description: "Realistic 3D renderings that help you visualize your space before implementation.",
+      features: ["3D Modeling", "Virtual Walkthrough", "Realistic Rendering", "Design Preview"],
+      image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     },
     {
-      title: "Office Interiors",
-      description: "Professional office spaces designed for productivity and style with ergonomic furniture and modern layouts.",
-      features: ["Ergonomic Design", "Professional Aesthetics", "Space Planning", "Technology Integration"],
-      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      price: "Starting from ₹2 Lakhs"
+      title: "Furniture and Fixture Selection",
+      description: "Curated selection of premium furniture and fixtures that perfectly match your design vision.",
+      features: ["Custom Furniture", "Premium Fixtures", "Quality Materials", "Designer Pieces"],
+      image: "/lovable-uploads/e7b6aeb8-43ee-4d16-8b9f-e0f7e7b319c1.png"
     },
     {
-      title: "Bathroom Renovation",
-      description: "Luxurious bathroom designs with premium fixtures, elegant tiles, and smart storage solutions.",
-      features: ["Premium Fixtures", "Waterproofing", "Modern Tiles", "Smart Storage"],
-      image: "https://images.unsplash.com/photo-1620626011761-996317b8d101?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      price: "Starting from ₹1.5 Lakhs"
+      title: "Lighting Design",
+      description: "Strategic lighting solutions that enhance ambiance and functionality in every space.",
+      features: ["Ambient Lighting", "Task Lighting", "Accent Lighting", "Smart Lighting Systems"],
+      image: "https://images.unsplash.com/photo-1524230572899-a752b3835840?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     },
     {
-      title: "Commercial Spaces",
-      description: "Comprehensive commercial interior solutions for retail, hospitality, and corporate environments.",
-      features: ["Brand Integration", "Customer Experience", "Functional Design", "High Traffic Durability"],
-      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      price: "Custom Pricing"
+      title: "Modular Solutions",
+      description: "Innovative modular designs for kitchens, wardrobes, and storage solutions that maximize space efficiency.",
+      features: ["Modular Kitchens", "Custom Wardrobes", "Storage Solutions", "Space Optimization"],
+      image: "/lovable-uploads/e4cc98a6-e3b4-4ae8-850a-d97a0c858dd2.png"
+    },
+    {
+      title: "Home Decor",
+      description: "Complete home styling with decorative elements, accessories, and finishing touches.",
+      features: ["Accessories Selection", "Color Coordination", "Artwork Curation", "Textile Selection"],
+      image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      title: "Project Management",
+      description: "End-to-end project management ensuring timely delivery and quality execution.",
+      features: ["Timeline Management", "Quality Control", "Vendor Coordination", "Progress Tracking"],
+      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      title: "Custom Crafted Solutions",
+      description: "Bespoke design solutions tailored to your unique requirements and personal style.",
+      features: ["Bespoke Design", "Custom Furniture", "Personalized Solutions", "Unique Concepts"],
+      image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      title: "Vastu-Compliant Designs",
+      description: "Interior designs that follow Vastu principles while maintaining modern aesthetics.",
+      features: ["Vastu Consultation", "Directional Planning", "Energy Flow", "Harmonious Design"],
+      image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      title: "Turnkey Solutions",
+      description: "Complete end-to-end interior design services from concept to final execution.",
+      features: ["Complete Design", "Material Procurement", "Execution", "Final Styling"],
+      image: "/lovable-uploads/72662bb2-ec5d-4de0-81da-80d383cfc83b.png"
+    },
+    {
+      title: "Design-Only Services",
+      description: "Professional design consultation and planning services for DIY enthusiasts.",
+      features: ["Design Consultation", "Layout Planning", "Material Selection", "Design Documentation"],
+      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      title: "Luxury Interior Design",
+      description: "Premium luxury interiors with high-end materials and exclusive designer finishes.",
+      features: ["Premium Materials", "Luxury Finishes", "Exclusive Designs", "Premium Brands"],
+      image: "/lovable-uploads/e7b6aeb8-43ee-4d16-8b9f-e0f7e7b319c1.png"
+    },
+    {
+      title: "Commercial Interior Design",
+      description: "Professional commercial spaces designed for productivity, brand identity, and customer experience.",
+      features: ["Brand Integration", "Functional Design", "Professional Aesthetics", "Durability"],
+      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      title: "Hospitality Interior Design",
+      description: "Welcoming hospitality spaces that create memorable experiences for guests and visitors.",
+      features: ["Guest Experience", "Ambiance Creation", "Comfortable Spaces", "Functional Layout"],
+      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      title: "Retail Interior Design",
+      description: "Strategic retail interiors that enhance customer experience and drive sales.",
+      features: ["Customer Flow", "Display Design", "Brand Showcase", "Shopping Experience"],
+      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     }
   ];
 
@@ -145,9 +199,6 @@ export default function Services() {
                     alt={service.title}
                     className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-medium">
-                    {service.price}
-                  </div>
                 </div>
                 <CardContent className="p-6">
                   <h3 className="text-2xl font-semibold text-gray-800 mb-3">{service.title}</h3>
