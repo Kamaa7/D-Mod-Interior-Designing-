@@ -122,7 +122,7 @@ export default function Portfolio() {
             </p>
             <div className="grid grid-cols-3 gap-6">
               <div className="text-center">
-                <div className="text-3xl font-bold">500+</div>
+                <div className="text-3xl font-bold">200+</div>
                 <div className="text-sm opacity-90">Projects Completed</div>
               </div>
               <div className="text-center">
@@ -130,8 +130,8 @@ export default function Portfolio() {
                 <div className="text-sm opacity-90">Total Project Value</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold">15+</div>
-                <div className="text-sm opacity-90">Years Experience</div>
+                <div className="text-3xl font-bold">5+</div>
+                <div className="text-sm opacity-90">Years of Experience</div>
               </div>
             </div>
           </div>

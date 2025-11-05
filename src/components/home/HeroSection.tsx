@@ -60,7 +60,7 @@ export default function HeroSection() {
                 className="rounded-2xl shadow-2xl w-full object-cover aspect-[4/5]"
               />
               <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg">
-                <div className="text-3xl font-bold text-blue-700">15+</div>
+                <div className="text-3xl font-bold text-blue-700">5+</div>
                 <div className="text-sm text-gray-600">Years Experience</div>
               </div>
             </div>

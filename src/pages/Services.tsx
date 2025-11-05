@@ -155,19 +155,19 @@ export default function Services() {
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               <div className="text-center">
-                <div className="text-3xl font-bold">500+</div>
+                <div className="text-3xl font-bold">200+</div>
                 <div className="text-sm opacity-90">Projects Completed</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold">15+</div>
-                <div className="text-sm opacity-90">Years Experience</div>
+                <div className="text-3xl font-bold">5+</div>
+                <div className="text-sm opacity-90">Years of Experience</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold">98%</div>
                 <div className="text-sm opacity-90">Client Satisfaction</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold">50+</div>
+                <div className="text-3xl font-bold">10+</div>
                 <div className="text-sm opacity-90">Awards Won</div>
               </div>
             </div>

@@ -19,7 +19,7 @@ const WhyChooseUsSection = () => {
             <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
               <Award className="w-10 h-10 text-primary group-hover:text-white" />
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">15+ Years Experience</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-4">5+ Years Experience</h3>
             <p className="text-gray-600">Proven track record of delivering exceptional interior design solutions across Lucknow.</p>
           </div>
           

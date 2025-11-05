@@ -54,10 +54,10 @@ export default function About() {
   ];
 
   const achievements = [
-    { number: 500, suffix: "+", label: "Projects Completed" },
-    { number: 15, suffix: "+", label: "Years of Experience" },
+    { number: 200, suffix: "+", label: "Projects Completed" },
+    { number: 5, suffix: "+", label: "Years of Experience" },
     { number: 98, suffix: "%", label: "Client Satisfaction" },
-    { number: 50, suffix: "+", label: "Awards Won" }
+    { number: 10, suffix: "+", label: "Awards Won" }
   ];
 
   return (
