@@ -1,6 +1,6 @@
 
 import { Link, useNavigate } from 'react-router-dom';
-import { Home, Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
+import { Home, Phone, Mail, MapPin, Facebook, Instagram, Linkedin, Calendar, Code } from 'lucide-react';
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -135,6 +135,37 @@ const Footer = () => {
               <Link to="#" className="text-sm text-gray-400 hover:text-blue-200 transition-colors">
                 Terms of Service
               </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Developer Section */}
+        <div className="border-t border-gray-800 mt-4 pt-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex items-center gap-2 text-xs text-gray-500">
+              <Code className="w-3 h-3" />
+              <span>Developed by</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <a
+                href="https://www.linkedin.com/in/syed-kamaal-asghar1?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BaDSS6iEEQeqrc6DCD5HfhA%3D%3D"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-primary transition-colors px-2 py-1 rounded-md hover:bg-primary/10"
+              >
+                <Linkedin className="w-3 h-3" />
+                <span>LinkedIn</span>
+              </a>
+              <span className="text-gray-600">•</span>
+              <a
+                href="https://lettucemeet.com/l/dXONn"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-primary transition-colors px-2 py-1 rounded-md hover:bg-primary/10"
+              >
+                <Calendar className="w-3 h-3" />
+                <span>Schedule a Meeting</span>
+              </a>
             </div>
           </div>
         </div>
