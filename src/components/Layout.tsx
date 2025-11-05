@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/sidebar";
 import FloatingButtons from "./FloatingButtons";
 import SmoothScrollWrapper from "./SmoothScrollWrapper";
+import Footer from "./Footer";
 
 const navigationItems = [
   {
@@ -179,6 +180,7 @@ export default function Layout({ children }: LayoutProps) {
           </main>
         </div>
         
+        <Footer />
         <FloatingButtons />
       </SmoothScrollWrapper>
     </SidebarProvider>
