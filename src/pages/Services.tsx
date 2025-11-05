@@ -12,7 +12,7 @@ export default function Services() {
       title: "Space Planning",
       description: "Optimal space utilization with smart layouts that maximize functionality and flow in your interior spaces.",
       features: ["Layout Design", "Traffic Flow Analysis", "Furniture Placement", "Storage Planning"],
-      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "/lovable-uploads/real-twin-photos-u_khkgVDmxA-unsplash.jpg"
     },
     {
       title: "Interior Renovation",
