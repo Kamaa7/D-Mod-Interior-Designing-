@@ -66,7 +66,7 @@ export default function Services() {
       title: "Vastu-Compliant Designs",
       description: "Interior designs that follow Vastu principles while maintaining modern aesthetics.",
       features: ["Vastu Consultation", "Directional Planning", "Energy Flow", "Harmonious Design"],
-      image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "/lovable-uploads/vastu-compliant-design.png"
     },
     {
       title: "Turnkey Solutions",
