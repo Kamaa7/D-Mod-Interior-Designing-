@@ -1,34 +1,8 @@
 import React from "react";
-import { Users, Award, Target, Heart, MapPin, Phone, Mail, Clock, User } from "lucide-react";
+import { Users, Award, Target, Heart, MapPin, Phone, Mail, Clock } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
 
 export default function About() {
-  const teamMembers = [
-    {
-      name: "Design Team",
-      role: "Creative Designers",
-      description: "Experts in creating stunning interior spaces with a passion for modern and functional design.",
-      qualifications: "Certified Interior Designers"
-    },
-    {
-      name: "Project Team",
-      role: "Project Execution",
-      description: "Specialist in project management, ensuring timely delivery with quality craftsmanship.",
-      qualifications: "Certified Project Managers"
-    },
-    {
-      name: "Technical Team",
-      role: "Technical Support",
-      description: "Expert in technical aspects, 3D visualization, and implementation of design concepts.",
-      qualifications: "Technical Specialists"
-    },
-    {
-      name: "Client Relations",
-      role: "Customer Support",
-      description: "Dedicated to providing excellent client service and ensuring complete satisfaction.",
-      qualifications: "Client Service Experts"
-    }
-  ];
 
   const values = [
     {
@@ -220,33 +194,6 @@ export default function About() {
                 </div>
                 <h3 className="text-xl font-semibold text-gray-800 mb-3">{value.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{value.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="py-16 bg-gray-50 optimize-rendering">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Meet Our Expert Team</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Our talented team of designers, architects, and project managers who bring years of experience and creativity to every project.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamMembers.map((member, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden smooth-transition hover:shadow-xl gpu-accelerated">
-                <div className="w-full h-64 bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
-                  <User className="w-24 h-24 text-primary" />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-800 mb-1">{member.name}</h3>
-                  <p className="text-primary font-medium mb-2">{member.role}</p>
-                  <p className="text-sm text-blue-600 mb-3">{member.qualifications}</p>
-                  <p className="text-gray-600 text-sm leading-relaxed">{member.description}</p>
-                </div>
               </div>
             ))}
           </div>
