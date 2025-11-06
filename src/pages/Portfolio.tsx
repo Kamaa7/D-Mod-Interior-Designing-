@@ -130,10 +130,14 @@ export default function Portfolio() {
                 numberClassName="text-3xl font-bold text-white"
                 labelClassName="text-sm opacity-90 text-white"
               />
-              <div className="text-center">
-                <div className="text-3xl font-bold">₹50Cr+</div>
-                <div className="text-sm opacity-90">Total Project Value</div>
-              </div>
+              <AnimatedCounter
+                end={100}
+                suffix="+"
+                label="Clients Served"
+                duration={2600}
+                numberClassName="text-3xl font-bold text-white"
+                labelClassName="text-sm opacity-90 text-white"
+              />
               <AnimatedCounter
                 end={5}
                 suffix="+"
