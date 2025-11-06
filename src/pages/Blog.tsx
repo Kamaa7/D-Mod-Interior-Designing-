@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Calendar, User, ArrowRight, Clock, Eye, Heart, Share2 } from "lucide-react";
+import { Calendar, User, ArrowRight, Clock, Eye, Heart, Share2, Check } from "lucide-react";
 
 export default function Blog() {
   const blogPosts = [
@@ -105,6 +105,8 @@ export default function Blog() {
 
   const categories = ["All", "Trends", "Tips", "Design Psychology", "Sustainability", "Workspace", "Lighting", "Cultural Design", "Kitchen Design"];
   const [selectedCategory, setSelectedCategory] = React.useState("All");
+  const [email, setEmail] = React.useState("");
+  const [isSubscribed, setIsSubscribed] = React.useState(false);
 
   const filteredPosts = selectedCategory === "All" 
     ? blogPosts 
@@ -291,16 +293,39 @@ export default function Blog() {
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
             Subscribe to our newsletter and get the latest design insights, tips, and exclusive content delivered to your inbox weekly.
           </p>
-          <div className="max-w-md mx-auto flex gap-4">
-            <input 
-              type="email" 
-              placeholder="Enter your email address"
-              className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-            />
-            <button className="bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors">
-              Subscribe
-            </button>
-          </div>
+          {!isSubscribed ? (
+            <div className="max-w-md mx-auto flex gap-4">
+              <input 
+                type="email" 
+                placeholder="Enter your email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+              />
+              <button 
+                onClick={() => {
+                  if (email.trim()) {
+                    setIsSubscribed(true);
+                  }
+                }}
+                className="bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors"
+              >
+                Subscribe
+              </button>
+            </div>
+          ) : (
+            <div className="max-w-md mx-auto">
+              <div className="bg-green-50 border-2 border-green-200 rounded-lg p-6 flex items-center justify-center gap-3">
+                <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
+                  <Check className="w-6 h-6 text-white" />
+                </div>
+                <div className="text-left">
+                  <p className="text-green-800 font-semibold text-lg">Subscribed!</p>
+                  <p className="text-green-600 text-sm">Thank you for subscribing to our newsletter.</p>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </section>
     </div>
