@@ -72,7 +72,7 @@ export default function Services() {
       title: "Turnkey Solutions",
       description: "Complete end-to-end interior design services from concept to final execution.",
       features: ["Complete Design", "Material Procurement", "Execution", "Final Styling"],
-      image: "/lovable-uploads/72662bb2-ec5d-4de0-81da-80d383cfc83b.png"
+      image: "/lovable-uploads/GUEST BEDROOM-3.3(RISHITA-C3-1502).png"
     },
     {
       title: "Design-Only Services",
