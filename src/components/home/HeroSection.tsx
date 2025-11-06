@@ -56,7 +56,7 @@ export default function HeroSection() {
           <div className="relative">
             <div className="relative z-10">
               <img
-                src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                src="/lovable-uploads/Gemini_Generated_Image_jppmrpjppmrpjppm.png"
                 alt="Modern Kitchen Design"
                 className="rounded-2xl shadow-2xl w-full object-cover aspect-[4/5]"
               />
