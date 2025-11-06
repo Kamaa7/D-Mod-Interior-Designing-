@@ -89,9 +89,7 @@ const Footer = () => {
                   '3D Visualizations',
                   'Furniture and Fixture Selection',
                   'Lighting Design',
-                  'Modular Solutions',
-                  'Luxury Interior Design',
-                  'Commercial Interior Design'
+                  'Modular Solutions'
                 ].map((service) => (
                   <li key={service}>
                     <Link 
