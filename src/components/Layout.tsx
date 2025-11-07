@@ -115,7 +115,7 @@ export default function Layout({ children }: LayoutProps) {
             <SidebarHeader className="border-b border-gray-100 p-6">
               <div className="flex flex-col items-center gap-4">
                 <img
-                  src="/dmod-logo.png"
+                  src="/lovable-uploads/IMG-20251105-WA0014.png"
                   alt="D-Mod The Interior Factory"
                   className="w-full max-w-[120px] h-auto object-contain image-optimized"
                 />
