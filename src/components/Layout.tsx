@@ -156,7 +156,7 @@ export default function Layout({ children }: LayoutProps) {
                   </SidebarTrigger>
                   <div className="flex items-center gap-2">
                     <img
-                      src="/dmod-logo.png"
+                      src="/lovable-uploads/IMG-20251105-WA0014.png"
                       alt="D-Mod The Interior Factory"
                       className="w-auto h-5 sm:h-6 object-contain image-optimized"
                     />

@@ -16,7 +16,7 @@ export default function SEO({ title, description, keywords, image }: SEOProps) {
     const defaultTitle = "D-Mod The Interior Factory - Interior Design in Lucknow";
     const defaultDescription = "Transform your space with D-Mod The Interior Factory. Expert interior design services in Lucknow for residential, commercial, and modular kitchen projects.";
     const defaultKeywords = "interior design, modular kitchen, Lucknow, home design, commercial interiors, space planning, D-Mod";
-    const defaultImage = "/dmod-logo.png";
+    const defaultImage = "/lovable-uploads/IMG-20251105-WA0014.png";
     const siteUrl = window.location.origin;
 
     // Update document title
