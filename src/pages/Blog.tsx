@@ -112,9 +112,12 @@ export default function Blog() {
   const [isSubscribed, setIsSubscribed] = React.useState(false);
 
   const filteredPosts = React.useMemo(() => {
+    // Exclude featured post from regular list
+    const nonFeaturedPosts = blogPosts.filter(post => !post.featured);
+    
     let filtered = selectedCategory === "All" 
-      ? blogPosts 
-      : blogPosts.filter(post => post.category === selectedCategory);
+      ? nonFeaturedPosts 
+      : nonFeaturedPosts.filter(post => post.category === selectedCategory);
 
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase();
@@ -127,7 +130,7 @@ export default function Blog() {
     }
 
     return filtered;
-  }, [selectedCategory, searchQuery, blogPosts]);
+  }, [selectedCategory, searchQuery]);
 
   const featuredPost = blogPosts.find(post => post.featured);
   const regularPosts = blogPosts.filter(post => !post.featured);
@@ -270,7 +273,7 @@ export default function Blog() {
       {/* Blog Posts Grid */}
       <section className="py-16">
         <div className="container mx-auto px-6">
-          {filteredPosts.filter(post => !post.featured).length === 0 ? (
+          {filteredPosts.length === 0 ? (
             <div className="text-center py-12">
               <p className="text-gray-600 text-lg mb-4">No articles found.</p>
               <p className="text-gray-500">Try adjusting your search or filter criteria.</p>
@@ -288,7 +291,7 @@ export default function Blog() {
             </div>
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredPosts.filter(post => !post.featured).map((post) => (
+              {filteredPosts.map((post) => (
               <article key={post.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow group">
                 <div className="relative">
                   <img 
