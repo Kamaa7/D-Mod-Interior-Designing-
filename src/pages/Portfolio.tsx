@@ -281,9 +281,13 @@ export default function Portfolio() {
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
             Let's discuss your vision and create a space that reflects your style and enhances your lifestyle.
           </p>
-          <button className="bg-primary text-white px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors">
+          <a
+            href="/contact"
+            className="inline-block bg-primary text-white px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+            aria-label="Get your free consultation"
+          >
             Get Your Free Consultation
-          </button>
+          </a>
         </div>
       </section>
 
