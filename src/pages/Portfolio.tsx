@@ -1,7 +1,15 @@
-import React from "react";
-import { ExternalLink, Calendar, MapPin, Eye, Heart } from "lucide-react";
+import { useState } from "react";
+import { Calendar, MapPin, Eye, Heart, Check } from "lucide-react";
 import FloatingButtons from "@/components/FloatingButtons";
 import AnimatedCounter from "@/components/AnimatedCounter";
+import SEO from "@/components/SEO";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 
 export default function Portfolio() {
   const projects = [
@@ -104,15 +112,33 @@ export default function Portfolio() {
   ];
 
   const categories = ["All", "Residential", "Commercial", "Modular Kitchen"];
-  const [selectedCategory, setSelectedCategory] = React.useState("All");
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedProject, setSelectedProject] = useState<(typeof projects)[0] | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const filteredProjects = selectedCategory === "All" 
     ? projects 
     : projects.filter(project => project.category === selectedCategory);
 
+  const handleViewProject = (project: (typeof projects)[0]) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
+  };
+
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
+    <>
+      <SEO
+        title="Our Portfolio"
+        description="Explore our portfolio of beautifully designed spaces. View our completed interior design projects in Lucknow including residential, commercial, and modular kitchen designs."
+        keywords="interior design portfolio, completed projects, home design gallery, commercial interior design projects, modular kitchen designs"
+      />
+      <div className="min-h-screen bg-gray-50">
+        {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-20">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl">
@@ -179,17 +205,22 @@ export default function Portfolio() {
             {filteredProjects.map((project) => (
               <div key={project.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow group">
                 <div className="relative">
-                  <img 
-                    src={project.image} 
-                    alt={project.title}
-                    loading="lazy"
-                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform"
-                  />
-                  <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <button className="bg-white text-gray-800 px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-gray-100">
-                      <Eye className="w-4 h-4" />
-                      View Project
-                    </button>
+                  <div 
+                    onClick={() => handleViewProject(project)}
+                    className="cursor-pointer"
+                  >
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      loading="lazy"
+                      className="w-full h-64 object-cover group-hover:scale-105 transition-transform"
+                    />
+                    <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <div className="bg-white text-gray-800 px-4 py-2 rounded-lg flex items-center gap-2">
+                        <Eye className="w-4 h-4" />
+                        View Project
+                      </div>
+                    </div>
                   </div>
                   <div className="absolute top-4 right-4">
                     <button className="bg-white bg-opacity-90 p-2 rounded-full hover:bg-opacity-100 transition-all">
@@ -255,6 +286,99 @@ export default function Portfolio() {
 
       {/* Add floating buttons */}
       <FloatingButtons />
-    </div>
+
+      {/* Project Modal */}
+      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+          {selectedProject && (
+            <>
+              <DialogHeader>
+                <DialogTitle className="text-2xl font-bold text-gray-800">
+                  {selectedProject.title}
+                </DialogTitle>
+                <DialogDescription className="text-gray-600">
+                  {selectedProject.description}
+                </DialogDescription>
+              </DialogHeader>
+              
+              <div className="space-y-6">
+                {/* Project Image */}
+                <div className="relative w-full h-64 md:h-96 rounded-lg overflow-hidden">
+                  <img
+                    src={selectedProject.image}
+                    alt={selectedProject.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
+                {/* Project Details */}
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-4">
+                    <div>
+                      <h3 className="text-sm font-semibold text-gray-500 uppercase mb-2">Category</h3>
+                      <span className="px-3 py-1 bg-blue-100 text-primary text-sm font-medium rounded-full">
+                        {selectedProject.category}
+                      </span>
+                    </div>
+                    
+                    <div>
+                      <h3 className="text-sm font-semibold text-gray-500 uppercase mb-2">Location</h3>
+                      <div className="flex items-center text-gray-700">
+                        <MapPin className="w-4 h-4 mr-2 text-primary" />
+                        {selectedProject.location}
+                      </div>
+                    </div>
+
+                    <div>
+                      <h3 className="text-sm font-semibold text-gray-500 uppercase mb-2">Date</h3>
+                      <div className="flex items-center text-gray-700">
+                        <Calendar className="w-4 h-4 mr-2 text-primary" />
+                        {selectedProject.date}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="space-y-4">
+                    <div>
+                      <h3 className="text-sm font-semibold text-gray-500 uppercase mb-2">Area</h3>
+                      <p className="text-gray-700">{selectedProject.area}</p>
+                    </div>
+                    
+                    <div>
+                      <h3 className="text-sm font-semibold text-gray-500 uppercase mb-2">Budget</h3>
+                      <p className="text-gray-700">{selectedProject.budget}</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Key Highlights */}
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-800 mb-3">Key Highlights</h3>
+                  <div className="grid md:grid-cols-2 gap-2">
+                    {selectedProject.highlights.map((highlight, index) => (
+                      <div key={index} className="flex items-center gap-2 text-gray-700">
+                        <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                        <span>{highlight}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* CTA */}
+                <div className="pt-4 border-t">
+                  <a
+                    href="/contact"
+                    className="block w-full bg-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors text-center"
+                  >
+                    Get a Similar Project
+                  </a>
+                </div>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
+      </div>
+    </>
   );
 }

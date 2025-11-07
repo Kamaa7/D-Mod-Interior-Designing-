@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Mail, Phone, MapPin, Clock, Send, MessageSquare, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -9,19 +9,39 @@ import { Label } from "@/components/ui/label";
 import FloatingButtons from "@/components/FloatingButtons";
 import SocialMediaButtons from "@/components/SocialMediaButtons";
 import MapSection from "@/components/MapSection";
+import SEO from "@/components/SEO";
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    service: '',
-    message: ''
+  // Load saved form data from localStorage
+  const loadSavedData = () => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('contactFormDraft');
+      if (saved) {
+        try {
+          return JSON.parse(saved);
+        } catch (e) {
+          return null;
+        }
+      }
+    }
+    return null;
+  };
+
+  const [formData, setFormData] = useState(() => {
+    const saved = loadSavedData();
+    return saved || {
+      name: '',
+      email: '',
+      phone: '',
+      service: '',
+      message: ''
+    };
   });
 
   const [errors, setErrors] = useState<{[key: string]: string}>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isDraftSaved, setIsDraftSaved] = useState(false);
 
   const validateEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -33,12 +53,55 @@ export default function Contact() {
     return phoneRegex.test(phone.replace(/\D/g, ''));
   };
 
+  // Auto-save form data to localStorage
+  const saveDraft = (data: typeof formData) => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('contactFormDraft', JSON.stringify(data));
+      setIsDraftSaved(true);
+      setTimeout(() => setIsDraftSaved(false), 2000);
+    }
+  };
+
+  const saveTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const isInitialMount = useRef(true);
+
+  useEffect(() => {
+    // Skip auto-save on initial mount
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+
+    // Auto-save form data after user stops typing (debounce)
+    if (saveTimeoutRef.current) {
+      clearTimeout(saveTimeoutRef.current);
+    }
+
+    // Only save if form has content
+    const hasContent = Object.values(formData).some(value => value.trim() !== '');
+    if (hasContent) {
+      saveTimeoutRef.current = setTimeout(() => {
+        saveDraft(formData);
+      }, 1000);
+    }
+
+    return () => {
+      if (saveTimeoutRef.current) {
+        clearTimeout(saveTimeoutRef.current);
+      }
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [formData]);
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
+    const updatedData = {
+      ...formData,
       [name]: value
-    }));
+    };
+    setFormData(updatedData);
+
     // Clear error when user starts typing
     if (errors[name]) {
       setErrors(prev => {
@@ -103,6 +166,10 @@ export default function Contact() {
       localStorage.setItem('contactForms', JSON.stringify(savedForms));
 
       setIsSuccess(true);
+      
+      // Clear saved draft after successful submission
+      localStorage.removeItem('contactFormDraft');
+      
       setFormData({
         name: '',
         email: '',
@@ -123,8 +190,14 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
+    <>
+      <SEO
+        title="Contact Us"
+        description="Get in touch with D-Mod The Interior Factory for a free consultation. Contact us for interior design services in Lucknow."
+        keywords="contact interior designer, interior design consultation Lucknow, free quote interior design"
+      />
+      <div className="min-h-screen bg-gray-50">
+        {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-8">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl">
@@ -153,7 +226,15 @@ export default function Contact() {
             {/* Contact Form */}
             <Card className="shadow-lg">
               <CardHeader className="p-4 pb-2">
-                <CardTitle className="text-xl text-primary">Send us a Message</CardTitle>
+                <div className="flex items-center justify-between">
+                  <CardTitle className="text-xl text-primary">Send us a Message</CardTitle>
+                  {isDraftSaved && (
+                    <span className="text-xs text-green-600 flex items-center gap-1">
+                      <CheckCircle className="w-3 h-3" />
+                      Draft saved
+                    </span>
+                  )}
+                </div>
               </CardHeader>
               <CardContent className="p-4">
                 {isSuccess ? (
@@ -400,6 +481,7 @@ export default function Contact() {
 
       {/* Add floating buttons */}
       <FloatingButtons />
-    </div>
+      </div>
+    </>
   );
 }

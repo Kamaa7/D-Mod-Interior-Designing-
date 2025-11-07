@@ -1,6 +1,8 @@
 
 import React from "react";
-import { Calendar, User, ArrowRight, Clock, Eye, Heart, Share2, Check } from "lucide-react";
+import { Calendar, User, ArrowRight, Clock, Eye, Heart, Share2, Check, Search, X } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import SEO from "@/components/SEO";
 
 export default function Blog() {
   const blogPosts = [
@@ -105,19 +107,40 @@ export default function Blog() {
 
   const categories = ["All", "Trends", "Tips", "Design Psychology", "Sustainability", "Workspace", "Lighting", "Cultural Design", "Kitchen Design"];
   const [selectedCategory, setSelectedCategory] = React.useState("All");
+  const [searchQuery, setSearchQuery] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [isSubscribed, setIsSubscribed] = React.useState(false);
 
-  const filteredPosts = selectedCategory === "All" 
-    ? blogPosts 
-    : blogPosts.filter(post => post.category === selectedCategory);
+  const filteredPosts = React.useMemo(() => {
+    let filtered = selectedCategory === "All" 
+      ? blogPosts 
+      : blogPosts.filter(post => post.category === selectedCategory);
+
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase();
+      filtered = filtered.filter(post => 
+        post.title.toLowerCase().includes(query) ||
+        post.excerpt.toLowerCase().includes(query) ||
+        post.author.toLowerCase().includes(query) ||
+        post.category.toLowerCase().includes(query)
+      );
+    }
+
+    return filtered;
+  }, [selectedCategory, searchQuery, blogPosts]);
 
   const featuredPost = blogPosts.find(post => post.featured);
   const regularPosts = blogPosts.filter(post => !post.featured);
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
+    <>
+      <SEO
+        title="Design Blog"
+        description="Discover the latest interior design trends, tips, and inspiration. Expert advice on home design, space planning, and creating beautiful living spaces."
+        keywords="interior design blog, design trends, home design tips, interior design inspiration, design ideas, space planning tips"
+      />
+      <div className="min-h-screen bg-gray-50">
+        {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-20">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl">
@@ -195,9 +218,37 @@ export default function Blog() {
         </section>
       )}
 
-      {/* Filter Section */}
+      {/* Search and Filter Section */}
       <section className="py-8 bg-gray-100 border-b">
         <div className="container mx-auto px-6">
+          {/* Search Bar */}
+          <div className="max-w-md mx-auto mb-6">
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <Input
+                type="text"
+                placeholder="Search articles..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-10 pr-10 py-2 w-full"
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery("")}
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              )}
+            </div>
+            {searchQuery && (
+              <p className="text-sm text-gray-600 mt-2 text-center">
+                {filteredPosts.length} {filteredPosts.length === 1 ? 'article' : 'articles'} found
+              </p>
+            )}
+          </div>
+
+          {/* Category Filters */}
           <div className="flex flex-wrap gap-3 justify-center">
             {categories.map(category => (
               <button
@@ -205,8 +256,8 @@ export default function Blog() {
                 onClick={() => setSelectedCategory(category)}
                 className={`px-4 py-2 rounded-full font-medium transition-colors text-sm ${
                   selectedCategory === category
-                    ? 'bg-orange-600 text-white'
-                    : 'bg-white text-gray-600 hover:bg-orange-100 border border-gray-200'
+                    ? 'bg-primary text-white'
+                    : 'bg-white text-gray-600 hover:bg-blue-100 border border-gray-200'
                 }`}
               >
                 {category}
@@ -219,8 +270,25 @@ export default function Blog() {
       {/* Blog Posts Grid */}
       <section className="py-16">
         <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredPosts.filter(post => !post.featured).map((post) => (
+          {filteredPosts.filter(post => !post.featured).length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-gray-600 text-lg mb-4">No articles found.</p>
+              <p className="text-gray-500">Try adjusting your search or filter criteria.</p>
+              {(searchQuery || selectedCategory !== "All") && (
+                <button
+                  onClick={() => {
+                    setSearchQuery("");
+                    setSelectedCategory("All");
+                  }}
+                  className="mt-4 text-primary hover:underline"
+                >
+                  Clear filters
+                </button>
+              )}
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredPosts.filter(post => !post.featured).map((post) => (
               <article key={post.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow group">
                 <div className="relative">
                   <img 
@@ -283,8 +351,9 @@ export default function Blog() {
                   </button>
                 </div>
               </article>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
@@ -330,6 +399,7 @@ export default function Blog() {
           )}
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }

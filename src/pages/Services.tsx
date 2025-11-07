@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import FloatingButtons from "@/components/FloatingButtons";
 import AnimatedCounter from "@/components/AnimatedCounter";
+import SEO from "@/components/SEO";
 
 export default function Services() {
   const services = [
@@ -143,8 +144,14 @@ export default function Services() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
+    <>
+      <SEO
+        title="Our Services"
+        description="Comprehensive interior design services including space planning, 3D visualizations, modular solutions, and luxury interior design in Lucknow."
+        keywords="interior design services, space planning, 3D visualization, modular kitchen, luxury interior design, commercial interior design"
+      />
+      <div className="min-h-screen bg-gray-50">
+        {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-20">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl">
@@ -310,6 +317,7 @@ export default function Services() {
 
       {/* Add floating buttons */}
       <FloatingButtons />
-    </div>
+      </div>
+    </>
   );
 }

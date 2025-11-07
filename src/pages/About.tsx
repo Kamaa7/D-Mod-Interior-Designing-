@@ -1,6 +1,7 @@
 import React from "react";
 import { Users, Award, Target, Heart, MapPin, Phone, Mail, Clock } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
+import SEO from "@/components/SEO";
 
 export default function About() {
 
@@ -35,8 +36,14 @@ export default function About() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 optimize-rendering">
-      {/* Hero Section */}
+    <>
+      <SEO
+        title="About Us"
+        description="Learn about D-Mod The Interior Factory, a leading interior design firm in Lucknow. Our mission, values, and commitment to creating beautiful, functional spaces."
+        keywords="about interior designer, interior design company Lucknow, D-Mod interior factory, professional interior designers"
+      />
+      <div className="min-h-screen bg-gray-50 optimize-rendering">
+        {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-20 gpu-accelerated">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl">
@@ -219,6 +226,7 @@ export default function About() {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }
