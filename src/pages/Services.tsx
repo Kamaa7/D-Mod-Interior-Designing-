@@ -153,47 +153,47 @@ export default function Services() {
       />
       <div className="min-h-screen bg-gray-50">
         {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-20">
-        <div className="container mx-auto px-6">
+      <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-12 sm:py-16 md:py-20">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-4xl">
-            <h1 className="text-5xl font-bold mb-6">Our Premium Services</h1>
-            <p className="text-xl leading-relaxed mb-8">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">Our Premium Services</h1>
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8">
               From contemporary kitchens to luxury bedrooms, we offer comprehensive interior design solutions 
               that transform your spaces into beautiful, functional environments. Each service is tailored 
               to your unique style and requirements.
             </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
               <AnimatedCounter
                 end={200}
                 suffix="+"
                 label="Projects Completed"
                 duration={2500}
-                numberClassName="text-3xl font-bold text-white"
-                labelClassName="text-sm opacity-90 text-white"
+                numberClassName="text-2xl sm:text-3xl font-bold text-white"
+                labelClassName="text-xs sm:text-sm opacity-90 text-white"
               />
               <AnimatedCounter
                 end={5}
                 suffix="+"
                 label="Years of Experience"
                 duration={2700}
-                numberClassName="text-3xl font-bold text-white"
-                labelClassName="text-sm opacity-90 text-white"
+                numberClassName="text-2xl sm:text-3xl font-bold text-white"
+                labelClassName="text-xs sm:text-sm opacity-90 text-white"
               />
               <AnimatedCounter
                 end={98}
                 suffix="%"
                 label="Client Satisfaction"
                 duration={2900}
-                numberClassName="text-3xl font-bold text-white"
-                labelClassName="text-sm opacity-90 text-white"
+                numberClassName="text-2xl sm:text-3xl font-bold text-white"
+                labelClassName="text-xs sm:text-sm opacity-90 text-white"
               />
               <AnimatedCounter
                 end={10}
                 suffix="+"
                 label="Awards Won"
                 duration={3100}
-                numberClassName="text-3xl font-bold text-white"
-                labelClassName="text-sm opacity-90 text-white"
+                numberClassName="text-2xl sm:text-3xl font-bold text-white"
+                labelClassName="text-xs sm:text-sm opacity-90 text-white"
               />
             </div>
           </div>
@@ -202,9 +202,9 @@ export default function Services() {
 
       {/* Services Grid */}
       <ScrollAnimated direction="up" delay={0}>
-        <section className="py-16">
-          <div className="container mx-auto px-6">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <section className="py-12 sm:py-16">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {services.map((service, index) => (
               <Card key={index} className="group overflow-hidden hover:shadow-xl transition-all duration-300">
                 <div className="relative">
@@ -216,8 +216,8 @@ export default function Services() {
                   />
                 </div>
                 <CardContent className="p-6">
-                  <h3 className="text-2xl font-semibold text-gray-800 mb-3">{service.title}</h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed">{service.description}</p>
+                  <h3 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-2 sm:mb-3">{service.title}</h3>
+                  <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4 leading-relaxed">{service.description}</p>
                   <div className="space-y-2 mb-6">
                     {service.features.map((feature, featureIndex) => (
                       <div key={featureIndex} className="flex items-center text-sm text-gray-600">
@@ -243,7 +243,7 @@ export default function Services() {
         <section className="py-16 bg-white">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Design Process</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-4">Our Design Process</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               A streamlined approach that ensures your project is completed on time, within budget, and exceeds your expectations.
             </p>
@@ -273,7 +273,7 @@ export default function Services() {
         <section className="py-16 bg-blue-50">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">What Our Clients Say</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-4">What Our Clients Say</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Real feedback from families who have transformed their homes with our interior design services.
             </p>
@@ -304,7 +304,7 @@ export default function Services() {
       <ScrollAnimated direction="fade" delay={100}>
         <section className="py-16 bg-gray-800 text-white">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Space?</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4">Ready to Transform Your Space?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Get a free consultation and see how we can bring your interior design vision to life.
           </p>

@@ -69,24 +69,24 @@ const ServicesOverview = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-blue-50/30">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <Badge className="bg-blue-100 text-blue-800 border-blue-200 mb-6">
+    <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-white to-blue-50/30">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <Badge className="bg-blue-100 text-blue-800 border-blue-200 mb-4 sm:mb-6">
             Our Expertise
           </Badge>
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
             Comprehensive Design Solutions
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-6 sm:mb-8">
             From intimate residential spaces to impressive commercial environments, 
             we create designs that inspire and function beautifully.
           </p>
           
           {/* Prominent Get Quote CTA */}
-          <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-2xl p-8 mb-12 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold mb-4 text-white">Ready to Transform Your Space?</h3>
-            <p className="mb-6 opacity-90">Get a personalized quote for your dream interior design project</p>
+          <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-2xl p-6 sm:p-8 mb-8 sm:mb-12 max-w-2xl mx-auto">
+            <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-white">Ready to Transform Your Space?</h3>
+            <p className="mb-4 sm:mb-6 text-sm sm:text-base opacity-90">Get a personalized quote for your dream interior design project</p>
             <Button 
               size="lg" 
               className="bg-white text-blue-700 hover:bg-blue-50 px-8 py-4 rounded-xl shadow-lg font-semibold"

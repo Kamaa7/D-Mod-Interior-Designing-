@@ -144,26 +144,26 @@ export default function Blog() {
       />
       <div className="min-h-screen bg-gray-50">
         {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-20">
-        <div className="container mx-auto px-6">
+      <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-12 sm:py-16 md:py-20">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-4xl">
-            <h1 className="text-5xl font-bold mb-6">Design Insights & Inspiration</h1>
-            <p className="text-xl leading-relaxed mb-8">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">Design Insights & Inspiration</h1>
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8">
               Discover the latest trends, expert tips, and creative inspiration from our team of professional interior designers. 
               Stay updated with industry insights that will help you create beautiful, functional spaces.
             </p>
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
               <div className="text-center">
-                <div className="text-3xl font-bold">50+</div>
-                <div className="text-sm opacity-90">Design Articles</div>
+                <div className="text-2xl sm:text-3xl font-bold">50+</div>
+                <div className="text-xs sm:text-sm opacity-90">Design Articles</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold">10k+</div>
-                <div className="text-sm opacity-90">Monthly Readers</div>
+                <div className="text-2xl sm:text-3xl font-bold">10k+</div>
+                <div className="text-xs sm:text-sm opacity-90">Monthly Readers</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold">Weekly</div>
-                <div className="text-sm opacity-90">New Content</div>
+                <div className="text-2xl sm:text-3xl font-bold">Weekly</div>
+                <div className="text-xs sm:text-sm opacity-90">New Content</div>
               </div>
             </div>
           </div>
@@ -174,7 +174,7 @@ export default function Blog() {
       {featuredPost && (
         <section className="py-16 bg-white">
           <div className="container mx-auto px-6">
-            <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Featured Article</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6 sm:mb-8 text-center">Featured Article</h2>
             <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-xl overflow-hidden">
               <div className="md:flex">
                 <div className="md:w-1/2">
@@ -222,8 +222,8 @@ export default function Blog() {
       )}
 
       {/* Search and Filter Section */}
-      <section className="py-8 bg-gray-100 border-b">
-        <div className="container mx-auto px-6">
+      <section className="py-6 sm:py-8 bg-gray-100 border-b">
+        <div className="container mx-auto px-4 sm:px-6">
           {/* Search Bar */}
           <div className="max-w-md mx-auto mb-6">
             <div className="relative">
@@ -367,7 +367,7 @@ export default function Blog() {
       {/* Newsletter Section */}
       <section className="py-16 bg-blue-50">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">Stay Updated with Design Trends</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-4">Stay Updated with Design Trends</h2>
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
             Subscribe to our newsletter and get the latest design insights, tips, and exclusive content delivered to your inbox weekly.
           </p>

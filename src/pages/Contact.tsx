@@ -198,14 +198,14 @@ export default function Contact() {
       />
       <div className="min-h-screen bg-gray-50">
         {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-8">
-        <div className="container mx-auto px-6">
+      <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-8 sm:py-10">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-4xl">
-            <h1 className="text-3xl md:text-4xl font-bold mb-3">Get Your Free Quote</h1>
-            <p className="text-base md:text-lg leading-relaxed mb-4">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3">Get Your Free Quote</h1>
+            <p className="text-sm sm:text-base md:text-lg leading-relaxed mb-4">
               Ready to transform your space? Let's discuss your vision and create a design that exceeds your expectations.
             </p>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               <div className="text-center">
                 <div className="text-2xl font-bold">24hrs</div>
                 <div className="text-xs opacity-90">Quick Response</div>

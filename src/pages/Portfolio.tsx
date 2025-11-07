@@ -139,38 +139,38 @@ export default function Portfolio() {
       />
       <div className="min-h-screen bg-gray-50">
         {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-20">
-        <div className="container mx-auto px-6">
+      <section className="bg-gradient-to-r from-primary to-primary/80 text-white py-12 sm:py-16 md:py-20">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-4xl">
-            <h1 className="text-5xl font-bold mb-6">Our Design Portfolio</h1>
-            <p className="text-xl leading-relaxed mb-8">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">Our Design Portfolio</h1>
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8">
               Explore our collection of beautifully designed spaces that showcase our expertise, creativity, and commitment to excellence. 
               Each project tells a unique story of transformation and innovation.
             </p>
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
               <AnimatedCounter
                 end={200}
                 suffix="+"
                 label="Projects Completed"
                 duration={2500}
-                numberClassName="text-3xl font-bold text-white"
-                labelClassName="text-sm opacity-90 text-white"
+                numberClassName="text-2xl sm:text-3xl font-bold text-white"
+                labelClassName="text-xs sm:text-sm opacity-90 text-white"
               />
               <AnimatedCounter
                 end={100}
                 suffix="+"
                 label="Clients Served"
                 duration={2600}
-                numberClassName="text-3xl font-bold text-white"
-                labelClassName="text-sm opacity-90 text-white"
+                numberClassName="text-2xl sm:text-3xl font-bold text-white"
+                labelClassName="text-xs sm:text-sm opacity-90 text-white"
               />
               <AnimatedCounter
                 end={5}
                 suffix="+"
                 label="Years of Experience"
                 duration={2700}
-                numberClassName="text-3xl font-bold text-white"
-                labelClassName="text-sm opacity-90 text-white"
+                numberClassName="text-2xl sm:text-3xl font-bold text-white"
+                labelClassName="text-xs sm:text-sm opacity-90 text-white"
               />
             </div>
           </div>
@@ -178,9 +178,9 @@ export default function Portfolio() {
       </section>
 
       {/* Filter Section */}
-      <section className="py-8 bg-white border-b">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-wrap gap-4 justify-center" role="tablist" aria-label="Filter projects by category">
+      <section className="py-6 sm:py-8 bg-white border-b">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="flex flex-wrap gap-2 sm:gap-4 justify-center" role="tablist" aria-label="Filter projects by category">
             {categories.map(category => (
               <button
                 key={category}
@@ -188,7 +188,7 @@ export default function Portfolio() {
                 role="tab"
                 aria-selected={selectedCategory === category}
                 aria-controls="projects-grid"
-                className={`px-6 py-2 rounded-full font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 hover:scale-105 active:scale-95 ${
+                className={`px-4 sm:px-6 py-1.5 sm:py-2 text-xs sm:text-sm rounded-full font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 hover:scale-105 active:scale-95 ${
                   selectedCategory === category
                     ? 'bg-primary text-white'
                     : 'bg-gray-100 text-gray-600 hover:bg-blue-100'
@@ -202,9 +202,9 @@ export default function Portfolio() {
       </section>
 
       {/* Projects Gallery */}
-      <section className="py-16" id="projects-grid" role="tabpanel" aria-labelledby="projects-tab">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="py-12 sm:py-16" id="projects-grid" role="tabpanel" aria-labelledby="projects-tab">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {filteredProjects.map((project) => (
               <div key={project.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow group">
                 <div className="relative">

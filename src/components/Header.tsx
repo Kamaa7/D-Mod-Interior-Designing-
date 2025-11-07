@@ -21,14 +21,14 @@ const Header = () => {
 
   return (
     <header className="bg-white/95 backdrop-blur-sm border-b border-blue-100 sticky top-0 z-50">
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+      <div className="container mx-auto px-3 sm:px-4">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center group">
             <img 
               src="/lovable-uploads/7a7124d7-3031-49b3-899f-adf88c772229.png" 
               alt="D-Mod The Interior Factory"
-              className="h-10 w-auto group-hover:scale-105 transition-transform"
+              className="h-8 sm:h-10 w-auto group-hover:scale-105 transition-transform"
             />
           </Link>
 

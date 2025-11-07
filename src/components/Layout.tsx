@@ -148,27 +148,27 @@ export default function Layout({ children }: LayoutProps) {
           </Sidebar>
 
           <main className="flex-1 flex flex-col optimize-rendering">
-            <header className="bg-white border-b border-gray-100 px-6 py-4 gpu-accelerated">
+            <header className="bg-white border-b border-gray-100 px-3 sm:px-6 py-3 sm:py-4 gpu-accelerated">
               <div className="flex items-center justify-between">
-                <div className="flex items-center gap-4 md:hidden">
+                <div className="flex items-center gap-3 sm:gap-4 md:hidden">
                   <SidebarTrigger className="hover:bg-gray-100 p-2 rounded-lg smooth-transition">
-                    <Menu className="w-5 h-5" />
+                    <Menu className="w-4 h-4 sm:w-5 sm:h-5" />
                   </SidebarTrigger>
                   <div className="flex items-center gap-2">
                     <img
                       src="/dmod-logo.png"
                       alt="D-Mod The Interior Factory"
-                      className="w-auto h-6 object-contain image-optimized"
+                      className="w-auto h-5 sm:h-6 object-contain image-optimized"
                     />
                   </div>
                 </div>
                 
-                  <div className="ml-auto">
-                  <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-3 max-w-xs gpu-accelerated">
-                    <h3 className="font-semibold text-blue-700 mb-1 text-sm">D-Mod The Interior Factory</h3>
-                    <p className="text-xs text-blue-600 mb-2">Get a free consultation</p>
+                  <div className="ml-auto hidden sm:block">
+                  <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-2 sm:p-3 max-w-xs gpu-accelerated">
+                    <h3 className="font-semibold text-blue-700 mb-1 text-xs sm:text-sm">D-Mod The Interior Factory</h3>
+                    <p className="text-xs text-blue-600 mb-1 sm:mb-2">Get a free consultation</p>
                     <Link to="/contact">
-                      <button className="w-full bg-primary text-white py-1.5 px-3 rounded text-xs font-medium hover:bg-primary/90 smooth-transition flex items-center justify-center gap-1">
+                      <button className="w-full bg-primary text-white py-1 sm:py-1.5 px-2 sm:px-3 rounded text-xs font-medium hover:bg-primary/90 smooth-transition flex items-center justify-center gap-1">
                         <Quote className="w-3 h-3" />
                         Get Quote
                       </button>
