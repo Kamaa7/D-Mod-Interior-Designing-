@@ -252,12 +252,15 @@ export default function Blog() {
           </div>
 
           {/* Category Filters */}
-          <div className="flex flex-wrap gap-3 justify-center">
+          <div className="flex flex-wrap gap-3 justify-center" role="tablist" aria-label="Filter blog posts by category">
             {categories.map(category => (
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-full font-medium transition-colors text-sm ${
+                role="tab"
+                aria-selected={selectedCategory === category}
+                aria-controls="blog-posts-grid"
+                className={`px-4 py-2 rounded-full font-medium transition-all duration-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 hover:scale-105 active:scale-95 ${
                   selectedCategory === category
                     ? 'bg-primary text-white'
                     : 'bg-white text-gray-600 hover:bg-blue-100 border border-gray-200'
@@ -271,7 +274,7 @@ export default function Blog() {
       </section>
 
       {/* Blog Posts Grid */}
-      <section className="py-16">
+      <section className="py-16" id="blog-posts-grid" role="tabpanel" aria-labelledby="blog-tab">
         <div className="container mx-auto px-6">
           {filteredPosts.length === 0 ? (
             <div className="text-center py-12">
@@ -283,7 +286,8 @@ export default function Blog() {
                     setSearchQuery("");
                     setSelectedCategory("All");
                   }}
-                  className="mt-4 text-primary hover:underline"
+                  className="mt-4 text-primary hover:underline focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 px-2 py-1 rounded transition-all duration-200"
+                  aria-label="Clear all filters"
                 >
                   Clear filters
                 </button>

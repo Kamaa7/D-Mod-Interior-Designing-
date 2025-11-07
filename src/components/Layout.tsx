@@ -19,6 +19,7 @@ import SmoothScrollWrapper from "./SmoothScrollWrapper";
 import Footer from "./Footer";
 import CookieConsent from "./CookieConsent";
 import ScrollToTop from "./ScrollToTop";
+import SkipToContent from "./SkipToContent";
 
 const navigationItems = [
   {
@@ -62,6 +63,7 @@ export default function Layout({ children }: LayoutProps) {
 
   return (
     <SidebarProvider>
+      <SkipToContent />
       <style>
         {`
           :root {
@@ -176,9 +178,9 @@ export default function Layout({ children }: LayoutProps) {
               </div>
             </header>
 
-            <div className="flex-1 overflow-auto smooth-scroll">
+            <main id="main-content" className="flex-1 overflow-auto smooth-scroll" tabIndex={-1}>
               {children}
-            </div>
+            </main>
           </main>
         </div>
         

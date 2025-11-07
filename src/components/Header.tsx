@@ -33,20 +33,21 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-8" role="navigation" aria-label="Main navigation">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 to={item.href}
-                className={`text-sm font-medium transition-all duration-200 hover:text-primary relative ${
+                className={`text-sm font-medium transition-all duration-200 hover:text-primary relative focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:rounded px-2 py-1 ${
                   isActive(item.href) 
                     ? 'text-primary' 
                     : 'text-gray-700'
                 }`}
+                aria-current={isActive(item.href) ? 'page' : undefined}
               >
                 {item.name}
                 {isActive(item.href) && (
-                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full" />
+                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full" aria-hidden="true" />
                 )}
               </Link>
             ))}
@@ -54,7 +55,12 @@ const Header = () => {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" asChild className="border-primary text-primary hover:bg-primary hover:text-white">
+            <Button 
+              variant="outline" 
+              asChild 
+              className="border-primary text-primary hover:bg-primary hover:text-white transition-all duration-200 hover:scale-105 active:scale-95"
+              aria-label="Get a free quote"
+            >
               <Link to="/contact">Get Quote</Link>
             </Button>
           </div>
@@ -62,7 +68,9 @@ const Header = () => {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100"
+            className="md:hidden p-2 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-200 active:scale-95"
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMenuOpen}
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -70,27 +78,33 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200">
-            <nav className="flex flex-col space-y-4">
+          <nav className="md:hidden py-4 border-t border-gray-200" role="navigation" aria-label="Mobile navigation">
+            <div className="flex flex-col space-y-4">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`text-sm font-medium transition-colors hover:text-primary py-2 px-3 rounded-lg ${
+                  className={`text-sm font-medium transition-all duration-200 hover:text-primary py-2 px-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 ${
                     isActive(item.href) 
                       ? 'text-primary bg-blue-50 font-semibold' 
                       : 'text-gray-700 hover:bg-gray-50'
                   }`}
+                  aria-current={isActive(item.href) ? 'page' : undefined}
                 >
                   {item.name}
                 </Link>
               ))}
-              <Button variant="outline" asChild className="border-primary text-primary hover:bg-primary hover:text-white w-fit">
+              <Button 
+                variant="outline" 
+                asChild 
+                className="border-primary text-primary hover:bg-primary hover:text-white w-fit transition-all duration-200 hover:scale-105 active:scale-95"
+                aria-label="Get a free quote"
+              >
                 <Link to="/contact" onClick={() => setIsMenuOpen(false)}>Get Quote</Link>
               </Button>
-            </nav>
-          </div>
+            </div>
+          </nav>
         )}
       </div>
     </header>

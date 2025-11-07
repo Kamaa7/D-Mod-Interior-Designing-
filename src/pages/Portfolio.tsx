@@ -180,12 +180,15 @@ export default function Portfolio() {
       {/* Filter Section */}
       <section className="py-8 bg-white border-b">
         <div className="container mx-auto px-6">
-          <div className="flex flex-wrap gap-4 justify-center">
+          <div className="flex flex-wrap gap-4 justify-center" role="tablist" aria-label="Filter projects by category">
             {categories.map(category => (
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-6 py-2 rounded-full font-medium transition-colors ${
+                role="tab"
+                aria-selected={selectedCategory === category}
+                aria-controls="projects-grid"
+                className={`px-6 py-2 rounded-full font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 hover:scale-105 active:scale-95 ${
                   selectedCategory === category
                     ? 'bg-primary text-white'
                     : 'bg-gray-100 text-gray-600 hover:bg-blue-100'
@@ -199,7 +202,7 @@ export default function Portfolio() {
       </section>
 
       {/* Projects Gallery */}
-      <section className="py-16">
+      <section className="py-16" id="projects-grid" role="tabpanel" aria-labelledby="projects-tab">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.map((project) => (

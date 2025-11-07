@@ -2,6 +2,7 @@ import React from "react";
 import { Users, Award, Target, Heart, MapPin, Phone, Mail, Clock } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import SEO from "@/components/SEO";
+import ScrollAnimated from "@/components/ScrollAnimated";
 
 export default function About() {
 
@@ -68,7 +69,8 @@ export default function About() {
       </section>
 
       {/* Story Section */}
-      <section className="py-16 optimize-rendering">
+      <ScrollAnimated direction="fade" delay={0}>
+        <section className="py-16 optimize-rendering">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -165,10 +167,12 @@ export default function About() {
             />
           </div>
         </div>
-      </section>
+        </section>
+      </ScrollAnimated>
 
       {/* Founder Section */}
-      <section className="py-16 bg-gradient-to-br from-blue-50 to-blue-100 optimize-rendering">
+      <ScrollAnimated direction="up" delay={100}>
+        <section className="py-16 bg-gradient-to-br from-blue-50 to-blue-100 optimize-rendering">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8">
@@ -182,10 +186,12 @@ export default function About() {
             </div>
           </div>
         </div>
-      </section>
+        </section>
+      </ScrollAnimated>
 
       {/* Values Section */}
-      <section className="py-16 bg-white optimize-rendering">
+      <ScrollAnimated direction="fade" delay={200}>
+        <section className="py-16 bg-white optimize-rendering">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Core Values</h2>
@@ -205,10 +211,12 @@ export default function About() {
             ))}
           </div>
         </div>
-      </section>
+        </section>
+      </ScrollAnimated>
 
       {/* Mission & Vision Section */}
-      <section className="py-16 bg-white optimize-rendering">
+      <ScrollAnimated direction="up" delay={100}>
+        <section className="py-16 bg-white optimize-rendering">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12">
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-lg">
@@ -225,7 +233,8 @@ export default function About() {
             </div>
           </div>
         </div>
-      </section>
+        </section>
+      </ScrollAnimated>
       </div>
     </>
   );

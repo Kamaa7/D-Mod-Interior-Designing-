@@ -13,11 +13,12 @@ export default function FloatingButtons() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 flex flex-col gap-3 z-50">
+    <div className="fixed bottom-6 right-6 flex flex-col gap-3 z-50" role="complementary" aria-label="Quick action buttons">
       {/* WhatsApp Button */}
       <Button
         onClick={handleWhatsAppClick}
-        className="w-14 h-14 rounded-full bg-primary hover:bg-primary/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center"
+        className="w-14 h-14 rounded-full bg-primary hover:bg-primary/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+        aria-label="Chat on WhatsApp"
         title="Chat on WhatsApp"
       >
         <MessageSquare className="w-6 h-6" />
@@ -26,7 +27,8 @@ export default function FloatingButtons() {
       {/* Get Quote Button */}
       <Link to="/contact">
         <Button
-          className="w-14 h-14 rounded-full bg-primary hover:bg-primary/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center"
+          className="w-14 h-14 rounded-full bg-primary hover:bg-primary/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+          aria-label="Get a free quote"
           title="Get Quote"
         >
           <Quote className="w-6 h-6" />

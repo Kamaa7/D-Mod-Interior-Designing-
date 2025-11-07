@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import FloatingButtons from "@/components/FloatingButtons";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import SEO from "@/components/SEO";
+import ScrollAnimated from "@/components/ScrollAnimated";
 
 export default function Services() {
   const services = [
@@ -200,9 +201,10 @@ export default function Services() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-16">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <ScrollAnimated direction="up" delay={0}>
+        <section className="py-16">
+          <div className="container mx-auto px-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <Card key={index} className="group overflow-hidden hover:shadow-xl transition-all duration-300">
                 <div className="relative">
@@ -231,12 +233,14 @@ export default function Services() {
                 </CardContent>
               </Card>
             ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </ScrollAnimated>
 
       {/* Process Section */}
-      <section className="py-16 bg-white">
+      <ScrollAnimated direction="fade" delay={100}>
+        <section className="py-16 bg-white">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Design Process</h2>
@@ -261,10 +265,12 @@ export default function Services() {
             ))}
           </div>
         </div>
-      </section>
+        </section>
+      </ScrollAnimated>
 
       {/* Testimonials Section */}
-      <section className="py-16 bg-blue-50">
+      <ScrollAnimated direction="up" delay={200}>
+        <section className="py-16 bg-blue-50">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">What Our Clients Say</h2>
@@ -291,10 +297,12 @@ export default function Services() {
             ))}
           </div>
         </div>
-      </section>
+        </section>
+      </ScrollAnimated>
 
       {/* Call to Action */}
-      <section className="py-16 bg-gray-800 text-white">
+      <ScrollAnimated direction="fade" delay={100}>
+        <section className="py-16 bg-gray-800 text-white">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Space?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
@@ -313,7 +321,8 @@ export default function Services() {
             </Link>
           </div>
         </div>
-      </section>
+        </section>
+      </ScrollAnimated>
 
       {/* Add floating buttons */}
       <FloatingButtons />

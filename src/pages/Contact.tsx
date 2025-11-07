@@ -358,8 +358,9 @@ export default function Contact() {
 
                     <Button 
                       type="submit" 
-                      className="w-full bg-primary hover:bg-primary/90 text-white py-3"
+                      className="w-full bg-primary hover:bg-primary/90 text-white py-3 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                       disabled={isSubmitting}
+                      aria-label="Submit contact form"
                     >
                       {isSubmitting ? (
                         <>

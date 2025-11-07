@@ -7,6 +7,7 @@ import WhyChooseUs from "../components/home/WhyChooseUs";
 import Testimonials from "../components/home/Testimonials";
 import CallToAction from "../components/home/CallToAction";
 import SEO from "../components/SEO";
+import ScrollAnimated from "../components/ScrollAnimated";
 
 export default function Home() {
   return (
@@ -18,11 +19,21 @@ export default function Home() {
       />
       <div className="min-h-screen">
         <HeroSection />
-        <ServicesOverview />
-        <FeaturedProjects />
-        <WhyChooseUs />
-        <Testimonials />
-        <CallToAction />
+        <ScrollAnimated direction="fade" delay={0}>
+          <ServicesOverview />
+        </ScrollAnimated>
+        <ScrollAnimated direction="up" delay={100}>
+          <FeaturedProjects />
+        </ScrollAnimated>
+        <ScrollAnimated direction="fade" delay={200}>
+          <WhyChooseUs />
+        </ScrollAnimated>
+        <ScrollAnimated direction="up" delay={100}>
+          <Testimonials />
+        </ScrollAnimated>
+        <ScrollAnimated direction="fade" delay={200}>
+          <CallToAction />
+        </ScrollAnimated>
       </div>
     </>
   );
