@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import { Mail, Phone, MapPin, Clock, Send, MessageSquare } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Send, MessageSquare, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -19,18 +19,107 @@ export default function Contact() {
     message: ''
   });
 
+  const [errors, setErrors] = useState<{[key: string]: string}>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const validatePhone = (phone: string) => {
+    const phoneRegex = /^[6-9]\d{9}$/;
+    return phoneRegex.test(phone.replace(/\D/g, ''));
+  };
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors(prev => {
+        const newErrors = { ...prev };
+        delete newErrors[name];
+        return newErrors;
+      });
+    }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const validateForm = () => {
+    const newErrors: {[key: string]: string} = {};
+
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required';
+    } else if (formData.name.trim().length < 2) {
+      newErrors.name = 'Name must be at least 2 characters';
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!validateEmail(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+
+    if (!formData.phone.trim()) {
+      newErrors.phone = 'Phone number is required';
+    } else if (!validatePhone(formData.phone)) {
+      newErrors.phone = 'Please enter a valid 10-digit phone number';
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required';
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = 'Message must be at least 10 characters';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+    
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
+    setErrors({});
+
+    // Simulate API call (will be replaced with actual Resend integration later)
+    try {
+      await new Promise(resolve => setTimeout(resolve, 1500)); // Simulate network delay
+      
+      // Save form data to localStorage as backup
+      const savedForms = JSON.parse(localStorage.getItem('contactForms') || '[]');
+      savedForms.push({
+        ...formData,
+        submittedAt: new Date().toISOString()
+      });
+      localStorage.setItem('contactForms', JSON.stringify(savedForms));
+
+      setIsSuccess(true);
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        service: '',
+        message: ''
+      });
+
+      // Reset success message after 5 seconds
+      setTimeout(() => {
+        setIsSuccess(false);
+      }, 5000);
+    } catch (error) {
+      setErrors({ submit: 'Something went wrong. Please try again later.' });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -67,84 +156,144 @@ export default function Contact() {
                 <CardTitle className="text-xl text-primary">Send us a Message</CardTitle>
               </CardHeader>
               <CardContent className="p-4">
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <Label htmlFor="name">Full Name *</Label>
-                      <Input
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        required
-                        className="mt-1"
-                      />
+                {isSuccess ? (
+                  <div className="text-center py-8">
+                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <CheckCircle className="w-10 h-10 text-green-600" />
                     </div>
-                    <div>
-                      <Label htmlFor="phone">Phone Number *</Label>
-                      <Input
-                        id="phone"
-                        name="phone"
-                        type="tel"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        required
-                        className="mt-1"
-                      />
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <Label htmlFor="email">Email Address *</Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                      className="mt-1"
-                    />
-                  </div>
-
-                  <div>
-                    <Label htmlFor="service">Service Interested In</Label>
-                    <select
-                      id="service"
-                      name="service"
-                      value={formData.service}
-                      onChange={handleInputChange}
-                      className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary"
+                    <h3 className="text-2xl font-bold text-gray-800 mb-2">Thank You!</h3>
+                    <p className="text-gray-600 mb-4">
+                      Your message has been sent successfully. We'll get back to you within 24 hours.
+                    </p>
+                    <Button
+                      onClick={() => setIsSuccess(false)}
+                      variant="outline"
+                      className="mt-4"
                     >
-                      <option value="">Select a service</option>
-                      <option value="complete-home">Complete Home Interior</option>
-                      <option value="modular-kitchen">Modular Kitchen</option>
-                      <option value="bedroom">Bedroom Design</option>
-                      <option value="living-room">Living Room</option>
-                      <option value="commercial">Commercial Interior</option>
-                      <option value="consultation">Design Consultation</option>
-                    </select>
+                      Send Another Message
+                    </Button>
                   </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div>
+                        <Label htmlFor="name">Full Name *</Label>
+                        <Input
+                          id="name"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleInputChange}
+                          className={`mt-1 ${errors.name ? 'border-red-500 focus:ring-red-500' : ''}`}
+                        />
+                        {errors.name && (
+                          <p className="text-red-500 text-xs mt-1 flex items-center gap-1">
+                            <AlertCircle className="w-3 h-3" />
+                            {errors.name}
+                          </p>
+                        )}
+                      </div>
+                      <div>
+                        <Label htmlFor="phone">Phone Number *</Label>
+                        <Input
+                          id="phone"
+                          name="phone"
+                          type="tel"
+                          value={formData.phone}
+                          onChange={handleInputChange}
+                          placeholder="10-digit mobile number"
+                          className={`mt-1 ${errors.phone ? 'border-red-500 focus:ring-red-500' : ''}`}
+                        />
+                        {errors.phone && (
+                          <p className="text-red-500 text-xs mt-1 flex items-center gap-1">
+                            <AlertCircle className="w-3 h-3" />
+                            {errors.phone}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <Label htmlFor="email">Email Address *</Label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        className={`mt-1 ${errors.email ? 'border-red-500 focus:ring-red-500' : ''}`}
+                      />
+                      {errors.email && (
+                        <p className="text-red-500 text-xs mt-1 flex items-center gap-1">
+                          <AlertCircle className="w-3 h-3" />
+                          {errors.email}
+                        </p>
+                      )}
+                    </div>
 
-                  <div>
-                    <Label htmlFor="message">Tell us about your project *</Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      required
-                      rows={4}
-                      className="mt-1"
-                      placeholder="Describe your space, style preferences, budget range, timeline..."
-                    />
-                  </div>
+                    <div>
+                      <Label htmlFor="service">Service Interested In</Label>
+                      <select
+                        id="service"
+                        name="service"
+                        value={formData.service}
+                        onChange={handleInputChange}
+                        className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary"
+                      >
+                        <option value="">Select a service</option>
+                        <option value="complete-home">Complete Home Interior</option>
+                        <option value="modular-kitchen">Modular Kitchen</option>
+                        <option value="bedroom">Bedroom Design</option>
+                        <option value="living-room">Living Room</option>
+                        <option value="commercial">Commercial Interior</option>
+                        <option value="consultation">Design Consultation</option>
+                      </select>
+                    </div>
 
-                  <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-white py-3">
-                    <Send className="w-4 h-4 mr-2" />
-                    Get Your Free Quote
-                  </Button>
-                </form>
+                    <div>
+                      <Label htmlFor="message">Tell us about your project *</Label>
+                      <Textarea
+                        id="message"
+                        name="message"
+                        value={formData.message}
+                        onChange={handleInputChange}
+                        rows={4}
+                        className={`mt-1 ${errors.message ? 'border-red-500 focus:ring-red-500' : ''}`}
+                        placeholder="Describe your space, style preferences, budget range, timeline..."
+                      />
+                      {errors.message && (
+                        <p className="text-red-500 text-xs mt-1 flex items-center gap-1">
+                          <AlertCircle className="w-3 h-3" />
+                          {errors.message}
+                        </p>
+                      )}
+                    </div>
+
+                    {errors.submit && (
+                      <div className="bg-red-50 border border-red-200 rounded-lg p-3 flex items-center gap-2">
+                        <AlertCircle className="w-5 h-5 text-red-600" />
+                        <p className="text-red-600 text-sm">{errors.submit}</p>
+                      </div>
+                    )}
+
+                    <Button 
+                      type="submit" 
+                      className="w-full bg-primary hover:bg-primary/90 text-white py-3"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="w-4 h-4 mr-2" />
+                          Get Your Free Quote
+                        </>
+                      )}
+                    </Button>
+                  </form>
+                )}
               </CardContent>
             </Card>
 

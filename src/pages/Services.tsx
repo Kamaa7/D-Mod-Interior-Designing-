@@ -202,6 +202,7 @@ export default function Services() {
                   <img 
                     src={service.image} 
                     alt={service.title}
+                    loading="lazy"
                     className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>

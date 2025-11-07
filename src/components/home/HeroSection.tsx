@@ -58,6 +58,7 @@ export default function HeroSection() {
               <img
                 src="/lovable-uploads/Gemini_Generated_Image_jppmrpjppmrpjppm.png"
                 alt="Modern Kitchen Design"
+                loading="eager"
                 className="rounded-2xl shadow-2xl w-full object-cover aspect-[4/5]"
               />
               <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg">

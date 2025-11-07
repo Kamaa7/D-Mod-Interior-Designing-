@@ -155,6 +155,7 @@ export default function Blog() {
                   <img 
                     src={featuredPost.image} 
                     alt={featuredPost.title}
+                    loading="lazy"
                     className="w-full h-64 md:h-full object-cover"
                   />
                 </div>
@@ -225,6 +226,7 @@ export default function Blog() {
                   <img 
                     src={post.image} 
                     alt={post.title}
+                    loading="lazy"
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform"
                   />
                   <div className="absolute top-4 right-4 flex space-x-2">

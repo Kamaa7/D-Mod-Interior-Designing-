@@ -18,6 +18,7 @@ import FloatingButtons from "./FloatingButtons";
 import SmoothScrollWrapper from "./SmoothScrollWrapper";
 import Footer from "./Footer";
 import CookieConsent from "./CookieConsent";
+import ScrollToTop from "./ScrollToTop";
 
 const navigationItems = [
   {
@@ -183,6 +184,7 @@ export default function Layout({ children }: LayoutProps) {
         
         <Footer />
         <FloatingButtons />
+        <ScrollToTop />
         <CookieConsent />
       </SmoothScrollWrapper>
     </SidebarProvider>

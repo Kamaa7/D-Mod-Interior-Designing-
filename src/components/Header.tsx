@@ -38,11 +38,16 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  isActive(item.href) ? 'text-primary' : 'text-gray-700'
+                className={`text-sm font-medium transition-all duration-200 hover:text-primary relative ${
+                  isActive(item.href) 
+                    ? 'text-primary' 
+                    : 'text-gray-700'
                 }`}
               >
                 {item.name}
+                {isActive(item.href) && (
+                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full" />
+                )}
               </Link>
             ))}
           </nav>
@@ -72,8 +77,10 @@ const Header = () => {
                   key={item.name}
                   to={item.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`text-sm font-medium transition-colors hover:text-primary ${
-                    isActive(item.href) ? 'text-primary' : 'text-gray-700'
+                  className={`text-sm font-medium transition-colors hover:text-primary py-2 px-3 rounded-lg ${
+                    isActive(item.href) 
+                      ? 'text-primary bg-blue-50 font-semibold' 
+                      : 'text-gray-700 hover:bg-gray-50'
                   }`}
                 >
                   {item.name}
