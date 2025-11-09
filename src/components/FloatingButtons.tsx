@@ -25,19 +25,17 @@ export default function FloatingButtons() {
       </Button>
 
       {/* Get Quote Button with Callout */}
-      <div className="relative flex justify-end">
-        <div className="absolute -top-16 right-0 sm:right-1">
+      <div className="flex flex-col items-end gap-2">
+        <div className="w-48 sm:w-56 rounded-2xl bg-white text-slate-700 border border-blue-200 shadow-[0_15px_30px_rgba(13,25,48,0.14)] px-4 py-3 text-xs sm:text-sm font-medium">
           <div className="relative">
-            <div className="rounded-full bg-white text-slate-700 border border-blue-200 shadow-[0_15px_30px_rgba(13,25,48,0.14)] px-4 py-2 text-xs font-medium">
-              We’re online. How may we assist you?
-            </div>
-            <span className="absolute -bottom-1 right-6 sm:right-8 block w-3 h-3 bg-white border-r border-b border-blue-200 rotate-45" aria-hidden="true" />
+            <p>We’re online. How may we assist you?</p>
+            <span className="absolute -bottom-3 right-6 block w-3 h-3 bg-white border-r border-b border-blue-200 rotate-45" aria-hidden="true" />
           </div>
         </div>
 
-        <Link to="/contact" className="relative">
+        <Link to="/contact">
           <Button
-            className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-primary hover:bg-primary/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 animate-pulse"
+            className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-primary hover:bg-primary/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
             aria-label="Get a free quote"
             title="Get Quote"
           >
