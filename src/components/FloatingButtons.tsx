@@ -1,8 +1,20 @@
 
 import React from "react";
-import { MessageSquare, Quote } from "lucide-react";
+import { Quote } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+
+const WhatsappIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
+  <svg
+    className={className}
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+  >
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.149-.671.149-.198.297-.767.966-.94 1.164-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.074-.149-.671-1.612-.919-2.207-.242-.579-.487-.501-.671-.51-.173-.007-.372-.009-.571-.009-.198 0-.521.074-.795.372-.273.297-1.045 1.023-1.045 2.479 0 1.456 1.07 2.866 1.219 3.065.149.198 2.104 3.215 5.107 4.508.714.308 1.27.492 1.704.63.716.228 1.368.196 1.883.119.574-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M11.99 0C5.373 0 0 5.373 0 12c0 2.116.555 4.085 1.523 5.804L0 24l6.356-1.655A11.961 11.961 0 0 0 11.99 24C18.627 24 24 18.627 24 12S18.627 0 11.99 0" />
+  </svg>
+);
 
 export default function FloatingButtons() {
   const handleWhatsAppClick = () => {
@@ -13,7 +25,7 @@ export default function FloatingButtons() {
   };
 
   return (
-    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 flex flex-col gap-3 z-50" role="complementary" aria-label="Quick action buttons">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 flex flex-col items-end gap-3 z-50" role="complementary" aria-label="Quick action buttons">
       {/* WhatsApp Button */}
       <Button
         onClick={handleWhatsAppClick}
@@ -21,7 +33,7 @@ export default function FloatingButtons() {
         aria-label="Chat on WhatsApp"
         title="Chat on WhatsApp"
       >
-        <MessageSquare className="w-5 h-5 sm:w-6 sm:h-6" />
+        <WhatsappIcon className="w-5 h-5 sm:w-6 sm:h-6" />
       </Button>
 
       {/* Helper Bubble and Quote Button */}
@@ -36,7 +48,7 @@ export default function FloatingButtons() {
             aria-label="Get a free quote"
             title="Get Quote"
           >
-            <MessageSquare className="w-5 h-5 sm:w-6 sm:h-6" />
+            <Quote className="w-5 h-5 sm:w-6 sm:h-6" />
           </Button>
         </Link>
       </div>
