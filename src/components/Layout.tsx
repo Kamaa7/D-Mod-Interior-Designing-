@@ -1,7 +1,7 @@
 
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Home, Briefcase, Image, Users, Phone, Menu, BookOpen, Quote } from "lucide-react";
+import { Home, Briefcase, Image, Users, Phone, Menu, BookOpen, Quote, Award, Sparkles } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -188,7 +188,8 @@ export default function Layout({ children }: LayoutProps) {
 
             <main className="flex-1 flex flex-col optimize-rendering">
             <header className="glass-header sticky top-0 z-30 px-3 sm:px-6 py-3 sm:py-4 gpu-accelerated">
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between gap-4">
+                {/* Mobile: Menu + Logo */}
                 <div className="flex items-center gap-3 sm:gap-4 md:hidden">
                   <SidebarTrigger className="hover:bg-gray-100 p-2 rounded-lg smooth-transition">
                     <Menu className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -202,17 +203,57 @@ export default function Layout({ children }: LayoutProps) {
                   </div>
                 </div>
                 
-                  <div className="ml-auto hidden sm:block">
-                  <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-2 sm:p-3 max-w-xs gpu-accelerated">
-                    <h3 className="font-semibold text-blue-700 mb-1 text-xs sm:text-sm">D-Mod The Interior Factory</h3>
-                    <p className="text-xs text-blue-600 mb-1 sm:mb-2">Get a free consultation</p>
-                    <Link to="/contact">
-                      <button className="w-full bg-primary text-white py-1 sm:py-1.5 px-2 sm:px-3 rounded text-xs font-medium hover:bg-primary/90 smooth-transition flex items-center justify-center gap-1">
-                        <Quote className="w-3 h-3" />
-                        Get Quote
-                      </button>
-                    </Link>
+                {/* Desktop: Animated USP Tagline (Center-Left) */}
+                <div className="hidden md:flex items-center gap-3 flex-1 max-w-2xl mx-auto">
+                  <div className="glass-gradient-blue px-4 py-2 rounded-full border border-blue-200 shadow-sm animate-fade-in flex items-center gap-3 flex-wrap">
+                    <div className="flex items-center gap-1.5 text-xs text-blue-800 font-medium">
+                      <Award className="w-3.5 h-3.5 text-blue-600" />
+                      <span>5+ Years Excellence</span>
+                    </div>
+                    <div className="hidden lg:block w-px h-4 bg-blue-300"></div>
+                    <div className="flex items-center gap-1.5 text-xs text-blue-800 font-medium">
+                      <Users className="w-3.5 h-3.5 text-blue-600" />
+                      <span>200+ Happy Clients</span>
+                    </div>
+                    <div className="hidden xl:block w-px h-4 bg-blue-300"></div>
+                    <div className="hidden xl:flex items-center gap-1.5 text-xs text-blue-800 font-medium">
+                      <Sparkles className="w-3.5 h-3.5 text-blue-600" />
+                      <span>Free 3D Visualization</span>
+                    </div>
                   </div>
+                </div>
+                
+                {/* Desktop: Quick Action CTAs + Main CTA (Right) */}
+                <div className="ml-auto flex items-center gap-2">
+                  {/* Quick Action Pills */}
+                  <div className="hidden lg:flex items-center gap-2">
+                    <a 
+                      href="https://wa.me/919616996699?text=Hi!%20I'm%20interested%20in%20your%20interior%20design%20services."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="glass-frosted-light hover:glass-blue p-2 rounded-lg transition-all duration-300 hover:scale-110 active:scale-95 group"
+                      title="Chat on WhatsApp"
+                    >
+                      <svg className="w-4 h-4 text-blue-600 group-hover:text-blue-700" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.149-.671.149-.198.297-.767.966-.94 1.164-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.074-.149-.671-1.612-.919-2.207-.242-.579-.487-.501-.671-.51-.173-.007-.372-.009-.571-.009-.198 0-.521.074-.795.372-.273.297-1.045 1.023-1.045 2.479 0 1.456 1.07 2.866 1.219 3.065.149.198 2.104 3.215 5.107 4.508.714.308 1.27.492 1.704.63.716.228 1.368.196 1.883.119.574-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M11.99 0C5.373 0 0 5.373 0 12c0 2.116.555 4.085 1.523 5.804L0 24l6.356-1.655A11.961 11.961 0 0 0 11.99 24C18.627 24 24 18.627 24 12S18.627 0 11.99 0"/>
+                      </svg>
+                    </a>
+                    <a 
+                      href="tel:+919616996699"
+                      className="glass-frosted-light hover:glass-blue p-2 rounded-lg transition-all duration-300 hover:scale-110 active:scale-95 group"
+                      title="Call Now"
+                    >
+                      <Phone className="w-4 h-4 text-blue-600 group-hover:text-blue-700" />
+                    </a>
+                  </div>
+                  
+                  {/* Main Get Quote CTA */}
+                  <Link to="/contact">
+                    <button className="glass-button text-white py-2 px-4 rounded-lg text-sm font-medium hover:scale-105 active:scale-95 smooth-transition flex items-center justify-center gap-2 shadow-lg">
+                      <Quote className="w-4 h-4" />
+                      <span className="hidden sm:inline">Get Quote</span>
+                    </button>
+                  </Link>
                 </div>
               </div>
             </header>
