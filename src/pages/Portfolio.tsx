@@ -5,6 +5,7 @@ import AnimatedCounter from "@/components/AnimatedCounter";
 import SEO from "@/components/SEO";
 import SwipeableGallery from "@/components/SwipeableGallery";
 import SkeletonLoader from "@/components/SkeletonLoader";
+import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import {
   Dialog,
   DialogContent,
@@ -24,6 +25,7 @@ export default function Portfolio() {
       area: "4,500 sq ft",
       budget: "₹25 Lakhs",
       image: "/lovable-uploads/72662bb2-ec5d-4de0-81da-80d383cfc83b.png",
+      beforeImage: "/lovable-uploads/df51dda6-b495-446b-b40f-674951240041.png",
       description: "Complete interior transformation of a 4BHK villa with contemporary design elements, featuring premium materials and smart home integration.",
       highlights: ["Smart Home Automation", "Premium Italian Marble", "Custom Furniture", "Imported Lighting"]
     },
@@ -36,6 +38,7 @@ export default function Portfolio() {
       area: "350 sq ft",
       budget: "₹8 Lakhs",
       image: "/lovable-uploads/e913b018-0d86-4651-9978-40dd65f6a458.png",
+      beforeImage: "/lovable-uploads/GUEST BEDROOM-3.3(RISHITA-C3-1502).png",
       description: "Modern bedroom design with blue accent wall, custom wardrobes, and sophisticated lighting for ultimate comfort and style.",
       highlights: ["Custom Wardrobes", "Accent Wall Design", "Ambient Lighting", "Space Optimization"]
     },
@@ -48,6 +51,7 @@ export default function Portfolio() {
       area: "600 sq ft",
       budget: "₹15 Lakhs",
       image: "/lovable-uploads/57cc0f65-4207-46af-9796-f8593761456c.png",
+      beforeImage: "/lovable-uploads/a00c9e1c-280d-4abe-97fd-271b85a332df.png",
       description: "Elegant living space with archway features, premium furnishing, and open kitchen connectivity for modern family living.",
       highlights: ["Archway Design", "Premium Furnishing", "Open Layout", "Natural Materials"]
     },
@@ -365,14 +369,24 @@ export default function Portfolio() {
               </DialogHeader>
               
               <div className="space-y-6">
-                {/* Project Image */}
-                <div className="relative w-full h-64 md:h-96 rounded-lg overflow-hidden">
-                  <img
-                    src={selectedProject.image}
-                    alt={selectedProject.title}
-                    className="w-full h-full object-cover"
+                {/* Project Image or Before/After Slider */}
+                {selectedProject.beforeImage ? (
+                  <BeforeAfterSlider
+                    beforeImage={selectedProject.beforeImage}
+                    afterImage={selectedProject.image}
+                    beforeLabel="Before"
+                    afterLabel="After"
+                    className="w-full"
                   />
-                </div>
+                ) : (
+                  <div className="relative w-full h-64 md:h-96 rounded-lg overflow-hidden">
+                    <img
+                      src={selectedProject.image}
+                      alt={selectedProject.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                )}
 
                 {/* Project Details */}
                 <div className="grid md:grid-cols-2 gap-6">

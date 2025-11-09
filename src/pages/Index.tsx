@@ -6,6 +6,7 @@ import FeaturedProjects from "../components/home/FeaturedProjects";
 import WhyChooseUs from "../components/home/WhyChooseUs";
 import Testimonials from "../components/home/Testimonials";
 import CallToAction from "../components/home/CallToAction";
+import TransformationShowcase from "../components/TransformationShowcase";
 import SEO from "../components/SEO";
 import ScrollAnimated from "../components/ScrollAnimated";
 
@@ -25,6 +26,7 @@ export default function Home() {
         <ScrollAnimated direction="up" delay={100}>
           <FeaturedProjects />
         </ScrollAnimated>
+        <TransformationShowcase />
         <ScrollAnimated direction="fade" delay={200}>
           <WhyChooseUs />
         </ScrollAnimated>
