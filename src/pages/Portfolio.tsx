@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Calendar, MapPin, Eye, Heart, Check } from "lucide-react";
+import { Calendar, MapPin, Eye, Heart, Check, Share2 } from "lucide-react";
 import FloatingButtons from "@/components/FloatingButtons";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import SEO from "@/components/SEO";
+import SwipeableGallery from "@/components/SwipeableGallery";
 import {
   Dialog,
   DialogContent,
@@ -115,6 +116,9 @@ export default function Portfolio() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedProject, setSelectedProject] = useState<(typeof projects)[0] | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  const [galleryImages, setGalleryImages] = useState<string[]>([]);
+  const [galleryStartIndex, setGalleryStartIndex] = useState(0);
 
   const filteredProjects = selectedCategory === "All" 
     ? projects 
@@ -128,6 +132,31 @@ export default function Portfolio() {
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedProject(null);
+  };
+
+  const handleImageClick = (project: (typeof projects)[0]) => {
+    // For now, we'll use single image. You can add multiple images per project later
+    setGalleryImages([project.image]);
+    setGalleryStartIndex(0);
+    setIsGalleryOpen(true);
+  };
+
+  const handleShare = async (project: (typeof projects)[0]) => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: project.title,
+          text: project.description,
+          url: window.location.href,
+        });
+      } catch (error) {
+        console.log('Error sharing:', error);
+      }
+    } else {
+      // Fallback: copy link to clipboard
+      navigator.clipboard.writeText(window.location.href);
+      alert('Link copied to clipboard!');
+    }
   };
 
   return (
@@ -209,7 +238,7 @@ export default function Portfolio() {
               <div key={project.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow group">
                 <div className="relative">
                   <div 
-                    onClick={() => handleViewProject(project)}
+                    onClick={() => handleImageClick(project)}
                     className="cursor-pointer"
                   >
                     <img 
@@ -225,7 +254,17 @@ export default function Portfolio() {
                       </div>
                     </div>
                   </div>
-                  <div className="absolute top-4 right-4">
+                  <div className="absolute top-4 right-4 flex gap-2">
+                    <button 
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleShare(project);
+                      }}
+                      className="bg-white bg-opacity-90 p-2 rounded-full hover:bg-opacity-100 transition-all hover:scale-110 active:scale-95"
+                      aria-label="Share project"
+                    >
+                      <Share2 className="w-4 h-4 text-primary" />
+                    </button>
                     <button className="bg-white bg-opacity-90 p-2 rounded-full hover:bg-opacity-100 transition-all">
                       <Heart className="w-4 h-4 text-gray-600" />
                     </button>
@@ -385,6 +424,14 @@ export default function Portfolio() {
           )}
         </DialogContent>
       </Dialog>
+
+      {/* Swipeable Gallery */}
+      <SwipeableGallery 
+        images={galleryImages}
+        isOpen={isGalleryOpen}
+        initialIndex={galleryStartIndex}
+        onClose={() => setIsGalleryOpen(false)}
+      />
       </div>
     </>
   );

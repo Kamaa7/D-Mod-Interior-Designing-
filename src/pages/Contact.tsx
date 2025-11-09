@@ -10,6 +10,7 @@ import FloatingButtons from "@/components/FloatingButtons";
 import SocialMediaButtons from "@/components/SocialMediaButtons";
 import MapSection from "@/components/MapSection";
 import SEO from "@/components/SEO";
+import TapToContact from "@/components/TapToContact";
 
 export default function Contact() {
   // Load saved form data from localStorage
@@ -205,7 +206,7 @@ export default function Contact() {
             <p className="text-sm sm:text-base md:text-lg leading-relaxed mb-4">
               Ready to transform your space? Let's discuss your vision and create a design that exceeds your expectations.
             </p>
-            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-6">
               <div className="text-center">
                 <div className="text-2xl font-bold">24hrs</div>
                 <div className="text-xs opacity-90">Quick Response</div>
@@ -215,6 +216,9 @@ export default function Contact() {
                 <div className="text-xs opacity-90">Consultation</div>
               </div>
             </div>
+            
+            {/* Tap to Contact Buttons */}
+            <TapToContact className="justify-center" />
           </div>
         </div>
       </section>

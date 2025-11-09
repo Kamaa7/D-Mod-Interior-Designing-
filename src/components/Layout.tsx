@@ -20,6 +20,7 @@ import Footer from "./Footer";
 import CookieConsent from "./CookieConsent";
 import ScrollToTop from "./ScrollToTop";
 import SkipToContent from "./SkipToContent";
+import StickyQuoteButton from "./StickyQuoteButton";
 
 const navigationItems = [
   {
@@ -187,6 +188,7 @@ export default function Layout({ children }: LayoutProps) {
         <Footer />
         <FloatingButtons />
         <ScrollToTop />
+        <StickyQuoteButton />
         <CookieConsent />
       </SmoothScrollWrapper>
     </SidebarProvider>

@@ -135,6 +135,24 @@ export default function Blog() {
   const featuredPost = blogPosts.find(post => post.featured);
   const regularPosts = blogPosts.filter(post => !post.featured);
 
+  const handleShare = async (post: typeof blogPosts[0]) => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: post.title,
+          text: post.excerpt,
+          url: window.location.href,
+        });
+      } catch (error) {
+        console.log('Error sharing:', error);
+      }
+    } else {
+      // Fallback: copy link to clipboard
+      navigator.clipboard.writeText(window.location.href);
+      alert('Link copied to clipboard!');
+    }
+  };
+
   return (
     <>
       <SEO
@@ -308,8 +326,12 @@ export default function Blog() {
                     <button className="bg-white bg-opacity-90 p-2 rounded-full hover:bg-opacity-100 transition-all">
                       <Heart className="w-4 h-4 text-gray-600" />
                     </button>
-                    <button className="bg-white bg-opacity-90 p-2 rounded-full hover:bg-opacity-100 transition-all">
-                      <Share2 className="w-4 h-4 text-gray-600" />
+                    <button 
+                      onClick={() => handleShare(post)}
+                      className="bg-white bg-opacity-90 p-2 rounded-full hover:bg-opacity-100 transition-all hover:scale-110 active:scale-95"
+                      aria-label="Share article"
+                    >
+                      <Share2 className="w-4 h-4 text-primary" />
                     </button>
                   </div>
                 </div>
