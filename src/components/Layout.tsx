@@ -21,6 +21,7 @@ import CookieConsent from "./CookieConsent";
 import ScrollToTop from "./ScrollToTop";
 import SkipToContent from "./SkipToContent";
 import StickyQuoteButton from "./StickyQuoteButton";
+import LoadingProgressBar from "./LoadingProgressBar";
 
 const navigationItems = [
   {
@@ -64,7 +65,16 @@ export default function Layout({ children }: LayoutProps) {
 
   return (
     <SidebarProvider>
+      <LoadingProgressBar />
       <SkipToContent />
+      {/* Screen reader announcements for route changes */}
+      <div
+        id="route-announcer"
+        className="sr-only"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+      />
       <style>
         {`
           :root {
