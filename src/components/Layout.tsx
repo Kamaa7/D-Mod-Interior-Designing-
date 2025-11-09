@@ -158,7 +158,7 @@ export default function Layout({ children }: LayoutProps) {
                     <img
                       src="/lovable-uploads/IMG-20251105-WA0014.png"
                       alt="D-Mod The Interior Factory"
-                      className="w-auto h-9 sm:h-8 object-contain image-optimized mix-blend-darken"
+                      className="w-auto h-10 sm:h-8 object-contain image-optimized mix-blend-darken"
                     />
                   </div>
                 </div>
