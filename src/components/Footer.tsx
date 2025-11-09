@@ -31,7 +31,7 @@ const Footer = () => {
                 <img 
                   src="/lovable-uploads/IMG-20251105-WA0014.png" 
                   alt="D-Mod The Interior Factory" 
-                  className="w-28 sm:w-32 h-auto object-contain drop-shadow-[0_18px_38px_rgba(16,35,74,0.18)] mix-blend-multiply"
+                  className="w-28 sm:w-32 h-auto object-contain mix-blend-darken"
                 />
               </Link>
               <p className="text-sm text-slate-600 leading-relaxed">
