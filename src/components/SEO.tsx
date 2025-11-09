@@ -1,15 +1,22 @@
 
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { 
+  getOrganizationSchema, 
+  getLocalBusinessSchema, 
+  getWebsiteSchema,
+  getBreadcrumbSchema 
+} from "@/utils/seo";
 
 interface SEOProps {
   title?: string;
   description?: string;
   keywords?: string;
   image?: string;
+  schemaType?: 'organization' | 'local-business' | 'website' | 'all';
 }
 
-export default function SEO({ title, description, keywords, image }: SEOProps) {
+export default function SEO({ title, description, keywords, image, schemaType = 'all' }: SEOProps) {
   const location = useLocation();
 
   useEffect(() => {
@@ -43,68 +50,63 @@ export default function SEO({ title, description, keywords, image }: SEOProps) {
     updateMetaTag("twitter:description", description || defaultDescription);
     updateMetaTag("twitter:image", image || `${siteUrl}${defaultImage}`);
 
-    // Add structured data (Schema.org)
-    const structuredData = {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "D-Mod The Interior Factory",
-      "image": `${siteUrl}${defaultImage}`,
-      "description": description || defaultDescription,
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Vision Spaces, BBD Viraj Tower Kamta Chauraha",
-        "addressLocality": "Lucknow",
-        "addressRegion": "Uttar Pradesh",
-        "postalCode": "226010",
-        "addressCountry": "IN"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "26.8467",
-        "longitude": "80.9462"
-      },
-      "url": siteUrl,
-      "telephone": "+919616996699",
-      "email": "dmod.interior@gmail.com",
-      "priceRange": "₹₹",
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday"
-        ],
-        "opens": "09:00",
-        "closes": "19:00"
-      },
-      "sameAs": [
-        "https://www.instagram.com/_d_mod",
-      ]
-    };
+    // Add Canonical URL
+    let canonicalLink = document.querySelector('link[rel="canonical"]');
+    if (!canonicalLink) {
+      canonicalLink = document.createElement('link');
+      canonicalLink.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonicalLink);
+    }
+    canonicalLink.setAttribute('href', `${siteUrl}${location.pathname}`);
 
-    // Remove existing structured data script
-    const existingScript = document.querySelector('script[type="application/ld+json"]');
-    if (existingScript) {
-      existingScript.remove();
+    // Generate breadcrumb path
+    const pathSegments = location.pathname.split('/').filter(Boolean);
+    const breadcrumbItems = [
+      { name: 'Home', url: `${siteUrl}/` },
+      ...pathSegments.map((segment, index) => ({
+        name: segment.charAt(0).toUpperCase() + segment.slice(1),
+        url: `${siteUrl}/${pathSegments.slice(0, index + 1).join('/')}`,
+      })),
+    ];
+
+    // Remove existing structured data scripts
+    const existingScripts = document.querySelectorAll('script[type="application/ld+json"]');
+    existingScripts.forEach(script => script.remove());
+
+    // Add comprehensive structured data based on schemaType
+    const schemas: any[] = [];
+    
+    if (schemaType === 'all' || schemaType === 'organization') {
+      schemas.push(getOrganizationSchema());
+    }
+    
+    if (schemaType === 'all' || schemaType === 'local-business') {
+      schemas.push(getLocalBusinessSchema());
+    }
+    
+    if (schemaType === 'all' || schemaType === 'website') {
+      schemas.push(getWebsiteSchema());
+    }
+    
+    // Always add breadcrumb schema if not on homepage
+    if (location.pathname !== '/' && breadcrumbItems.length > 1) {
+      schemas.push(getBreadcrumbSchema(breadcrumbItems));
     }
 
-    // Add new structured data script
-    const script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.text = JSON.stringify(structuredData);
-    document.head.appendChild(script);
+    // Add all schemas to the page
+    schemas.forEach((schema) => {
+      const script = document.createElement("script");
+      script.type = "application/ld+json";
+      script.text = JSON.stringify(schema);
+      document.head.appendChild(script);
+    });
 
     return () => {
-      // Cleanup: remove script on unmount
-      const scriptToRemove = document.querySelector('script[type="application/ld+json"]');
-      if (scriptToRemove && scriptToRemove === script) {
-        scriptToRemove.remove();
-      }
+      // Cleanup: remove all schema scripts on unmount
+      const scriptsToRemove = document.querySelectorAll('script[type="application/ld+json"]');
+      scriptsToRemove.forEach(script => script.remove());
     };
-  }, [location.pathname, title, description, keywords, image]);
+  }, [location.pathname, title, description, keywords, image, schemaType]);
 
   return null;
 }

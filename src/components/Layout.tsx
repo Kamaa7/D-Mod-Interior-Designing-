@@ -23,6 +23,7 @@ import SkipToContent from "./SkipToContent";
 import StickyQuoteButton from "./StickyQuoteButton";
 import LoadingProgressBar from "./LoadingProgressBar";
 import CostCalculator from "./CostCalculator";
+import "@/styles/glassmorphism.css";
 
 const navigationItems = [
   {
@@ -185,8 +186,8 @@ export default function Layout({ children }: LayoutProps) {
             </SidebarContent>
           </Sidebar>
 
-          <main className="flex-1 flex flex-col optimize-rendering">
-            <header className="bg-white border-b border-gray-100 px-3 sm:px-6 py-3 sm:py-4 gpu-accelerated">
+            <main className="flex-1 flex flex-col optimize-rendering">
+            <header className="glass-header sticky top-0 z-30 px-3 sm:px-6 py-3 sm:py-4 gpu-accelerated">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3 sm:gap-4 md:hidden">
                   <SidebarTrigger className="hover:bg-gray-100 p-2 rounded-lg smooth-transition">

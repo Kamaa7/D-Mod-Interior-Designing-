@@ -5,6 +5,7 @@ import { ArrowRight, MapPin, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import AnimatedCounter from "@/components/AnimatedCounter";
+import ParallaxSection from "@/components/ParallaxSection";
 
 export default function HeroSection() {
   return (
@@ -55,13 +56,15 @@ export default function HeroSection() {
 
           <div className="relative">
             <div className="relative z-10">
-              <img
-                src="/lovable-uploads/Gemini_Generated_Image_jppmrpjppmrpjppm.png"
-                alt="Modern Kitchen Design"
-                loading="eager"
-                className="rounded-2xl shadow-2xl w-full object-cover aspect-[4/5]"
-              />
-              <div className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 bg-white p-4 sm:p-6 rounded-xl shadow-lg">
+              <ParallaxSection speed={0.3} direction="down">
+                <img
+                  src="/lovable-uploads/Gemini_Generated_Image_jppmrpjppmrpjppm.png"
+                  alt="Modern Kitchen Design"
+                  loading="eager"
+                  className="rounded-2xl shadow-2xl w-full object-cover aspect-[4/5]"
+                />
+              </ParallaxSection>
+              <div className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 glass-card p-4 sm:p-6 rounded-xl shadow-lg">
                 <div className="text-center">
                   <AnimatedCounter
                     end={5}
@@ -74,8 +77,12 @@ export default function HeroSection() {
                 </div>
               </div>
             </div>
-            <div className="absolute top-8 -right-4 w-72 h-72 bg-gradient-to-br from-blue-200 to-blue-300 rounded-full opacity-20 blur-3xl" />
-            <div className="absolute -bottom-8 -left-8 w-96 h-96 bg-gradient-to-br from-blue-200 to-blue-300 rounded-full opacity-20 blur-3xl" />
+            <ParallaxSection speed={0.2} direction="right" className="absolute top-8 -right-4 w-72 h-72">
+              <div className="w-full h-full bg-gradient-to-br from-blue-200 to-blue-300 rounded-full opacity-20 blur-3xl glass-floating" />
+            </ParallaxSection>
+            <ParallaxSection speed={0.15} direction="left" className="absolute -bottom-8 -left-8 w-96 h-96">
+              <div className="w-full h-full bg-gradient-to-br from-blue-200 to-blue-300 rounded-full opacity-20 blur-3xl glass-floating" style={{ animationDelay: '2s' }} />
+            </ParallaxSection>
           </div>
         </div>
       </div>

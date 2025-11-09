@@ -1,14 +1,50 @@
+# robots.txt for D-Mod The Interior Factory
+# https://dmod-interior.com
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://dmod-interior.com/sitemap.xml
+
+# Disallow unnecessary paths
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /sw.js
+Disallow: /manifest.json
+
+# Allow all resources for better indexing
+Allow: /lovable-uploads/
+Allow: *.css
+Allow: *.js
+Allow: *.jpg
+Allow: *.jpeg
+Allow: *.png
+Allow: *.webp
+Allow: *.svg
+
+# Crawl-delay (optional, adjust if needed)
+# Crawl-delay: 1
+
+# Specific bot rules
 User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
 Allow: /
 
 User-agent: Bingbot
 Allow: /
 
-User-agent: Twitterbot
-Allow: /
+# Block malicious bots (optional)
+User-agent: AhrefsBot
+Crawl-delay: 10
 
-User-agent: facebookexternalhit
-Allow: /
+User-agent: SemrushBot
+Crawl-delay: 10
 
-User-agent: *
-Allow: /
+User-agent: DotBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /

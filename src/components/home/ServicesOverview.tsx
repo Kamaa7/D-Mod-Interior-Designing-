@@ -83,13 +83,13 @@ const ServicesOverview = () => {
             we create designs that inspire and function beautifully.
           </p>
           
-          {/* Prominent Get Quote CTA */}
-          <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-2xl p-6 sm:p-8 mb-8 sm:mb-12 max-w-2xl mx-auto">
-            <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-white">Ready to Transform Your Space?</h3>
-            <p className="mb-4 sm:mb-6 text-sm sm:text-base opacity-90">Get a personalized quote for your dream interior design project</p>
+          {/* Prominent Get Quote CTA with Glassmorphism */}
+          <div className="glass-gradient-blue text-blue-900 rounded-2xl p-6 sm:p-8 mb-8 sm:mb-12 max-w-2xl mx-auto border border-blue-200 shadow-xl">
+            <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Ready to Transform Your Space?</h3>
+            <p className="mb-4 sm:mb-6 text-sm sm:text-base text-blue-700">Get a personalized quote for your dream interior design project</p>
             <Button 
               size="lg" 
-              className="bg-white text-blue-700 hover:bg-blue-50 px-8 py-4 rounded-xl shadow-lg font-semibold"
+              className="glass-button text-white px-8 py-4 rounded-xl shadow-lg font-semibold hover:scale-105 transition-transform duration-300"
               asChild
             >
               <Link to="/contact">
@@ -104,7 +104,7 @@ const ServicesOverview = () => {
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (
-              <Card key={index} className="group overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 shadow-lg hover:-translate-y-2">
+              <Card key={index} className="group glass-card glass-card-hover overflow-hidden transition-all duration-500 border border-blue-100 shadow-lg">
                 <div className="relative h-48 overflow-hidden">
                   <img
                     src={service.image}
@@ -114,12 +114,12 @@ const ServicesOverview = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                   <div className="absolute top-4 left-4">
-                    <Badge className={`${getBadgeColor(service.badge)} px-3 py-1`}>
+                    <Badge className={`glass-badge ${getBadgeColor(service.badge)} px-3 py-1`}>
                       {service.badge}
                     </Badge>
                   </div>
                   <div className="absolute bottom-4 left-4">
-                    <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
+                    <div className="w-12 h-12 glass-frosted-medium rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                       <IconComponent className="w-6 h-6 text-white" />
                     </div>
                   </div>
