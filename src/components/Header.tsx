@@ -28,7 +28,7 @@ const Header = () => {
             <img 
               src="/lovable-uploads/IMG-20251105-WA0014.png" 
               alt="D-Mod The Interior Factory"
-              className="h-14 sm:h-12 w-auto transition-transform duration-300 group-hover:scale-105 mix-blend-darken"
+              className="h-16 sm:h-12 w-auto transition-transform duration-300 group-hover:scale-105 mix-blend-darken"
             />
           </Link>
 
