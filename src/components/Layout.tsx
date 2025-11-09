@@ -22,6 +22,7 @@ import ScrollToTop from "./ScrollToTop";
 import SkipToContent from "./SkipToContent";
 import StickyQuoteButton from "./StickyQuoteButton";
 import LoadingProgressBar from "./LoadingProgressBar";
+import CostCalculator from "./CostCalculator";
 
 const navigationItems = [
   {
@@ -225,6 +226,7 @@ export default function Layout({ children }: LayoutProps) {
         <FloatingButtons />
         <ScrollToTop />
         <StickyQuoteButton />
+        <CostCalculator />
         <CookieConsent />
       </SmoothScrollWrapper>
     </SidebarProvider>

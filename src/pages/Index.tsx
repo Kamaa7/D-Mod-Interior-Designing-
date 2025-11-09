@@ -7,6 +7,8 @@ import WhyChooseUs from "../components/home/WhyChooseUs";
 import Testimonials from "../components/home/Testimonials";
 import CallToAction from "../components/home/CallToAction";
 import TransformationShowcase from "../components/TransformationShowcase";
+import VideoTestimonials from "../components/VideoTestimonials";
+import TrustBadges from "../components/TrustBadges";
 import SEO from "../components/SEO";
 import ScrollAnimated from "../components/ScrollAnimated";
 
@@ -30,9 +32,8 @@ export default function Home() {
         <ScrollAnimated direction="fade" delay={200}>
           <WhyChooseUs />
         </ScrollAnimated>
-        <ScrollAnimated direction="up" delay={100}>
-          <Testimonials />
-        </ScrollAnimated>
+        <TrustBadges />
+        <VideoTestimonials />
         <ScrollAnimated direction="fade" delay={200}>
           <CallToAction />
         </ScrollAnimated>

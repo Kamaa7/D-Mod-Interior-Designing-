@@ -42,6 +42,24 @@ const TransformationShowcase: React.FC = () => {
       category: "Kitchen",
       location: "IT City, Lucknow",
     },
+    {
+      id: 4,
+      title: "Elegant Living Space",
+      description: "Complete redesign with luxurious finishes, custom lighting, and premium flooring for a sophisticated look.",
+      beforeImage: "/lovable-uploads/a00c9e1c-280d-4abe-97fd-271b85a332df.png",
+      afterImage: "/lovable-uploads/57cc0f65-4207-46af-9796-f8593761456c.png",
+      category: "Living Room",
+      location: "Eldeco, Lucknow",
+    },
+    {
+      id: 5,
+      title: "Contemporary Bedroom Suite",
+      description: "Modern bedroom with custom wardrobe solutions, ambient lighting, and smart storage.",
+      beforeImage: "/lovable-uploads/GUEST BEDROOM-3.3(RISHITA-C3-1502).png",
+      afterImage: "/lovable-uploads/e913b018-0d86-4651-9978-40dd65f6a458.png",
+      category: "Bedroom",
+      location: "Aliganj, Lucknow",
+    },
   ];
 
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
