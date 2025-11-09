@@ -117,7 +117,7 @@ export default function Layout({ children }: LayoutProps) {
                 <img
                   src="/lovable-uploads/IMG-20251105-WA0014.png"
                   alt="D-Mod The Interior Factory"
-                  className="w-full max-w-[120px] h-auto object-contain image-optimized"
+                  className="w-full max-w-[150px] h-auto object-contain image-optimized drop-shadow-[0_15px_30px_rgba(13,25,48,0.18)]"
                 />
               </div>
             </SidebarHeader>
@@ -158,7 +158,7 @@ export default function Layout({ children }: LayoutProps) {
                     <img
                       src="/lovable-uploads/IMG-20251105-WA0014.png"
                       alt="D-Mod The Interior Factory"
-                      className="w-auto h-5 sm:h-6 object-contain image-optimized"
+                      className="w-auto h-7 sm:h-8 object-contain image-optimized drop-shadow-[0_12px_24px_rgba(13,25,48,0.25)]"
                     />
                   </div>
                 </div>
