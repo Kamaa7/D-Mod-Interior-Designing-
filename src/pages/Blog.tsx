@@ -1,8 +1,9 @@
 
-import React from "react";
+import React, { useEffect } from "react";
 import { Calendar, User, ArrowRight, Clock, Eye, Heart, Share2, Check, Search, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import SEO from "@/components/SEO";
+import SkeletonLoader from "@/components/SkeletonLoader";
 
 export default function Blog() {
   const blogPosts = [
@@ -110,6 +111,17 @@ export default function Blog() {
   const [searchQuery, setSearchQuery] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [isSubscribed, setIsSubscribed] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(true);
+
+  // Simulate loading state
+  useEffect(() => {
+    setIsLoading(true);
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 600); // 600ms simulated loading
+
+    return () => clearTimeout(timer);
+  }, [selectedCategory, searchQuery]);
 
   const filteredPosts = React.useMemo(() => {
     // Exclude featured post from regular list
@@ -294,7 +306,11 @@ export default function Blog() {
       {/* Blog Posts Grid */}
       <section className="py-16" id="blog-posts-grid" role="tabpanel" aria-labelledby="blog-tab">
         <div className="container mx-auto px-6">
-          {filteredPosts.length === 0 ? (
+          {isLoading ? (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <SkeletonLoader variant="blog" count={6} />
+            </div>
+          ) : filteredPosts.length === 0 ? (
             <div className="text-center py-12">
               <p className="text-gray-600 text-lg mb-4">No articles found.</p>
               <p className="text-gray-500">Try adjusting your search or filter criteria.</p>

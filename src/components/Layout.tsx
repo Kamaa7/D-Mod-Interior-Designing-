@@ -108,6 +108,32 @@ export default function Layout({ children }: LayoutProps) {
           .border-accent {
             border-color: var(--accent);
           }
+
+          /* Reduced Motion Support */
+          @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+              animation-duration: 0.01ms !important;
+              animation-iteration-count: 1 !important;
+              transition-duration: 0.01ms !important;
+              scroll-behavior: auto !important;
+            }
+          }
+
+          /* Performance optimizations */
+          .gpu-accelerated {
+            transform: translateZ(0);
+            will-change: transform;
+          }
+
+          .optimize-rendering {
+            contain: layout style paint;
+          }
+
+          .image-optimized {
+            content-visibility: auto;
+          }
         `}
       </style>
       <SmoothScrollWrapper>

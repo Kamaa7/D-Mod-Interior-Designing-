@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Calendar, MapPin, Eye, Heart, Check, Share2 } from "lucide-react";
 import FloatingButtons from "@/components/FloatingButtons";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import SEO from "@/components/SEO";
 import SwipeableGallery from "@/components/SwipeableGallery";
+import SkeletonLoader from "@/components/SkeletonLoader";
 import {
   Dialog,
   DialogContent,
@@ -119,6 +120,16 @@ export default function Portfolio() {
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const [galleryImages, setGalleryImages] = useState<string[]>([]);
   const [galleryStartIndex, setGalleryStartIndex] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Simulate loading state (in real app, this would be actual data fetching)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 800); // 800ms simulated loading
+
+    return () => clearTimeout(timer);
+  }, [selectedCategory]);
 
   const filteredProjects = selectedCategory === "All" 
     ? projects 
@@ -233,8 +244,13 @@ export default function Portfolio() {
       {/* Projects Gallery */}
       <section className="py-12 sm:py-16" id="projects-grid" role="tabpanel" aria-labelledby="projects-tab">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {filteredProjects.map((project) => (
+          {isLoading ? (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              <SkeletonLoader variant="project" count={6} />
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              {filteredProjects.map((project) => (
               <div key={project.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow group">
                 <div className="relative">
                   <div 
@@ -308,8 +324,9 @@ export default function Portfolio() {
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
