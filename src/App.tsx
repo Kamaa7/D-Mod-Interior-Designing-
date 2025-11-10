@@ -28,14 +28,10 @@ const queryClient = new QueryClient({
 
 const App = () => {
   useEffect(() => {
-    // Remove loading state from body immediately - NO ERRORS
-    try {
-      document.body.classList.remove('loading');
-      document.body.style.opacity = '1';
-      document.body.style.visibility = 'visible';
-    } catch (e) {
-      console.error('Error removing loading class:', e);
-    }
+    // Ensure body is visible
+    document.body.style.opacity = '1';
+    document.body.style.visibility = 'visible';
+    document.body.style.display = 'block';
   }, []);
 
   return (

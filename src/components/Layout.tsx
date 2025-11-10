@@ -133,24 +133,15 @@ export default function Layout({ children }: LayoutProps) {
             }
           }
 
-          /* Performance optimizations */
-          .gpu-accelerated {
-            transform: translateZ(0);
-            will-change: transform;
-          }
-
-          .optimize-rendering {
-            contain: layout style paint;
-          }
-
+          /* Basic optimizations */
           .image-optimized {
-            content-visibility: auto;
+            image-rendering: auto;
           }
         `}
       </style>
       <SmoothScrollWrapper>
-        <div className="min-h-screen flex w-full bg-gray-50 gpu-accelerated">
-          <Sidebar className="border-r border-gray-200 bg-white optimize-rendering">
+        <div className="min-h-screen flex w-full bg-gray-50">
+          <Sidebar className="border-r border-gray-200 bg-white">
             <SidebarHeader className="border-b border-gray-100 p-6">
               <div className="flex flex-col items-center gap-4">
                 <img
@@ -186,8 +177,8 @@ export default function Layout({ children }: LayoutProps) {
             </SidebarContent>
           </Sidebar>
 
-            <main className="flex-1 flex flex-col optimize-rendering gpu-accelerated">
-            <header className="glass-header sticky top-0 z-30 px-3 sm:px-6 py-3 sm:py-4 gpu-accelerated" style={{ willChange: 'transform' }}>
+            <main className="flex-1 flex flex-col">
+            <header className="glass-header sticky top-0 z-30 px-3 sm:px-6 py-3 sm:py-4">
               <div className="flex items-center justify-between gap-4">
                 {/* Mobile: Menu + Logo */}
                 <div className="flex items-center gap-3 sm:gap-4 md:hidden">
@@ -263,7 +254,7 @@ export default function Layout({ children }: LayoutProps) {
               </div>
             </header>
 
-                     <main id="main-content" className="flex-1 overflow-auto smooth-scroll gpu-accelerated" tabIndex={-1} style={{ willChange: 'scroll-position' }}>
+                     <main id="main-content" className="flex-1 overflow-auto smooth-scroll" tabIndex={-1}>
                        {children}
                      </main>
           </main>
