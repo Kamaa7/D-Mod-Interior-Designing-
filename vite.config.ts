@@ -21,32 +21,12 @@ export default defineConfig(({ mode }) => ({
   },
   build: {
     sourcemap: false,
-    // Optimize chunk size
-    chunkSizeWarningLimit: 1000,
-    // Better code splitting - React must load first!
+    // NO CODE SPLITTING - Bundle everything together to avoid loading issues
     rollupOptions: {
       output: {
-        manualChunks: (id) => {
-          // Don't split React - keep it in main bundle to ensure it loads first
-          // This prevents "Cannot read properties of undefined (reading 'createContext')" errors
-          if (id.includes('node_modules')) {
-            // Keep React in main bundle - DO NOT split it
-            if (id.includes('react') || id.includes('react-dom') || id.includes('scheduler')) {
-              // Return undefined to keep in main bundle
-              return;
-            }
-            // React Router - can be separate
-            if (id.includes('react-router')) {
-              return 'router-vendor';
-            }
-            // UI libraries that depend on React
-            if (id.includes('@radix-ui') || id.includes('lucide-react')) {
-              return 'ui-vendor';
-            }
-            return 'vendor';
-          }
-        },
-        // Optimize chunk file names
+        // Disable code splitting completely
+        manualChunks: undefined,
+        // Simple file names
         chunkFileNames: 'assets/js/[name]-[hash].js',
         entryFileNames: 'assets/js/[name]-[hash].js',
         assetFileNames: (assetInfo) => {
@@ -57,19 +37,13 @@ export default defineConfig(({ mode }) => ({
         },
       },
     },
-    // Minify with esbuild (faster and built-in)
+    // Minify
     minify: 'esbuild',
-    // ESBuild options
     target: 'esnext',
-    // CSS code splitting
-    cssCodeSplit: true,
-    // Asset inlining threshold (4kb)
+    // Keep CSS together
+    cssCodeSplit: false,
+    // Asset inlining
     assetsInlineLimit: 4096,
-    // Common chunk strategy - ensure React loads first
-    commonjsOptions: {
-      include: [/node_modules/],
-      transformMixedEsModules: true,
-    },
   },
   // Optimize dependencies
   optimizeDeps: {
