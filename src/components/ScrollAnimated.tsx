@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
@@ -38,7 +37,7 @@ export default function ScrollAnimated({
 
   return (
     <div
-      ref={elementRef as React.RefObject<HTMLDivElement>}
+      ref={elementRef}
       className={`transition-all duration-700 ease-out ${getAnimationClass()} ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
     >

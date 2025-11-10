@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from 'react';
 
 interface UseScrollAnimationOptions {
@@ -9,7 +8,7 @@ interface UseScrollAnimationOptions {
 
 export function useScrollAnimation(options: UseScrollAnimationOptions = {}) {
   const { threshold = 0.1, rootMargin = '0px', triggerOnce = true } = options;
-  const elementRef = useRef<HTMLElement | null>(null);
+  const elementRef = useRef<HTMLDivElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [hasAnimated, setHasAnimated] = useState(false);
 

@@ -165,7 +165,9 @@ export default function Layout({ children }: LayoutProps) {
               <SidebarGroup>
                 <SidebarGroupContent>
                   <SidebarMenu className="space-y-2">
-                    {navigationItems.map((item) => (
+                    {navigationItems.map((item) => {
+                      const Icon = item.icon;
+                      return (
                       <SidebarMenuItem key={item.title}>
                         <SidebarMenuButton 
                           asChild 
@@ -174,12 +176,12 @@ export default function Layout({ children }: LayoutProps) {
                           }`}
                         >
                           <Link to={item.url} className="flex items-center gap-3 px-4">
-                            <item.icon className="w-5 h-5" />
+                            <Icon className="w-5 h-5" />
                             <span className="font-medium">{item.title}</span>
                           </Link>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
-                    ))}
+                    )})}
                   </SidebarMenu>
                 </SidebarGroupContent>
               </SidebarGroup>
