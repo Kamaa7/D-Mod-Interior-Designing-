@@ -20,7 +20,7 @@ const TransformationShowcase: React.FC = () => {
       id: 1,
       title: "Modern Living Room Makeover",
       description: "Transformed a dated living space into a contemporary sanctuary with custom furniture and smart lighting.",
-      beforeImage: "/lovable-uploads/72662bb2-ec5d-4de0-81da-80d383cfc83b.png",
+      beforeImage: "/lovable-uploads/christina-radevich-fgLen78-7ro-unsplash.jpg",
       afterImage: "/lovable-uploads/57cc0f65-4207-46af-9796-f8593761456c.png",
       category: "Living Room",
       location: "Gomti Nagar, Lucknow",
