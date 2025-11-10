@@ -15,15 +15,32 @@ import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
 import { initPerformanceMonitoring } from "./utils/performance";
+import { initPerformanceOptimizations } from "./utils/prefetch";
 
-const queryClient = new QueryClient();
+// Optimized QueryClient configuration
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 5, // 5 minutes
+      gcTime: 1000 * 60 * 10, // 10 minutes
+      retry: 1,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 const App = () => {
   useEffect(() => {
-    // Initialize performance monitoring in production
+    // Initialize performance monitoring
     if (process.env.NODE_ENV === 'production') {
       initPerformanceMonitoring();
     }
+    
+    // Initialize performance optimizations
+    initPerformanceOptimizations();
+    
+    // Remove loading state from body
+    document.body.classList.remove('loading');
   }, []);
 
   return (

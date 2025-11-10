@@ -10,10 +10,19 @@
     <meta name="author" content="D-Mod The Interior Factory" />
     <meta name="keywords" content="interior design, modular kitchen, Lucknow, home design, commercial interiors, space planning, D-Mod" />
     
-    <!-- Performance and SEO -->
+    <!-- Performance Optimization -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://cdn.gpteng.co" />
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/lovable-uploads/IMG-20251105-WA0014.png" as="image" />
+    <link rel="preload" href="/lovable-uploads/Gemini_Generated_Image_jppmrpjppmrpjppm.png" as="image" />
+    
+    <!-- Resource hints for faster navigation -->
+    <link rel="prefetch" href="/services" />
+    <link rel="prefetch" href="/portfolio" />
+    <link rel="prefetch" href="/contact" />
     
     <!-- Robots and Indexing -->
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -52,9 +61,29 @@
     <meta name="twitter:site" content="@dmod_interior" />
 
     <link rel="icon" href="/favicon.png" type="image/png">
+    
+    <!-- Inline critical CSS for instant paint -->
+    <style>
+      /* Loading state */
+      body.loading {
+        overflow: hidden;
+      }
+      
+      /* Instant paint styles */
+      #root {
+        min-height: 100vh;
+      }
+      
+      /* Optimize font loading */
+      @font-face {
+        font-family: 'Inter';
+        font-display: swap;
+        src: local('Inter');
+      }
+    </style>
   </head>
 
-  <body>
+  <body class="loading">
     <div id="root"></div>
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
