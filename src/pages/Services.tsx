@@ -252,19 +252,20 @@ export default function Services() {
             {processSteps.map((step, index) => {
               const Icon = step.icon;
               return (
-              <div key={index} className="text-center">
-                <div className="relative mb-6">
-                  <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-10 h-10 text-primary" />
+                <div key={index} className="text-center">
+                  <div className="relative mb-6">
+                    <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Icon className="w-10 h-10 text-primary" />
+                    </div>
+                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold">
+                      {step.step}
+                    </div>
                   </div>
-                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold">
-                    {step.step}
-                  </div>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-3">{step.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{step.description}</p>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">{step.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{step.description}</p>
-              </div>
-            )})}
+              );
+            })}
           </div>
         </div>
         </section>

@@ -168,20 +168,21 @@ export default function Layout({ children }: LayoutProps) {
                     {navigationItems.map((item) => {
                       const Icon = item.icon;
                       return (
-                      <SidebarMenuItem key={item.title}>
-                        <SidebarMenuButton 
-                          asChild 
-                          className={`hover:bg-blue-50 hover:text-primary smooth-transition rounded-xl py-3 ${
-                            location.pathname === item.url ? 'bg-blue-50 text-primary border-l-4 border-primary' : ''
-                          }`}
-                        >
-                          <Link to={item.url} className="flex items-center gap-3 px-4">
-                            <Icon className="w-5 h-5" />
-                            <span className="font-medium">{item.title}</span>
-                          </Link>
-                        </SidebarMenuButton>
-                      </SidebarMenuItem>
-                    )})}
+                        <SidebarMenuItem key={item.title}>
+                          <SidebarMenuButton 
+                            asChild 
+                            className={`hover:bg-blue-50 hover:text-primary smooth-transition rounded-xl py-3 ${
+                              location.pathname === item.url ? 'bg-blue-50 text-primary border-l-4 border-primary' : ''
+                            }`}
+                          >
+                            <Link to={item.url} className="flex items-center gap-3 px-4">
+                              <Icon className="w-5 h-5" />
+                              <span className="font-medium">{item.title}</span>
+                            </Link>
+                          </SidebarMenuButton>
+                        </SidebarMenuItem>
+                      );
+                    })}
                   </SidebarMenu>
                 </SidebarGroupContent>
               </SidebarGroup>
