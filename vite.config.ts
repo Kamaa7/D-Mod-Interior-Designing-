@@ -23,15 +23,23 @@ export default defineConfig(({ mode }) => ({
     sourcemap: false,
     // Optimize chunk size
     chunkSizeWarningLimit: 1000,
-    // Better code splitting
+    // Better code splitting - React must load first!
     rollupOptions: {
       output: {
         manualChunks: (id) => {
-          // Vendor chunks
+          // Don't split React - keep it in main bundle to ensure it loads first
+          // This prevents "Cannot read properties of undefined (reading 'createContext')" errors
           if (id.includes('node_modules')) {
-            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router')) {
-              return 'react-vendor';
+            // Keep React in main bundle - DO NOT split it
+            if (id.includes('react') || id.includes('react-dom') || id.includes('scheduler')) {
+              // Return undefined to keep in main bundle
+              return;
             }
+            // React Router - can be separate
+            if (id.includes('react-router')) {
+              return 'router-vendor';
+            }
+            // UI libraries that depend on React
             if (id.includes('@radix-ui') || id.includes('lucide-react')) {
               return 'ui-vendor';
             }
@@ -57,6 +65,11 @@ export default defineConfig(({ mode }) => ({
     cssCodeSplit: true,
     // Asset inlining threshold (4kb)
     assetsInlineLimit: 4096,
+    // Common chunk strategy - ensure React loads first
+    commonjsOptions: {
+      include: [/node_modules/],
+      transformMixedEsModules: true,
+    },
   },
   // Optimize dependencies
   optimizeDeps: {
