@@ -27,7 +27,7 @@ export const measureLCP = () => {
   try {
     const observer = new PerformanceObserver((list) => {
       const entries = list.getEntries();
-      const lastEntry = entries[entries.length - 1];
+      const lastEntry = entries[entries.length - 1] as any;
       
       console.log('LCP (Largest Contentful Paint):', lastEntry.renderTime || lastEntry.loadTime);
     });
