@@ -21,5 +21,50 @@ export default defineConfig(({ mode }) => ({
   },
   build: {
     sourcemap: false,
+    // Optimize chunk size
+    chunkSizeWarningLimit: 1000,
+    // Better code splitting
+    rollupOptions: {
+      output: {
+        manualChunks: (id) => {
+          // Vendor chunks
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router')) {
+              return 'react-vendor';
+            }
+            if (id.includes('@radix-ui') || id.includes('lucide-react')) {
+              return 'ui-vendor';
+            }
+            return 'vendor';
+          }
+        },
+        // Optimize chunk file names
+        chunkFileNames: 'assets/js/[name]-[hash].js',
+        entryFileNames: 'assets/js/[name]-[hash].js',
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name?.endsWith('.css')) {
+            return 'assets/css/[name]-[hash][extname]';
+          }
+          return 'assets/[name]-[hash][extname]';
+        },
+      },
+    },
+    // Minify with esbuild (faster and built-in)
+    minify: 'esbuild',
+    // ESBuild options
+    target: 'esnext',
+    // CSS code splitting
+    cssCodeSplit: true,
+    // Asset inlining threshold (4kb)
+    assetsInlineLimit: 4096,
+  },
+  // Optimize dependencies
+  optimizeDeps: {
+    include: [
+      'react',
+      'react-dom',
+      'react-router-dom',
+      'lucide-react',
+    ],
   },
 }));

@@ -64,21 +64,45 @@
     
     <!-- Inline critical CSS for instant paint -->
     <style>
-      /* Loading state */
+      /* Loading state with smooth transition */
       body.loading {
         overflow: hidden;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+      }
+      
+      body {
+        opacity: 1;
+        transition: opacity 0.3s ease-in-out;
       }
       
       /* Instant paint styles */
       #root {
         min-height: 100vh;
+        will-change: contents;
       }
       
-      /* Optimize font loading */
+      /* Optimize font loading with font-display: swap */
       @font-face {
         font-family: 'Inter';
         font-display: swap;
         src: local('Inter');
+      }
+      
+      /* Prevent layout shift during font load */
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      }
+      
+      /* Smooth scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      /* Optimize rendering */
+      * {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
       }
     </style>
   </head>

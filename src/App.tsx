@@ -16,6 +16,7 @@ import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
 import { initPerformanceMonitoring } from "./utils/performance";
 import { initPerformanceOptimizations } from "./utils/prefetch";
+import { optimizeScrollPerformance } from "./utils/smoothPerformance";
 
 // Optimized QueryClient configuration
 const queryClient = new QueryClient({
@@ -39,8 +40,19 @@ const App = () => {
     // Initialize performance optimizations
     initPerformanceOptimizations();
     
-    // Remove loading state from body
-    document.body.classList.remove('loading');
+    // Optimize scroll performance for butter-smooth scrolling
+    const cleanupScroll = optimizeScrollPerformance();
+    
+    // Remove loading state from body with smooth transition
+    requestAnimationFrame(() => {
+      document.body.classList.remove('loading');
+      document.body.style.opacity = '1';
+    });
+    
+    // Cleanup
+    return () => {
+      cleanupScroll();
+    };
   }, []);
 
   return (

@@ -1,47 +1,56 @@
-
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { announcePageChange, manageFocusOnRouteChange } from '@/utils/accessibility';
 
 export default function PageTransition({ children }: { children: React.ReactNode }) {
   const location = useLocation();
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
-    // Smooth scroll to top on route change
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Start transition
+    setIsTransitioning(true);
+
+    // Smooth scroll to top on route change with requestAnimationFrame
+    requestAnimationFrame(() => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
 
     // Announce route change to screen readers and manage focus
     const pageName = location.pathname === '/' 
       ? 'Home' 
       : location.pathname.slice(1).charAt(0).toUpperCase() + location.pathname.slice(2);
     
-    setTimeout(() => {
+    // Use requestIdleCallback for non-critical accessibility updates
+    const announceChange = () => {
       announcePageChange(pageName);
       manageFocusOnRouteChange();
-    }, 100);
+    };
+
+    if ('requestIdleCallback' in window) {
+      (window as any).requestIdleCallback(announceChange, { timeout: 100 });
+    } else {
+      setTimeout(announceChange, 100);
+    }
+
+    // End transition after animation completes
+    const timer = setTimeout(() => {
+      setIsTransitioning(false);
+    }, 400);
+
+    return () => clearTimeout(timer);
   }, [location.pathname]);
 
   return (
     <div 
-      className="animate-fade-in"
+      className={`page-transition ${isTransitioning ? 'animate-fade-in' : ''}`}
       style={{
-        animation: 'pageTransitionFade 0.4s ease-in-out',
+        willChange: isTransitioning ? 'opacity, transform' : 'auto',
       }}
     >
       {children}
-      <style>{`
-        @keyframes pageTransitionFade {
-          from {
-            opacity: 0;
-            transform: translateY(8px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
     </div>
   );
 }
-

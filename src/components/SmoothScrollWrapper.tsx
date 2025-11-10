@@ -1,56 +1,80 @@
-
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 
 interface SmoothScrollWrapperProps {
   children: React.ReactNode;
 }
 
 const SmoothScrollWrapper: React.FC<SmoothScrollWrapperProps> = ({ children }) => {
+  // Throttle scroll handler with requestAnimationFrame for 60fps
+  const handleScroll = useCallback(() => {
+    // This will be handled by CSS and passive listeners
+  }, []);
+
   useEffect(() => {
-    // Enable smooth scrolling for the entire document
+    // Enable smooth scrolling for anchor links
     const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
     
-    smoothScrollLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
+    const handleLinkClick = (e: Event) => {
+      const link = e.currentTarget as HTMLAnchorElement;
+      const href = link.getAttribute('href');
+      
+      if (href && href !== '#') {
         e.preventDefault();
-        const href = link.getAttribute('href');
-        if (href && href !== '#') {
-          const element = document.querySelector(href);
-          if (element) {
-            element.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start',
-              inline: 'nearest'
-            });
-          }
+        const element = document.querySelector(href);
+        if (element) {
+          // Use smooth scrollIntoView with proper offset
+          const headerOffset = 80;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
         }
-      });
+      }
+    };
+
+    smoothScrollLinks.forEach(link => {
+      link.addEventListener('click', handleLinkClick, { passive: false });
     });
 
-    // Optimize scroll performance
+    // Optimize scroll performance with passive listeners
     let ticking = false;
+    let lastScrollY = window.scrollY;
     
-    const handleScroll = () => {
+    const optimizedScrollHandler = () => {
       if (!ticking) {
-        requestAnimationFrame(() => {
+        window.requestAnimationFrame(() => {
+          // Update scroll position tracking
+          lastScrollY = window.scrollY;
           ticking = false;
         });
         ticking = true;
       }
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    // Use passive listener for better performance
+    window.addEventListener('scroll', optimizedScrollHandler, { passive: true });
     
+    // Optimize wheel events for smooth scrolling
+    const wheelHandler = (e: WheelEvent) => {
+      // Let browser handle smooth scrolling naturally
+    };
+    window.addEventListener('wheel', wheelHandler, { passive: true });
+
+    // Cleanup
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', optimizedScrollHandler);
+      window.removeEventListener('wheel', wheelHandler);
       smoothScrollLinks.forEach(link => {
-        link.removeEventListener('click', handleScroll);
+        link.removeEventListener('click', handleLinkClick);
       });
     };
   }, []);
 
   return (
-    <div className="smooth-scroll">
+    <div className="smooth-scroll gpu-accelerated" style={{ willChange: 'scroll-position' }}>
       {children}
     </div>
   );
