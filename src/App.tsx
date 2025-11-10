@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -27,9 +27,13 @@ const queryClient = new QueryClient({
 });
 
 const App = () => {
-  // Remove loading class on mount
-  React.useEffect(() => {
-    document.body.classList.remove('loading');
+  useEffect(() => {
+    // Remove loading class on mount
+    try {
+      document.body.classList.remove('loading');
+    } catch (e) {
+      // Ignore
+    }
   }, []);
 
   return (
