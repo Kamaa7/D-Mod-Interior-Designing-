@@ -31,16 +31,28 @@ const queryClient = new QueryClient({
 
 const App = () => {
   useEffect(() => {
-    // Initialize performance monitoring
-    if (process.env.NODE_ENV === 'production') {
-      initPerformanceMonitoring();
+    try {
+      // Remove loading state from body first
+      document.body.classList.remove('loading');
+      
+      // Initialize performance monitoring (wrap in try-catch to prevent crashes)
+      if (process.env.NODE_ENV === 'production') {
+        try {
+          initPerformanceMonitoring();
+        } catch (error) {
+          console.warn('Performance monitoring failed:', error);
+        }
+      }
+      
+      // Initialize performance optimizations (wrap in try-catch to prevent crashes)
+      try {
+        initPerformanceOptimizations();
+      } catch (error) {
+        console.warn('Performance optimizations failed:', error);
+      }
+    } catch (error) {
+      console.error('App initialization error:', error);
     }
-    
-    // Initialize performance optimizations
-    initPerformanceOptimizations();
-    
-    // Remove loading state from body
-    document.body.classList.remove('loading');
   }, []);
 
   return (

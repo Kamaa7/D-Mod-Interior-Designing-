@@ -62,48 +62,57 @@
 
     <link rel="icon" href="/favicon.png" type="image/png">
     
-    <!-- Simple critical CSS - NO HIDING CONTENT -->
+    <!-- Inline critical CSS for instant paint -->
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+      /* Loading state - don't hide content, just prevent scroll */
+      body.loading {
+        overflow: hidden;
       }
       
-      html, body {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-      
+      /* Instant paint styles */
       #root {
-        width: 100%;
         min-height: 100vh;
-        display: block;
+        background-color: #fafafa;
       }
       
-      html {
-        scroll-behavior: smooth;
+      /* Ensure content is visible even during loading */
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #fafafa;
+      }
+      
+      /* Optimize font loading */
+      @font-face {
+        font-family: 'Inter';
+        font-display: swap;
+        src: local('Inter');
       }
     </style>
   </head>
 
-  <body>
+  <body class="loading">
     <div id="root"></div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
     <script>
-      // Register Service Worker for PWA
+      // Safely register Service Worker for PWA (non-blocking)
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js')
-            .then(reg => console.log('Service Worker registered'))
-            .catch(err => console.log('Service Worker registration failed', err));
+          try {
+            navigator.serviceWorker.register('/sw.js')
+              .then(reg => {
+                if (reg) {
+                  console.log('Service Worker registered');
+                }
+              })
+              .catch(err => {
+                // Silently fail - don't block app loading
+                console.warn('Service Worker registration failed:', err);
+              });
+          } catch (error) {
+            // Silently fail - don't block app loading
+            console.warn('Service Worker error:', error);
+          }
         });
       }
     </script>

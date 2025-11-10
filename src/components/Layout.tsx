@@ -133,15 +133,24 @@ export default function Layout({ children }: LayoutProps) {
             }
           }
 
-          /* Basic optimizations */
+          /* Performance optimizations */
+          .gpu-accelerated {
+            transform: translateZ(0);
+            will-change: transform;
+          }
+
+          .optimize-rendering {
+            contain: layout style paint;
+          }
+
           .image-optimized {
-            image-rendering: auto;
+            content-visibility: auto;
           }
         `}
       </style>
       <SmoothScrollWrapper>
-        <div className="min-h-screen flex w-full bg-gray-50">
-          <Sidebar className="border-r border-gray-200 bg-white">
+        <div className="min-h-screen flex w-full bg-gray-50 gpu-accelerated">
+          <Sidebar className="border-r border-gray-200 bg-white optimize-rendering">
             <SidebarHeader className="border-b border-gray-100 p-6">
               <div className="flex flex-col items-center gap-4">
                 <img
@@ -177,8 +186,8 @@ export default function Layout({ children }: LayoutProps) {
             </SidebarContent>
           </Sidebar>
 
-          <div className="flex-1 flex flex-col">
-            <header className="glass-header sticky top-0 z-30 px-3 sm:px-6 py-3 sm:py-4">
+            <main className="flex-1 flex flex-col optimize-rendering">
+            <header className="glass-header sticky top-0 z-30 px-3 sm:px-6 py-3 sm:py-4 gpu-accelerated">
               <div className="flex items-center justify-between gap-4">
                 {/* Mobile: Menu + Logo */}
                 <div className="flex items-center gap-3 sm:gap-4 md:hidden">
@@ -257,7 +266,7 @@ export default function Layout({ children }: LayoutProps) {
             <main id="main-content" className="flex-1 overflow-auto smooth-scroll" tabIndex={-1}>
               {children}
             </main>
-          </div>
+          </main>
         </div>
         
         <Footer />
