@@ -56,7 +56,7 @@ const TransformationShowcase: React.FC = () => {
       id: 5,
       title: "Contemporary Bedroom Suite",
       description: "Modern bedroom with custom wardrobe solutions, ambient lighting, and smart storage.",
-      beforeImage: "/lovable-uploads/GUEST BEDROOM-3.3(RISHITA-C3-1502).png",
+      beforeImage: "/lovable-uploads/michal-balog-J0nae5nkmbw-unsplash.jpg",
       afterImage: "/lovable-uploads/e913b018-0d86-4651-9978-40dd65f6a458.png",
       category: "Bedroom",
       location: "Aliganj, Lucknow",
