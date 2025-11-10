@@ -20,7 +20,7 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    sourcemap: false,
+    sourcemap: true,
     // Optimize chunk size
     chunkSizeWarningLimit: 1000,
     // Better code splitting

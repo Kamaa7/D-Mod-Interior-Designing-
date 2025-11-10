@@ -3,13 +3,23 @@ import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
 
-// Global error handler
+// Global error handler for debugging
 window.addEventListener('error', (event) => {
   console.error('Global error:', event.error);
+  // Show error on screen for debugging
+  const errorDiv = document.createElement('div');
+  errorDiv.style.cssText = 'position: fixed; top: 0; left: 0; right: 0; background: #ff0000; color: white; padding: 10px; z-index: 99999; font-size: 12px;';
+  errorDiv.textContent = `Error: ${event.error?.message || 'Unknown error'}`;
+  document.body.appendChild(errorDiv);
 });
 
 window.addEventListener('unhandledrejection', (event) => {
   console.error('Unhandled promise rejection:', event.reason);
+  // Show error on screen for debugging
+  const errorDiv = document.createElement('div');
+  errorDiv.style.cssText = 'position: fixed; top: 0; left: 0; right: 0; background: #ff6600; color: white; padding: 10px; z-index: 99999; font-size: 12px;';
+  errorDiv.textContent = `Promise rejection: ${event.reason?.message || String(event.reason)}`;
+  document.body.appendChild(errorDiv);
 });
 
 // Ensure root element exists
