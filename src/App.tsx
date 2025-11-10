@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import Layout from "./components/Layout";
 import PageTransition from "./components/PageTransition";
 import ErrorBoundary from "./components/ErrorBoundary";
-import Index from "./pages/Index";
+import Home from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Portfolio from "./pages/Portfolio";
@@ -36,7 +36,7 @@ const App = () => {
       document.body.classList.remove('loading');
       
       // Initialize performance monitoring (wrap in try-catch to prevent crashes)
-      if (process.env.NODE_ENV === 'production') {
+      if (import.meta.env.PROD) {
         try {
           initPerformanceMonitoring();
         } catch (error) {
@@ -64,7 +64,7 @@ const App = () => {
           <Layout>
             <PageTransition>
               <Routes>
-                <Route path="/" element={<Index />} />
+                <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/portfolio" element={<Portfolio />} />
