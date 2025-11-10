@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -14,8 +14,6 @@ import Portfolio from "./pages/Portfolio";
 import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
 import NotFound from "./pages/NotFound";
-import { initPerformanceMonitoring } from "./utils/performance";
-import { initPerformanceOptimizations } from "./utils/prefetch";
 
 // Optimized QueryClient configuration
 const queryClient = new QueryClient({
@@ -29,55 +27,71 @@ const queryClient = new QueryClient({
   },
 });
 
+// Simple loading fallback
+const LoadingFallback = () => (
+  <div style={{ 
+    display: 'flex', 
+    alignItems: 'center', 
+    justifyContent: 'center', 
+    minHeight: '100vh',
+    background: '#fafafa'
+  }}>
+    <div style={{ textAlign: 'center' }}>
+      <div style={{
+        width: '50px',
+        height: '50px',
+        border: '4px solid #f3f3f3',
+        borderTop: '4px solid #4F7CFF',
+        borderRadius: '50%',
+        animation: 'spin 1s linear infinite',
+        margin: '0 auto 20px'
+      }}></div>
+      <p style={{ color: '#666' }}>Loading...</p>
+      <style>{`
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+      `}</style>
+    </div>
+  </div>
+);
+
 const App = () => {
   useEffect(() => {
     try {
-      // Remove loading state from body first
+      // Remove loading state from body
       document.body.classList.remove('loading');
-      
-      // Initialize performance monitoring (wrap in try-catch to prevent crashes)
-      if (import.meta.env.PROD) {
-        try {
-          initPerformanceMonitoring();
-        } catch (error) {
-          console.warn('Performance monitoring failed:', error);
-        }
-      }
-      
-      // Initialize performance optimizations (wrap in try-catch to prevent crashes)
-      try {
-        initPerformanceOptimizations();
-      } catch (error) {
-        console.warn('Performance optimizations failed:', error);
-      }
     } catch (error) {
       console.error('App initialization error:', error);
     }
   }, []);
 
   return (
-  <ErrorBoundary>
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <BrowserRouter>
-          <Layout>
-            <PageTransition>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/services" element={<Services />} />
-                <Route path="/portfolio" element={<Portfolio />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/blog" element={<Blog />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </PageTransition>
-          </Layout>
-        </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>
-  </ErrorBoundary>
+    <ErrorBoundary>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <Toaster />
+          <BrowserRouter>
+            <Suspense fallback={<LoadingFallback />}>
+              <Layout>
+                <PageTransition>
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/services" element={<Services />} />
+                    <Route path="/portfolio" element={<Portfolio />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path="/blog" element={<Blog />} />
+                    <Route path="*" element={<NotFound />} />
+                  </Routes>
+                </PageTransition>
+              </Layout>
+            </Suspense>
+          </BrowserRouter>
+        </TooltipProvider>
+      </QueryClientProvider>
+    </ErrorBoundary>
   );
 };
 
