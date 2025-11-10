@@ -39,7 +39,7 @@ const StickyQuoteButton = () => {
         </div>
       )}
       
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{__html: `
         @keyframes slide-down {
           from {
             transform: translateY(-100%);
@@ -53,7 +53,7 @@ const StickyQuoteButton = () => {
         .animate-slide-down {
           animation: slide-down 0.3s ease-out;
         }
-      `}</style>
+      `}} />
     </>
   );
 };

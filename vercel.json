@@ -1,9 +1,12 @@
 {
+<<<<<<< HEAD
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "devCommand": "npm run dev",
   "installCommand": "npm install",
   "framework": "vite",
+=======
+>>>>>>> 46588416ce149fce42fa791013ff49afc556dedd
   "rewrites": [
     {
       "source": "/(.*)",
@@ -19,6 +22,7 @@
           "value": "public, max-age=31536000, immutable"
         }
       ]
+<<<<<<< HEAD
     },
     {
       "source": "/(.*\\.(js|css|woff|woff2|ttf|eot))",
@@ -32,3 +36,8 @@
   ]
 }
 
+=======
+    }
+  ]
+}
+>>>>>>> 46588416ce149fce42fa791013ff49afc556dedd

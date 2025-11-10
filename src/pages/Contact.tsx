@@ -80,7 +80,7 @@ export default function Contact() {
     }
 
     // Only save if form has content
-    const hasContent = Object.values(formData).some(value => value.trim() !== '');
+    const hasContent = Object.values(formData).some((value: string) => value.trim() !== '');
     if (hasContent) {
       saveTimeoutRef.current = setTimeout(() => {
         saveDraft(formData);

@@ -1,0 +1,89 @@
+[1mdiff --git a/src/App.tsx b/src/App.tsx[m
+[1mindex 3cf16e9..a0447e6 100644[m
+[1m--- a/src/App.tsx[m
+[1m+++ b/src/App.tsx[m
+[36m@@ -3,8 +3,10 @@[m [mimport { Toaster } from "@/components/ui/sonner";[m
+ import { TooltipProvider } from "@/components/ui/tooltip";[m
+ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";[m
+ import { BrowserRouter, Routes, Route } from "react-router-dom";[m
+[31m-import ErrorBoundary from "./components/ErrorBoundary";[m
+[32m+[m[32mimport { useEffect } from "react";[m
+ import Layout from "./components/Layout";[m
+[32m+[m[32mimport PageTransition from "./components/PageTransition";[m
+[32m+[m[32mimport ErrorBoundary from "./components/ErrorBoundary";[m
+ import Index from "./pages/Index";[m
+ import About from "./pages/About";[m
+ import Services from "./pages/Services";[m
+[36m@@ -12,26 +14,43 @@[m [mimport Portfolio from "./pages/Portfolio";[m
+ import Contact from "./pages/Contact";[m
+ import Blog from "./pages/Blog";[m
+ import NotFound from "./pages/NotFound";[m
+[32m+[m[32mimport { initPerformanceMonitoring } from "./utils/performance";[m
+[32m+[m[32mimport { initPerformanceOptimizations } from "./utils/prefetch";[m
+ [m
+[32m+[m[32m// Optimized QueryClient configuration[m
+ const queryClient = new QueryClient({[m
+   defaultOptions: {[m
+     queries: {[m
+[31m-      staleTime: 1000 * 60 * 5,[m
+[31m-      gcTime: 1000 * 60 * 10,[m
+[32m+[m[32m      staleTime: 1000 * 60 * 5, // 5 minutes[m
+[32m+[m[32m      gcTime: 1000 * 60 * 10, // 10 minutes[m
+       retry: 1,[m
+       refetchOnWindowFocus: false,[m
+     },[m
+   },[m
+ });[m
+ [m
+[31m-function App() {[m
+[32m+[m[32mconst App = () => {[m
+[32m+[m[32m  useEffect(() => {[m
+[32m+[m[32m    // Initialize performance monitoring[m
+[32m+[m[32m    if (process.env.NODE_ENV === 'production') {[m
+[32m+[m[32m      initPerformanceMonitoring();[m
+[32m+[m[32m    }[m
+[32m+[m[41m    [m
+[32m+[m[32m    // Initialize performance optimizations[m
+[32m+[m[32m    initPerformanceOptimizations();[m
+[32m+[m[41m    [m
+[32m+[m[32m    // Remove loading state from body[m
+[32m+[m[32m    document.body.classList.remove('loading');[m
+[32m+[m[32m  }, []);[m
+[32m+[m
+   return ([m
+[31m-    <ErrorBoundary>[m
+[31m-      <QueryClientProvider client={queryClient}>[m
+[31m-        <TooltipProvider>[m
+[31m-          <Toaster />[m
+[31m-          <BrowserRouter>[m
+[31m-            <Layout>[m
+[32m+[m[32m  <ErrorBoundary>[m
+[32m+[m[32m    <QueryClientProvider client={queryClient}>[m
+[32m+[m[32m      <TooltipProvider>[m
+[32m+[m[32m        <Toaster />[m
+[32m+[m[32m        <BrowserRouter>[m
+[32m+[m[32m          <Layout>[m
+[32m+[m[32m            <PageTransition>[m
+               <Routes>[m
+                 <Route path="/" element={<Index />} />[m
+                 <Route path="/about" element={<About />} />[m
+[36m@@ -41,12 +60,13 @@[m [mfunction App() {[m
+                 <Route path="/blog" element={<Blog />} />[m
+                 <Route path="*" element={<NotFound />} />[m
+               </Routes>[m
+[31m-            </Layout>[m
+[31m-          </BrowserRouter>[m
+[31m-        </TooltipProvider>[m
+[31m-      </QueryClientProvider>[m
+[31m-    </ErrorBoundary>[m
+[32m+[m[32m            </PageTransition>[m
+[32m+[m[32m          </Layout>[m
+[32m+[m[32m        </BrowserRouter>[m
+[32m+[m[32m      </TooltipProvider>[m
+[32m+[m[32m    </QueryClientProvider>[m
+[32m+[m[32m  </ErrorBoundary>[m
+   );[m
+[31m-}[m
+[32m+[m[32m};[m
+ [m
+ export default App;[m
