@@ -43,11 +43,9 @@ const App = () => {
     // Optimize scroll performance for butter-smooth scrolling
     const cleanupScroll = optimizeScrollPerformance();
     
-    // Remove loading state from body with smooth transition
-    requestAnimationFrame(() => {
-      document.body.classList.remove('loading');
-      document.body.style.opacity = '1';
-    });
+    // Remove loading state from body immediately
+    document.body.classList.remove('loading');
+    document.body.style.opacity = '1';
     
     // Cleanup
     return () => {
