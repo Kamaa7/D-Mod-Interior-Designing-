@@ -186,7 +186,7 @@ export default function Layout({ children }: LayoutProps) {
             </SidebarContent>
           </Sidebar>
 
-            <main className="flex-1 flex flex-col optimize-rendering">
+          <div className="flex-1 flex flex-col optimize-rendering">
             <header className="glass-header sticky top-0 z-30 px-3 sm:px-6 py-3 sm:py-4 gpu-accelerated">
               <div className="flex items-center justify-between gap-4">
                 {/* Mobile: Menu + Logo */}
@@ -266,7 +266,7 @@ export default function Layout({ children }: LayoutProps) {
             <main id="main-content" className="flex-1 overflow-auto smooth-scroll" tabIndex={-1}>
               {children}
             </main>
-          </main>
+          </div>
         </div>
         
         <Footer />
