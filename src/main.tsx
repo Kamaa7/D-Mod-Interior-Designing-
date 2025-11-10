@@ -2,23 +2,20 @@ import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
 
-// Global error handler - log all errors
+// Global error handler
 window.addEventListener('error', (event) => {
   console.error('Global error:', event.error);
-  if (event.error) {
-    console.error('Error stack:', event.error.stack);
-  }
 });
 
 window.addEventListener('unhandledrejection', (event) => {
   console.error('Unhandled promise rejection:', event.reason);
 });
 
-// Safely initialize the app
+// Get root element
 const rootElement = document.getElementById("root");
 
 if (!rootElement) {
-  const errorHTML = `
+  document.body.innerHTML = `
     <div style="padding: 20px; font-family: Arial; max-width: 600px; margin: 50px auto; text-align: center; min-height: 100vh; display: flex; align-items: center; justify-content: center;">
       <div>
         <h1 style="color: #d32f2f;">Loading Error</h1>
@@ -29,11 +26,10 @@ if (!rootElement) {
       </div>
     </div>
   `;
-  document.body.innerHTML = errorHTML;
   throw new Error("Root element not found!");
 }
 
-// Show loading state immediately
+// Show loading state
 rootElement.innerHTML = `
   <div style="display: flex; align-items: center; justify-content: center; min-height: 100vh; font-family: Arial; background: #fafafa;">
     <div style="text-align: center;">
@@ -49,12 +45,12 @@ rootElement.innerHTML = `
   </style>
 `;
 
-// Initialize React app
+// Initialize and render
 try {
   const root = createRoot(rootElement);
   root.render(<App />);
   
-  // Remove loading class after render
+  // Remove loading class
   setTimeout(() => {
     document.body.classList.remove('loading');
   }, 100);

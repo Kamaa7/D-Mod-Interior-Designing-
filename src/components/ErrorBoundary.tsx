@@ -1,6 +1,4 @@
 import React, { Component, ErrorInfo, ReactNode } from 'react';
-import { AlertTriangle, Home, RefreshCw } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 
 interface Props {
   children: ReactNode;
@@ -37,18 +35,7 @@ class ErrorBoundary extends Component<Props, State> {
       error,
       errorInfo,
     });
-
-    // Log to error reporting service (if you have one)
-    // Example: Sentry.captureException(error);
   }
-
-  handleReset = () => {
-    this.setState({
-      hasError: false,
-      error: null,
-      errorInfo: null,
-    });
-  };
 
   handleReload = () => {
     window.location.reload();
@@ -65,80 +52,108 @@ class ErrorBoundary extends Component<Props, State> {
         return this.props.fallback;
       }
 
-      // Default error UI with glassmorphism
+      // Simple, reliable error UI that doesn't depend on external CSS
       return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-red-50 via-white to-orange-50 px-4 py-12">
-          <div className="max-w-2xl w-full">
-            <div className="glass-card rounded-3xl p-8 sm:p-12 space-y-6 text-center">
-              {/* Error Icon */}
-              <div className="flex justify-center">
-                <div className="glass-glow-blue rounded-full p-6">
-                  <AlertTriangle className="w-16 h-16 text-red-500" />
-                </div>
-              </div>
+        <div style={{
+          minHeight: '100vh',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          background: 'linear-gradient(to bottom right, #fef2f2, #ffffff, #fff7ed)',
+          padding: '20px',
+          fontFamily: 'system-ui, -apple-system, sans-serif'
+        }}>
+          <div style={{
+            maxWidth: '600px',
+            width: '100%',
+            background: 'white',
+            borderRadius: '16px',
+            padding: '40px',
+            boxShadow: '0 10px 40px rgba(0,0,0,0.1)',
+            textAlign: 'center'
+          }}>
+            {/* Error Icon */}
+            <div style={{
+              width: '80px',
+              height: '80px',
+              borderRadius: '50%',
+              background: '#fee2e2',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              margin: '0 auto 24px',
+              fontSize: '40px'
+            }}>
+              ⚠️
+            </div>
 
-              {/* Error Message */}
-              <div className="space-y-3">
-                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
-                  Oops! Something went wrong
-                </h1>
-                <p className="text-base sm:text-lg text-gray-600 max-w-md mx-auto">
-                  We're sorry for the inconvenience. An unexpected error has occurred.
-                </p>
-              </div>
+            {/* Error Message */}
+            <h1 style={{
+              fontSize: '28px',
+              fontWeight: 'bold',
+              color: '#1f2937',
+              marginBottom: '12px'
+            }}>
+              Oops! Something went wrong
+            </h1>
+            <p style={{
+              fontSize: '16px',
+              color: '#6b7280',
+              marginBottom: '32px',
+              lineHeight: '1.6'
+            }}>
+              We're sorry for the inconvenience. An unexpected error has occurred.
+            </p>
 
-              {/* Error Details (Development Only) */}
-              {process.env.NODE_ENV === 'development' && this.state.error && (
-                <details className="text-left bg-red-50 p-4 rounded-lg border border-red-200">
-                  <summary className="cursor-pointer text-sm font-medium text-red-800 mb-2">
-                    Error Details (Development Mode)
-                  </summary>
-                  <div className="text-xs text-red-700 space-y-2">
-                    <p className="font-mono bg-white p-2 rounded border border-red-200 overflow-auto">
-                      {this.state.error.toString()}
-                    </p>
-                    {this.state.errorInfo && (
-                      <pre className="font-mono bg-white p-2 rounded border border-red-200 overflow-auto max-h-48 text-xs">
-                        {this.state.errorInfo.componentStack}
-                      </pre>
-                    )}
-                  </div>
-                </details>
-              )}
-
-              {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-                <Button
-                  onClick={this.handleReload}
-                  className="w-full sm:w-auto glass-button text-white px-6 py-6 sm:py-3 rounded-lg font-medium hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2"
-                >
-                  <RefreshCw className="w-5 h-5" />
-                  Reload Page
-                </Button>
-
-                <Button
-                  onClick={this.handleGoHome}
-                  variant="outline"
-                  className="w-full sm:w-auto border-2 border-primary text-primary px-6 py-6 sm:py-3 rounded-lg font-medium hover:bg-primary hover:text-white hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2"
-                >
-                  <Home className="w-5 h-5" />
-                  Go to Home
-                </Button>
-              </div>
-
-              {/* Help Text */}
-              <div className="pt-6 border-t border-gray-200">
-                <p className="text-sm text-gray-500">
-                  If this problem persists, please{' '}
-                  <a
-                    href="/contact"
-                    className="text-primary hover:underline font-medium"
-                  >
-                    contact our support team
-                  </a>
-                  .
-                </p>
-              </div>
+            {/* Action Buttons */}
+            <div style={{
+              display: 'flex',
+              gap: '12px',
+              justifyContent: 'center',
+              flexWrap: 'wrap'
+            }}>
+              <button
+                onClick={this.handleReload}
+                style={{
+                  padding: '12px 24px',
+                  background: '#4F7CFF',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '8px',
+                  fontSize: '16px',
+                  fontWeight: '600',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s'
+                }}
+                onMouseOver={(e) => e.currentTarget.style.background = '#3b6bff'}
+                onMouseOut={(e) => e.currentTarget.style.background = '#4F7CFF'}
+              >
+                Reload Page
+              </button>
+              <button
+                onClick={this.handleGoHome}
+                style={{
+                  padding: '12px 24px',
+                  background: 'white',
+                  color: '#4F7CFF',
+                  border: '2px solid #4F7CFF',
+                  borderRadius: '8px',
+                  fontSize: '16px',
+                  fontWeight: '600',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s'
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.background = '#4F7CFF';
+                  e.currentTarget.style.color = 'white';
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.background = 'white';
+                  e.currentTarget.style.color = '#4F7CFF';
+                }}
+              >
+                Go Home
+              </button>
             </div>
           </div>
         </div>
@@ -150,4 +165,3 @@ class ErrorBoundary extends Component<Props, State> {
 }
 
 export default ErrorBoundary;
-
