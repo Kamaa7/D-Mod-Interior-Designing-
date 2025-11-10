@@ -14,6 +14,7 @@ interface Transformation {
 }
 
 const TransformationShowcase: React.FC = () => {
+  // Bedroom transformation: francesco-ungaro (before) -> e913b018 (after)
   const transformations: Transformation[] = [
     {
       id: 1,
