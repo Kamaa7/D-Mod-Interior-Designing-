@@ -20,10 +20,7 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-<<<<<<< HEAD
     sourcemap: false,
-=======
-    sourcemap: true,
     // Optimize chunk size
     chunkSizeWarningLimit: 1000,
     // Better code splitting
@@ -69,6 +66,5 @@ export default defineConfig(({ mode }) => ({
       'react-router-dom',
       'lucide-react',
     ],
->>>>>>> 46588416ce149fce42fa791013ff49afc556dedd
   },
 }));
