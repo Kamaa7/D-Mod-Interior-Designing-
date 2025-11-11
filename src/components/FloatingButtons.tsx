@@ -69,12 +69,19 @@ export default function FloatingButtons() {
           .floating-buttons-container {
             bottom: 0.75rem !important;
             right: 0.75rem !important;
-            gap: 0.625rem !important;
+            gap: 0.5rem !important;
           }
         }
         .touch-manipulation {
           touch-action: manipulation;
           -webkit-tap-highlight-color: transparent;
+        }
+        @media (max-width: 640px) {
+          .helper-bubble-mobile {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+          }
         }
       `}</style>
       <div 
@@ -103,17 +110,19 @@ export default function FloatingButtons() {
       </Button>
 
       {/* Helper Bubble and Quote Button */}
-      <div className="flex items-center gap-3">
+      <div className="flex flex-col sm:flex-row items-end sm:items-center gap-2 sm:gap-3">
         {showHelper && (
           <div 
-            className="relative max-w-[200px] rounded-full bg-white shadow-lg border border-slate-200 pl-4 pr-8 py-2 text-xs sm:text-sm font-medium text-slate-700 animate-fade-in"
+            className="relative max-w-[160px] sm:max-w-[200px] rounded-2xl sm:rounded-full bg-white shadow-lg border border-slate-200 px-3 sm:pl-4 sm:pr-8 py-2.5 sm:py-2 text-[11px] sm:text-sm font-medium text-slate-700 animate-fade-in leading-tight sm:leading-normal helper-bubble-mobile"
             style={{ 
               zIndex: 9999,
-              pointerEvents: 'auto'
+              pointerEvents: 'auto',
+              lineHeight: '1.3',
+              whiteSpace: 'normal'
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            We're online. How may I assist you?
+            <span className="block sm:inline">We're online. How may I assist you?</span>
             <button
               onClick={handleCloseHelper}
               onMouseDown={(e) => {
@@ -121,7 +130,7 @@ export default function FloatingButtons() {
                 e.stopPropagation();
                 handleCloseHelper();
               }}
-              className="absolute top-1/2 right-2 transform -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1 rounded-full p-1 z-10"
+              className="absolute top-1/2 right-1.5 sm:right-2 transform -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1 rounded-full p-1 z-10 touch-manipulation"
               aria-label="Close helper"
               type="button"
               style={{
@@ -131,10 +140,15 @@ export default function FloatingButtons() {
                 position: 'absolute',
                 background: 'transparent',
                 border: 'none',
-                outline: 'none'
+                outline: 'none',
+                minWidth: '24px',
+                minHeight: '24px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
               }}
             >
-              <X className="w-3 h-3" style={{ pointerEvents: 'none' }} />
+              <X className="w-3.5 h-3.5 sm:w-3 sm:h-3" style={{ pointerEvents: 'none' }} />
             </button>
           </div>
         )}
