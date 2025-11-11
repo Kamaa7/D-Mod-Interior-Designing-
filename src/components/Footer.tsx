@@ -24,9 +24,9 @@ const Footer = () => {
       <div className="container mx-auto px-4 lg:px-6">
         {/* Main Footer Content */}
         <div className="py-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8">
             {/* Company Info */}
-            <div className="col-span-2 md:col-span-1 space-y-4">
+            <div className="col-span-1 sm:col-span-2 md:col-span-1 space-y-4">
               <Link to="/" className="inline-block">
                 <img 
                   src="/lovable-uploads/IMG-20251105-WA0014.png" 
@@ -97,23 +97,23 @@ const Footer = () => {
             </div>
 
             {/* Contact Info */}
-            <div className="space-y-2">
+            <div className="col-span-1 sm:col-span-2 md:col-span-1 space-y-2">
               <h3 className="text-sm font-semibold text-slate-900 uppercase tracking-wide mb-3">Contact Info</h3>
-              <div className="space-y-3">
-                <div className="flex items-start space-x-3">
-                  <MapPin className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                  <p className="text-sm text-slate-600 leading-relaxed">
+              <div className="space-y-3 sm:space-y-3">
+                <div className="flex items-start gap-2 sm:gap-3">
+                  <MapPin className="w-4 h-4 sm:w-4 sm:h-4 text-primary mt-0.5 sm:mt-0.5 flex-shrink-0" />
+                  <p className="text-sm text-slate-600 leading-relaxed break-words">
                     Vision Spaces, BBD Viraj Tower Kamta Chauraha, Lucknow, Uttar Pradesh 226010
                   </p>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <Phone className="w-4 h-4 text-primary flex-shrink-0" />
-                  <a href="tel:+919616996699" className="text-sm text-slate-600 hover:text-primary transition-colors">
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <Phone className="w-4 h-4 sm:w-4 sm:h-4 text-primary flex-shrink-0" />
+                  <a href="tel:+919616996699" className="text-sm text-slate-600 hover:text-primary transition-colors break-all">
                     +91 96169 96699
                   </a>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <Mail className="w-4 h-4 text-primary flex-shrink-0" />
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <Mail className="w-4 h-4 sm:w-4 sm:h-4 text-primary flex-shrink-0" />
                   <a href="mailto:dmod.interior@gmail.com" className="text-sm text-slate-600 hover:text-primary transition-colors break-all">
                     dmod.interior@gmail.com
                   </a>
