@@ -98,23 +98,29 @@ const Footer = () => {
 
             {/* Contact Info */}
             <div className="col-span-1 sm:col-span-2 md:col-span-1 space-y-2">
-              <h3 className="text-sm font-semibold text-slate-900 uppercase tracking-wide mb-3">Contact Info</h3>
-              <div className="space-y-3 sm:space-y-3">
-                <div className="flex items-start gap-2 sm:gap-3">
-                  <MapPin className="w-4 h-4 sm:w-4 sm:h-4 text-primary mt-0.5 sm:mt-0.5 flex-shrink-0" />
-                  <p className="text-sm text-slate-600 leading-relaxed break-words">
+              <h3 className="text-sm font-semibold text-slate-900 uppercase tracking-wide mb-3 sm:mb-3">Contact Info</h3>
+              <div className="space-y-3.5 sm:space-y-3">
+                <div className="flex items-start gap-2.5 sm:gap-3">
+                  <div className="flex-shrink-0 pt-0.5 sm:pt-0.5">
+                    <MapPin className="w-5 h-5 sm:w-4 sm:h-4 text-primary" />
+                  </div>
+                  <p className="text-sm text-slate-600 leading-relaxed break-words flex-1">
                     Vision Spaces, BBD Viraj Tower Kamta Chauraha, Lucknow, Uttar Pradesh 226010
                   </p>
                 </div>
-                <div className="flex items-center gap-2 sm:gap-3">
-                  <Phone className="w-4 h-4 sm:w-4 sm:h-4 text-primary flex-shrink-0" />
-                  <a href="tel:+919616996699" className="text-sm text-slate-600 hover:text-primary transition-colors break-all">
+                <div className="flex items-center gap-2.5 sm:gap-3">
+                  <div className="flex-shrink-0 flex items-center justify-center">
+                    <Phone className="w-5 h-5 sm:w-4 sm:h-4 text-primary" />
+                  </div>
+                  <a href="tel:+919616996699" className="text-sm text-slate-600 hover:text-primary transition-colors break-all flex-1">
                     +91 96169 96699
                   </a>
                 </div>
-                <div className="flex items-center gap-2 sm:gap-3">
-                  <Mail className="w-4 h-4 sm:w-4 sm:h-4 text-primary flex-shrink-0" />
-                  <a href="mailto:dmod.interior@gmail.com" className="text-sm text-slate-600 hover:text-primary transition-colors break-all">
+                <div className="flex items-center gap-2.5 sm:gap-3">
+                  <div className="flex-shrink-0 flex items-center justify-center">
+                    <Mail className="w-5 h-5 sm:w-4 sm:h-4 text-primary" />
+                  </div>
+                  <a href="mailto:dmod.interior@gmail.com" className="text-sm text-slate-600 hover:text-primary transition-colors break-all flex-1">
                     dmod.interior@gmail.com
                   </a>
                 </div>
