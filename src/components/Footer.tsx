@@ -108,16 +108,16 @@ const Footer = () => {
                     Vision Spaces, BBD Viraj Tower Kamta Chauraha, Lucknow, Uttar Pradesh 226010
                   </p>
                 </div>
-                <div className="flex items-center gap-2.5 sm:gap-3">
-                  <div className="flex-shrink-0 flex items-center justify-center">
+                <div className="flex items-start gap-2.5 sm:gap-3">
+                  <div className="flex-shrink-0 pt-0.5 sm:pt-0.5">
                     <Phone className="w-5 h-5 sm:w-4 sm:h-4 text-primary" />
                   </div>
                   <a href="tel:+919616996699" className="text-sm text-slate-600 hover:text-primary transition-colors break-all flex-1">
                     +91 96169 96699
                   </a>
                 </div>
-                <div className="flex items-center gap-2.5 sm:gap-3">
-                  <div className="flex-shrink-0 flex items-center justify-center">
+                <div className="flex items-start gap-2.5 sm:gap-3">
+                  <div className="flex-shrink-0 pt-0.5 sm:pt-0.5">
                     <Mail className="w-5 h-5 sm:w-4 sm:h-4 text-primary" />
                   </div>
                   <a href="mailto:dmod.interior@gmail.com" className="text-sm text-slate-600 hover:text-primary transition-colors break-all flex-1">
