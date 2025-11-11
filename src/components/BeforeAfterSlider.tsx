@@ -153,7 +153,7 @@ const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({
       >
         {/* Handle Circle */}
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full shadow-2xl flex items-center justify-center cursor-ew-resize hover:scale-110 transition-transform duration-200">
+          <div className="w-14 h-14 sm:w-16 sm:h-16 bg-white rounded-full shadow-2xl flex items-center justify-center cursor-ew-resize hover:scale-110 active:scale-95 transition-transform duration-200 touch-manipulation" style={{ minWidth: '56px', minHeight: '56px' }}>
             <MoveHorizontal className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
           </div>
         </div>

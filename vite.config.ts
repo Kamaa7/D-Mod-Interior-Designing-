@@ -8,9 +8,18 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
+    strictPort: false,
+    hmr: {
+      overlay: true
+    }
   },
   plugins: [
-    react(),
+    react({
+      fastRefresh: true,
+      babel: {
+        plugins: []
+      }
+    }),
     mode === 'development' &&
     componentTagger(),
   ].filter(Boolean),

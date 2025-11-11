@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { X, Calculator, Home, Bed, Utensils, Briefcase, Sparkles, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -17,13 +18,24 @@ interface FinishLevel {
   description: string;
 }
 
-const CostCalculator: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
+interface CostCalculatorProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+const CostCalculator: React.FC<CostCalculatorProps> = ({ isOpen, onClose }) => {
+  console.log('CostCalculator rendered, isOpen:', isOpen);
+  const [mounted, setMounted] = useState(false);
+  
   const [step, setStep] = useState(1);
   const [selectedRoom, setSelectedRoom] = useState<string>('');
   const [selectedFinish, setSelectedFinish] = useState<string>('');
   const [area, setArea] = useState<number>(100);
   const [showResult, setShowResult] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const roomTypes: RoomType[] = [
     { id: 'living', name: 'Living Room', icon: Home, basePrice: 1500, unit: 'sq ft' },
@@ -38,17 +50,7 @@ const CostCalculator: React.FC = () => {
     { id: 'luxury', name: 'Luxury', multiplier: 2.2, description: 'Finest materials, bespoke design' },
   ];
 
-  useEffect(() => {
-    // Show calculator popup 2 seconds after page load (only once per session)
-    const hasShown = sessionStorage.getItem('costCalculatorShown');
-    if (!hasShown) {
-      const timer = setTimeout(() => {
-        setIsOpen(true);
-        sessionStorage.setItem('costCalculatorShown', 'true');
-      }, 2000);
-      return () => clearTimeout(timer);
-    }
-  }, []);
+  // No auto-popup logic - opens only when button is clicked
 
   const calculateCost = () => {
     const room = roomTypes.find(r => r.id === selectedRoom);
@@ -84,22 +86,42 @@ const CostCalculator: React.FC = () => {
   };
 
   const handleClose = () => {
-    setIsOpen(false);
+    onClose();
     handleReset();
   };
 
-  if (!isOpen) return null;
+  if (!isOpen || !mounted) return null;
 
-  return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-fade-in">
-      <div className="relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+  const modalContent = (
+    <div 
+      className="fixed inset-0 z-[99999] flex items-center justify-center p-3 sm:p-4 bg-black/50 backdrop-blur-sm"
+      style={{ 
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        zIndex: 99999,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '0.75rem'
+      }}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) {
+          handleClose();
+        }
+      }}
+    >
+      <div className="relative bg-white rounded-xl sm:rounded-2xl shadow-2xl max-w-2xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-y-auto">
         {/* Close Button */}
         <button
           onClick={handleClose}
-          className="absolute top-4 right-4 p-2 text-gray-400 hover:text-gray-600 transition-colors rounded-full hover:bg-gray-100 z-10"
+          className="absolute top-3 right-3 sm:top-4 sm:right-4 p-2 sm:p-2.5 text-gray-400 hover:text-gray-600 active:bg-gray-100 transition-colors rounded-full hover:bg-gray-100 z-10 touch-manipulation"
           aria-label="Close calculator"
+          style={{ minWidth: '44px', minHeight: '44px' }}
         >
-          <X className="w-5 h-5" />
+          <X className="w-5 h-5 sm:w-6 sm:h-6" />
         </button>
 
         {/* Header */}
@@ -139,18 +161,19 @@ const CostCalculator: React.FC = () => {
                     <p className="text-gray-600 text-sm">What space are you looking to transform?</p>
                   </div>
                   
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2 gap-3 sm:gap-4">
                     {roomTypes.map((room) => {
                       const Icon = room.icon;
                       return (
                         <button
                           key={room.id}
                           onClick={() => setSelectedRoom(room.id)}
-                          className={`p-4 rounded-xl border-2 transition-all duration-300 ${
+                          className={`p-3 sm:p-4 rounded-lg sm:rounded-xl border-2 transition-all duration-300 touch-manipulation active:scale-95 ${
                             selectedRoom === room.id
                               ? 'border-primary bg-blue-50 shadow-lg scale-105'
-                              : 'border-gray-200 hover:border-blue-300 hover:scale-105'
+                              : 'border-gray-200 hover:border-blue-300 active:border-blue-300'
                           }`}
+                          style={{ minHeight: '100px' }}
                         >
                           <Icon className={`w-8 h-8 mx-auto mb-2 ${
                             selectedRoom === room.id ? 'text-primary' : 'text-gray-400'
@@ -238,12 +261,13 @@ const CostCalculator: React.FC = () => {
               )}
 
               {/* Navigation Buttons */}
-              <div className="flex gap-3 mt-8">
+              <div className="flex flex-col sm:flex-row gap-3 mt-6 sm:mt-8">
                 {step > 1 && (
                   <Button
                     onClick={() => setStep(step - 1)}
                     variant="outline"
-                    className="flex-1"
+                    className="flex-1 py-3 sm:py-2 touch-manipulation"
+                    style={{ minHeight: '44px' }}
                   >
                     Back
                   </Button>
@@ -254,7 +278,8 @@ const CostCalculator: React.FC = () => {
                     (step === 1 && !selectedRoom) ||
                     (step === 2 && !selectedFinish)
                   }
-                  className="flex-1"
+                  className="flex-1 py-3 sm:py-2 touch-manipulation"
+                  style={{ minHeight: '44px' }}
                 >
                   {step === 3 ? 'Calculate Cost' : 'Next'}
                   <ArrowRight className="w-4 h-4 ml-2" />
@@ -313,6 +338,8 @@ const CostCalculator: React.FC = () => {
       </div>
     </div>
   );
+
+  return createPortal(modalContent, document.body);
 };
 
 export default CostCalculator;

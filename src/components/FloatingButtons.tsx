@@ -1,5 +1,6 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { Quote, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -18,6 +19,18 @@ const WhatsappIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
 
 export default function FloatingButtons() {
   const [showHelper, setShowHelper] = useState(true);
+  const [mounted, setMounted] = useState(false);
+  
+  console.log('FloatingButtons component rendered');
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const handleCloseHelper = () => {
+    console.log('Close button clicked!');
+    setShowHelper(false);
+  };
 
   const handleWhatsAppClick = () => {
     const phoneNumber = "919616996699";
@@ -26,43 +39,129 @@ export default function FloatingButtons() {
     window.open(whatsappUrl, '_blank');
   };
 
-  return (
-    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 flex flex-col items-end gap-3 z-50" role="complementary" aria-label="Quick action buttons">
+  if (!mounted) return null;
+
+  const buttonsContent = (
+    <>
+      <style>{`
+        .floating-buttons-container {
+          position: fixed !important;
+          bottom: 1rem !important;
+          right: 1rem !important;
+          z-index: 99999 !important;
+          display: flex !important;
+          flex-direction: column !important;
+          align-items: flex-end !important;
+          gap: 0.75rem !important;
+          visibility: visible !important;
+          opacity: 1 !important;
+          pointer-events: auto !important;
+          width: auto !important;
+          height: auto !important;
+        }
+        @media (min-width: 640px) {
+          .floating-buttons-container {
+            bottom: 1.5rem !important;
+            right: 1.5rem !important;
+          }
+        }
+        @media (max-width: 640px) {
+          .floating-buttons-container {
+            bottom: 0.75rem !important;
+            right: 0.75rem !important;
+            gap: 0.625rem !important;
+          }
+        }
+        .touch-manipulation {
+          touch-action: manipulation;
+          -webkit-tap-highlight-color: transparent;
+        }
+      `}</style>
+      <div 
+        className="floating-buttons-container" 
+        role="complementary" 
+        aria-label="Quick action buttons"
+      >
       {/* WhatsApp Button */}
       <Button
         onClick={handleWhatsAppClick}
-        className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-primary hover:bg-primary/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+        className="w-14 h-14 sm:w-14 sm:h-14 rounded-full bg-primary hover:bg-primary/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 touch-manipulation"
         aria-label="Chat on WhatsApp"
         title="Chat on WhatsApp"
+        style={{ 
+          zIndex: 99999,
+          visibility: 'visible',
+          opacity: 1,
+          display: 'flex',
+          position: 'relative',
+          minWidth: '56px',
+          minHeight: '56px',
+          WebkitTapHighlightColor: 'transparent'
+        }}
       >
-        <WhatsappIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+        <WhatsappIcon className="w-6 h-6 sm:w-6 sm:h-6" />
       </Button>
 
       {/* Helper Bubble and Quote Button */}
       <div className="flex items-center gap-3">
         {showHelper && (
-          <div className="relative max-w-[200px] rounded-full bg-white shadow-lg border border-slate-200 pl-4 pr-8 py-2 text-xs sm:text-sm font-medium text-slate-700 animate-fade-in">
+          <div 
+            className="relative max-w-[200px] rounded-full bg-white shadow-lg border border-slate-200 pl-4 pr-8 py-2 text-xs sm:text-sm font-medium text-slate-700 animate-fade-in"
+            style={{ 
+              zIndex: 9999,
+              pointerEvents: 'auto'
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
             We're online. How may I assist you?
             <button
-              onClick={() => setShowHelper(false)}
-              className="absolute top-1/2 right-2 transform -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1 rounded-full p-0.5"
+              onClick={handleCloseHelper}
+              onMouseDown={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                handleCloseHelper();
+              }}
+              className="absolute top-1/2 right-2 transform -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1 rounded-full p-1 z-10"
               aria-label="Close helper"
+              type="button"
+              style={{
+                zIndex: 100000,
+                pointerEvents: 'auto',
+                cursor: 'pointer',
+                position: 'absolute',
+                background: 'transparent',
+                border: 'none',
+                outline: 'none'
+              }}
             >
-              <X className="w-3 h-3" />
+              <X className="w-3 h-3" style={{ pointerEvents: 'none' }} />
             </button>
           </div>
         )}
 
         <Link to="/contact">
           <Button
-            className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-primary hover:bg-primary/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+            className="w-14 h-14 sm:w-14 sm:h-14 rounded-full bg-primary hover:bg-primary/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 touch-manipulation"
             aria-label="Get a free quote"
             title="Get Quote"
+            style={{ 
+              zIndex: 99999,
+              visibility: 'visible',
+              opacity: 1,
+              display: 'flex',
+              position: 'relative',
+              minWidth: '56px',
+              minHeight: '56px',
+              WebkitTapHighlightColor: 'transparent'
+            }}
           >
-            <Quote className="w-5 h-5 sm:w-6 sm:h-6" />
+            <Quote className="w-6 h-6 sm:w-6 sm:h-6" />
           </Button>
         </Link>
       </div>
     </div>
+    </>
   );
+
+  return createPortal(buttonsContent, document.body);
 }

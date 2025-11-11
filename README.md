@@ -1,73 +1,96 @@
-# Welcome to your Lovable project
+# D-Mod The Interior Factory - Website
 
-## Project info
+A modern, responsive website for D-Mod The Interior Factory - Premium interior design services in Lucknow.
 
-**URL**: https://lovable.dev/projects/a86b00a8-ef35-46b3-a384-68786ee4ca36
+## 🌐 Live Website
 
-## How can I edit this code?
+**Vercel**: https://sattva-modular-webscape.vercel.app/
 
-There are several ways of editing your application.
+## 🚀 Features
 
-**Use Lovable**
+- ✅ **Responsive Design** - Works perfectly on all devices
+- ✅ **Cost Calculator** - Interactive project cost estimation
+- ✅ **Contact Form** - With validation and auto-save
+- ✅ **Portfolio Gallery** - Showcase of completed projects
+- ✅ **Before/After Slider** - Interactive transformation showcase
+- ✅ **WhatsApp Integration** - Direct chat functionality
+- ✅ **SEO Optimized** - Meta tags, sitemap, structured data
+- ✅ **Fast Performance** - Optimized loading and animations
+- ✅ **Modern UI** - Clean, professional design
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/a86b00a8-ef35-46b3-a384-68786ee4ca36) and start prompting.
+## 🛠️ Tech Stack
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Framework**: React 18 + TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui
+- **Routing**: React Router DOM
+- **Icons**: Lucide React
 
-**Use your preferred IDE**
+## 📦 Installation
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+```bash
+# Clone the repository
+git clone https://github.com/Kamaa7/sattva-modular-webscape.git
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+# Navigate to project directory
+cd sattva-modular-webscape
 
-Follow these steps:
+# Install dependencies
+npm install
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## 🏗️ Build for Production
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+# Build the project
+npm run build
 
-**Use GitHub Codespaces**
+# Preview production build
+npm run preview
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 📁 Project Structure
 
-## What technologies are used for this project?
+```
+src/
+├── components/     # Reusable components
+├── pages/         # Page components
+├── hooks/         # Custom React hooks
+├── utils/         # Utility functions
+└── styles/        # Global styles
+```
 
-This project is built with:
+## 🚢 Deployment
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+The website is configured for **Vercel** deployment:
 
-## How can I deploy this project?
+1. Push code to GitHub
+2. Connect repository to Vercel
+3. Vercel will auto-deploy on every push
 
-Simply open [Lovable](https://lovable.dev/projects/a86b00a8-ef35-46b3-a384-68786ee4ca36) and click on Share -> Publish.
+**Vercel Configuration**: See `vercel.json`
 
-## Can I connect a custom domain to my Lovable project?
+## 📝 Pages
 
-Yes, you can!
+- `/` - Homepage
+- `/services` - Services overview
+- `/portfolio` - Project gallery
+- `/about` - About us
+- `/contact` - Contact form
+- `/blog` - Blog posts
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 🎨 Key Components
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+- **CostCalculator** - Project cost estimation tool
+- **FloatingButtons** - WhatsApp & Quote buttons
+- **BeforeAfterSlider** - Interactive image comparison
+- **TransformationShowcase** - Project transformations
+- **VideoTestimonials** - Client testimonials carousel
+
+## 📄 License
+
+All rights reserved - D-Mod The Interior Factory

@@ -274,6 +274,21 @@ button:active, a:active {
   transform: scale(0.98);
 }
 
+/* Mobile touch optimizations */
+@media (max-width: 768px) {
+  button, a, input, select, textarea {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+  
+  /* Ensure minimum touch target size (44x44px) */
+  button:not(.no-touch-target), 
+  a:not(.no-touch-target) {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
 /* Optimize font rendering */
 body {
   -webkit-font-smoothing: antialiased;

@@ -1,7 +1,7 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Home, Briefcase, Image, Users, Phone, Menu, BookOpen, Quote, Award, Sparkles } from "lucide-react";
+import { Home, Briefcase, Image, Users, Phone, Menu, BookOpen, Quote, Award, Sparkles, Calculator } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -17,10 +17,8 @@ import {
 import FloatingButtons from "./FloatingButtons";
 import SmoothScrollWrapper from "./SmoothScrollWrapper";
 import Footer from "./Footer";
-import CookieConsent from "./CookieConsent";
 import ScrollToTop from "./ScrollToTop";
 import SkipToContent from "./SkipToContent";
-import StickyQuoteButton from "./StickyQuoteButton";
 import LoadingProgressBar from "./LoadingProgressBar";
 import CostCalculator from "./CostCalculator";
 import "@/styles/glassmorphism.css";
@@ -64,6 +62,13 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   const location = useLocation();
+  const [isCalculatorOpen, setIsCalculatorOpen] = useState(false);
+
+  const handleCalculatorClick = () => {
+    console.log('Calculator button clicked!');
+    setIsCalculatorOpen(true);
+    console.log('Calculator state set to:', true);
+  };
 
   return (
     <SidebarProvider>
@@ -230,14 +235,27 @@ export default function Layout({ children }: LayoutProps) {
                 <div className="ml-auto flex items-center gap-1.5 sm:gap-2">
                   {/* Quick Action Pills - NOW VISIBLE ON ALL DEVICES */}
                   <div className="flex items-center gap-1.5 sm:gap-2">
+                    {/* Calculator Button */}
+                    <button
+                      onClick={handleCalculatorClick}
+                      className="glass-frosted-light hover:glass-blue p-2.5 sm:p-2 rounded-lg transition-all duration-300 hover:scale-110 active:scale-95 group touch-manipulation"
+                      title="Cost Calculator"
+                      aria-label="Cost Calculator"
+                      type="button"
+                      style={{ minWidth: '44px', minHeight: '44px' }}
+                    >
+                      <Calculator className="w-5 h-5 sm:w-4 sm:h-4 text-blue-600 group-hover:text-blue-700" />
+                    </button>
+
                     {/* WhatsApp Button */}
                     <a 
                       href="https://wa.me/919616996699?text=Hi!%20I'm%20interested%20in%20your%20interior%20design%20services."
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="glass-frosted-light hover:glass-blue p-2 sm:p-2 rounded-lg transition-all duration-300 hover:scale-110 active:scale-95 group"
+                      className="glass-frosted-light hover:glass-blue p-2.5 sm:p-2 rounded-lg transition-all duration-300 hover:scale-110 active:scale-95 group touch-manipulation"
                       title="Chat on WhatsApp"
                       aria-label="Chat on WhatsApp"
+                      style={{ minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                     >
                       <svg className="w-5 h-5 sm:w-4 sm:h-4 text-blue-600 group-hover:text-blue-700" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.149-.671.149-.198.297-.767.966-.94 1.164-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.074-.149-.671-1.612-.919-2.207-.242-.579-.487-.501-.671-.51-.173-.007-.372-.009-.571-.009-.198 0-.521.074-.795.372-.273.297-1.045 1.023-1.045 2.479 0 1.456 1.07 2.866 1.219 3.065.149.198 2.104 3.215 5.107 4.508.714.308 1.27.492 1.704.63.716.228 1.368.196 1.883.119.574-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M11.99 0C5.373 0 0 5.373 0 12c0 2.116.555 4.085 1.523 5.804L0 24l6.356-1.655A11.961 11.961 0 0 0 11.99 24C18.627 24 24 18.627 24 12S18.627 0 11.99 0"/>
@@ -247,9 +265,10 @@ export default function Layout({ children }: LayoutProps) {
                     {/* Phone Button */}
                     <a 
                       href="tel:+919616996699"
-                      className="glass-frosted-light hover:glass-blue p-2 sm:p-2 rounded-lg transition-all duration-300 hover:scale-110 active:scale-95 group"
+                      className="glass-frosted-light hover:glass-blue p-2.5 sm:p-2 rounded-lg transition-all duration-300 hover:scale-110 active:scale-95 group touch-manipulation"
                       title="Call Now"
                       aria-label="Call Now"
+                      style={{ minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                     >
                       <Phone className="w-5 h-5 sm:w-4 sm:h-4 text-blue-600 group-hover:text-blue-700" />
                     </a>
@@ -257,7 +276,7 @@ export default function Layout({ children }: LayoutProps) {
                   
                   {/* Main Get Quote CTA */}
                   <Link to="/contact">
-                    <button className="glass-button text-white py-2 px-3 sm:px-4 rounded-lg text-sm font-medium hover:scale-105 active:scale-95 smooth-transition flex items-center justify-center gap-2 shadow-lg">
+                    <button className="glass-button text-white py-2.5 px-3 sm:px-4 rounded-lg text-sm font-medium hover:scale-105 active:scale-95 smooth-transition flex items-center justify-center gap-2 shadow-lg touch-manipulation" style={{ minHeight: '44px' }}>
                       <Quote className="w-4 h-4" />
                       <span className="hidden sm:inline">Get Quote</span>
                     </button>
@@ -275,9 +294,7 @@ export default function Layout({ children }: LayoutProps) {
         <Footer />
         <FloatingButtons />
         <ScrollToTop />
-        <StickyQuoteButton />
-        <CostCalculator />
-        <CookieConsent />
+        <CostCalculator isOpen={isCalculatorOpen} onClose={() => setIsCalculatorOpen(false)} />
       </SmoothScrollWrapper>
     </SidebarProvider>
   );

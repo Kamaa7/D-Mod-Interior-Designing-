@@ -35,12 +35,7 @@
     <meta name="geo.position" content="26.8467;80.9462" />
     <meta name="ICBM" content="26.8467, 80.9462" />
 
-    <!-- PWA Manifest -->
-    <link rel="manifest" href="/manifest.json" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="apple-mobile-web-app-title" content="D-Mod" />
+    <!-- Apple Touch Icon -->
     <link rel="apple-touch-icon" href="/lovable-uploads/IMG-20251105-WA0014.png" />
 
     <!-- Open Graph / Facebook -->
@@ -93,34 +88,19 @@
 
   <body class="loading">
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
     <script>
-      // Ensure React is available globally for debugging
+      // Initialize global hooks BEFORE React loads to prevent forEach error
       if (typeof window !== 'undefined') {
-        window.__REACT_DEVTOOLS_GLOBAL_HOOK__ = window.__REACT_DEVTOOLS_GLOBAL_HOOK__ || {};
+        window.__REACT_DEVTOOLS_GLOBAL_HOOK__ = window.__REACT_DEVTOOLS_GLOBAL_HOOK__ || {
+          supportsFiber: true,
+          inject: function() {},
+          onCommitFiberRoot: function() {},
+          onCommitFiberUnmount: function() {},
+          renderers: new Map(),
+          isDisabled: false
+        };
       }
     </script>
-    <script>
-      // Safely register Service Worker for PWA (non-blocking)
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          try {
-            navigator.serviceWorker.register('/sw.js')
-              .then(reg => {
-                if (reg) {
-                  console.log('Service Worker registered');
-                }
-              })
-              .catch(err => {
-                // Silently fail - don't block app loading
-                console.warn('Service Worker registration failed:', err);
-              });
-          } catch (error) {
-            // Silently fail - don't block app loading
-            console.warn('Service Worker error:', error);
-          }
-        });
-      }
-    </script>
+    <script type="module" src="/src/main.tsx">    </script>
   </body>
 </html>
