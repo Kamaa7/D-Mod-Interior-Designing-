@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
-import { Quote, X } from "lucide-react";
+import { Quote } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
@@ -18,19 +18,11 @@ const WhatsappIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
 );
 
 export default function FloatingButtons() {
-  const [showHelper, setShowHelper] = useState(true);
   const [mounted, setMounted] = useState(false);
-  
-  console.log('FloatingButtons component rendered');
 
   useEffect(() => {
     setMounted(true);
   }, []);
-
-  const handleCloseHelper = () => {
-    console.log('Close button clicked!');
-    setShowHelper(false);
-  };
 
   const handleWhatsAppClick = () => {
     const phoneNumber = "919616996699";
@@ -102,69 +94,26 @@ export default function FloatingButtons() {
         <WhatsappIcon className="w-6 h-6" />
       </Button>
 
-      {/* Helper Bubble and Quote Button */}
-      <div className="flex flex-col items-end gap-2 sm:gap-3">
-        {showHelper && (
-          <div 
-            className="relative max-w-[180px] sm:max-w-[200px] rounded-full bg-white shadow-lg border border-slate-200 pl-3 sm:pl-4 pr-7 sm:pr-8 py-2 text-xs sm:text-sm font-medium text-slate-700 animate-fade-in leading-normal"
-            style={{ 
-              zIndex: 9999,
-              pointerEvents: 'auto',
-              lineHeight: '1.5'
-            }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <span className="inline whitespace-nowrap">We're online. How may I assist you?</span>
-            <button
-              onClick={handleCloseHelper}
-              onMouseDown={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                handleCloseHelper();
-              }}
-              className="absolute top-1/2 right-2 transform -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1 rounded-full p-1 z-10 touch-manipulation"
-              aria-label="Close helper"
-              type="button"
-              style={{
-                zIndex: 100000,
-                pointerEvents: 'auto',
-                cursor: 'pointer',
-                position: 'absolute',
-                background: 'transparent',
-                border: 'none',
-                outline: 'none',
-                minWidth: '24px',
-                minHeight: '24px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}
-            >
-              <X className="w-3 h-3" style={{ pointerEvents: 'none' }} />
-            </button>
-          </div>
-        )}
-
-        <Link to="/contact">
-          <Button
-            className="w-14 h-14 rounded-full bg-primary hover:bg-primary/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 touch-manipulation"
-            aria-label="Get a free quote"
-            title="Get Quote"
-            style={{ 
-              zIndex: 99999,
-              visibility: 'visible',
-              opacity: 1,
-              display: 'flex',
-              position: 'relative',
-              minWidth: '56px',
-              minHeight: '56px',
-              WebkitTapHighlightColor: 'transparent'
-            }}
-          >
-            <Quote className="w-6 h-6" />
-          </Button>
-        </Link>
-      </div>
+      {/* Get Quote Button */}
+      <Link to="/contact">
+        <Button
+          className="w-14 h-14 rounded-full bg-primary hover:bg-primary/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 touch-manipulation"
+          aria-label="Get a free quote"
+          title="Get Quote"
+          style={{ 
+            zIndex: 99999,
+            visibility: 'visible',
+            opacity: 1,
+            display: 'flex',
+            position: 'relative',
+            minWidth: '56px',
+            minHeight: '56px',
+            WebkitTapHighlightColor: 'transparent'
+          }}
+        >
+          <Quote className="w-6 h-6" />
+        </Button>
+      </Link>
     </div>
     </>
   );
